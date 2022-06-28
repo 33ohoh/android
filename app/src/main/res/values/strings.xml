@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Project</string>
+    <string name="crop">작목</string>
+    <string name="region">지역</string>
+    <string name="pest_prediction">병해충 예측</string>
+    <string name="pest_model">병해충 모델</string>
+    <string name="prediction_date">예측일자</string>
+    <string name="prediction_result">결과 조회</string>
 </resources>
