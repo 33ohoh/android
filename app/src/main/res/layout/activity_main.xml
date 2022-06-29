@@ -27,12 +27,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:layout_weight="1"
             android:weightSum="10">
 
+            <!-- 작목 선택 -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="5"
                 android:orientation="horizontal">
 
@@ -40,16 +40,18 @@
                     android:id="@+id/crop"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/crop" />
+                    android:text="@string/crop"
+                    android:padding="4dp"/>
 
                 <Spinner
                     android:id="@+id/spinner_crop"
                     android:layout_width="65dp"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_spinner"/>
             </LinearLayout>
-
+            <!-- 병해충 모델 선택 -->
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="5">
 
@@ -57,13 +59,14 @@
                     android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/pest_model" />
+                    android:text="@string/pest_model"
+                    android:padding="4dp"/>
 
                 <Spinner
                     android:id="@+id/spinner"
                     android:layout_width="80dp"
-                    android:layout_height="match_parent" />
-
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_spinner" />
             </LinearLayout>
 
         </TableRow>
@@ -74,10 +77,10 @@
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:weightSum="10">
-
+            <!-- 지역 선택 -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="5"
                 android:orientation="horizontal">
 
@@ -85,46 +88,69 @@
                     android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/region" />
+                    android:text="@string/region"
+                    android:padding="4dp" />
 
                 <Spinner
                     android:id="@+id/spinner2"
                     android:layout_width="65dp"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_spinner"/>
 
             </LinearLayout>
-
+            <!-- 예측일자 선택 -->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/prediction_date" />
-
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal">
-
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/prediction_date"
+                        android:padding="4dp" />
+                    <!-- 연도 -->
                     <Spinner
                         android:id="@+id/spinner3"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content" />
-
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_spinner"/>
+                    <TextView
+                        android:id="@+id/textView13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="년"
+                        android:padding="2dp" />
+                    <!-- 월 -->
                     <Spinner
                         android:id="@+id/spinner4"
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_spinner"/>
+                    <TextView
+                        android:id="@+id/textView14"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
+                        android:layout_height="wrap_content"
+                        android:text="월"
+                        android:padding="2dp" />
+                    <!-- 일 -->
                     <Spinner
                         android:id="@+id/spinner5"
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_spinner"/>
+                    <TextView
+                        android:id="@+id/textView15"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:text="일"
+                        android:padding="2dp" />
 
                 </LinearLayout>
 
@@ -138,11 +164,13 @@
             android:layout_marginRight="10dp"
             android:gravity="end">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_prediction_result_inquiry"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/prediction_result_inquiry" />
+                android:text="@string/prediction_result_inquiry"
+                android:textColor="#ffffff"
+                android:background="@drawable/bg_button"/>
 
         </TableRow>
 
