@@ -1,10 +1,12 @@
 package com.example.competition1;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Toast;
+import android.view.ViewGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import net.daum.mf.map.api.MapView;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -12,9 +14,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_currentsituation);
+
+        MapView mapView = new MapView(this);
+
+        ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.map_view);
+        mapViewContainer.addView(mapView);
     }
 
-    public void onButton1Clicked(View v){
-        Toast.makeText(this,"확인1 버튼이 눌렸어요",Toast.LENGTH_LONG).show();
-    }
+
 }
