@@ -5,43 +5,87 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ScrollView
-        android:layout_width="409dp"
-        android:layout_height="601dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="216dp"
+            android:orientation="horizontal">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="183dp"
+                android:layout_height="match_parent"
+                tools:srcCompat="@drawable/apple" />
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="68dp">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="16dp">
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/FarmGreen"
+                    android:textStyle="bold"
+                    android:text="병명" />
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName"
-                    android:layout_width="269dp"
-                    android:layout_height="48dp"
-                    android:background="@drawable/search_text_style"
-                    android:drawableEnd="@drawable/ic_search"
+                    android:id="@+id/editTextTextPersonName4"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
                     android:ems="10"
-                    android:hint="농작물 검색"
                     android:inputType="textPersonName"
-                    android:maxLength="10"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="15dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    android:text="Name" />
+
+                <TextView
+                    android:id="@+id/textView17"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/FarmGreen"
+                    android:textStyle="bold"
+                    android:text="특징" />
+
+                <MultiAutoCompleteTextView
+                    android:id="@+id/multiAutoCompleteTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="MultiAutoCompleteTextView" />
+
+            </LinearLayout>
+
         </LinearLayout>
-    </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/FarmGreen"
+                android:text="치료방법" />
+
+            <MultiAutoCompleteTextView
+                android:id="@+id/multiAutoCompleteTextView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="dsagbsdjkgjkasdgkjasndgkjnadsjkngjksadngjknasdkjgnasdkjngkjasdngkjnasdkjgnakjsdngkja" />
+
+        </LinearLayout>
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
