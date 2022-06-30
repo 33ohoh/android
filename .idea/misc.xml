@@ -3,44 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.196" />
-        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/button_background.xml" value="0.332" />
-        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/crop_button_background.xml" value="0.332" />
-        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/edittext_style.xml" value="0.332" />
-        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/empty_button_background.xml" value="0.195" />
-        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/ic_baseline_add_location_alt_24.xml" value="0.332" />
-        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/ic_crop.xml" value="0.332" />
-        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/ic_image.xml" value="0.1995" />
-        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.196" />
-        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/ic_location.xml" value="0.332" />
-        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/ic_pest.xml" value="0.332" />
-        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/ic_search.xml" value="0.332" />
-        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/location_btn_icon.xml" value="0.332" />
-        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/report_button_background.xml" value="0.332" />
-        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/report_button_hover.xml" value="0.195" />
-        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/search_text_style.xml" value="0.332" />
-        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/activity_crop_selection.xml" value="0.3333333333333333" />
-        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/activity_information.xml" value="0.21798365122615804" />
-        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/activity_main.xml" value="0.3333333333333333" />
-        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/activity_report.xml" value="0.3333333333333333" />
-        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/crop_information.xml" value="0.365625" />
-        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/pest_form.xml" value="0.3333333333333333" />
-      </map>
-    </option>
-  </component>
-  <component name="DesignSurface">
-    <option name="filePathToZoomLevelMap">
-      <map>
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.547" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/drawable/button_background.xml" value="0.155" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.547" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/drawable/inputbox.xml" value="0.542" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/drawable/report_button_hover.xml" value="0.155" />
+        <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_crop_selection.xml" value="0.3255208333333333" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_currentsituation.xml" value="0.3582427536231884" />
-        <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_login.xml" value="0.33" />
+        <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_information.xml" value="0.1766304347826087" />
+        <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_login.xml" value="0.18" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_main.xml" value="0.3605072463768116" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_password.xml" value="0.25384615384615383" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_register.xml" value="0.5" />
+        <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_report.xml" value="0.15729483282674772" />
+        <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/test.xml" value="0.241796875" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.547" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/xml/network_security_config.xml" value="0.31197916666666664" />
       </map>
