@@ -13,6 +13,12 @@ import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
+    private ListView reportHistoryView;
+    private ListItemsAdapter reportHistoryAdapter;
+    private ArrayList<ReportHistory> reportHistoryList;
+
+
+    private List<ReportHistory> pestDamageReportHistory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -20,34 +26,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pest_damage_report_history);
 
-        ListView listView = findViewById(R.id.listView);
+        setPestDamageReportHistory();
 
-        List<String> pestDamageReportHistory = new ArrayList<>();
-
-        pestDamageReportHistory.add("사과");
-        pestDamageReportHistory.add("바나나");
-        pestDamageReportHistory.add("키위");
-        pestDamageReportHistory.add("딸기");
-        pestDamageReportHistory.add("수박");
-        pestDamageReportHistory.add("귤");
-        pestDamageReportHistory.add("참외");
-        pestDamageReportHistory.add("딸기");
-        pestDamageReportHistory.add("수박");
-        pestDamageReportHistory.add("귤");
-        pestDamageReportHistory.add("참외");
-        pestDamageReportHistory.add("딸기");
-        pestDamageReportHistory.add("수박");
-        pestDamageReportHistory.add("귤");
-        pestDamageReportHistory.add("참외");
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                this, android.R.layout.simple_list_item_1, pestDamageReportHistory);
-
-        listView.setAdapter(adapter);
+        reportHistoryAdapter = new ListItemsAdapter(getApplicationContext(), reportHistoryList);  // 어뎁터 객체 생성
+        reportHistoryView.setAdapter(reportHistoryAdapter);   // 리스트뷰에 어뎁터 적용
 
         //MapView mapView = new MapView(this);
 
         //ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.map_view);
         //mapViewContainer.addView(mapView);
+    }
+
+    private void setPestDamageReportHistory(){
+        reportHistoryView = (ListView) findViewById(R.id.list_items);
+        reportHistoryList = new ArrayList<>();
+
+        reportHistoryList.add(new ReportHistory("애호박", "2022-07-01", "답변 대기중"));
+        reportHistoryList.add(new ReportHistory("상추시들음병", "2022-06-30", "답변 대기중"));
+        reportHistoryList.add(new ReportHistory("늙은호박 병", "2022-06-30", "답변 대기중"));
+        reportHistoryList.add(new ReportHistory("옥수수 병리 문의", "2022-06-30", "답변 대기중"));
+        reportHistoryList.add(new ReportHistory("느티나무 잎벌레 문의입니다", "2022-06-29", "답변 대기중"));
+        reportHistoryList.add(new ReportHistory("오미자", "2022-06-29", "답변 대기중"));
+        reportHistoryList.add(new ReportHistory("사과잎 진단", "2022-06-28", "답변 대기중"));
     }
 }
