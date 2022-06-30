@@ -1,5 +1,7 @@
 package com.example.competition1;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +20,4 @@ public class MainActivity extends AppCompatActivity {
         //ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.map_view);
         //mapViewContainer.addView(mapView);
     }
-
-
 }
