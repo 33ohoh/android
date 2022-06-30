@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Competition1</string>
+    <string name="crop">작목</string>
+    <string name="region">지역</string>
+    <string name="pest_prediction">병해충 예측</string>
+    <string name="pest_model">병해충 모델</string>
+    <string name="prediction_date">예측일자</string>
+    <string name="prediction_result_inquiry">결과 조회</string>
+    <string name="prediction_result">예측 정보</string>
+    <string name="weather">날씨</string>
+    <string name="pest_to_watch_out">주의해야할 병해충</string>
+    <string name="pest_control_method">방제 방법</string>
 </resources>
