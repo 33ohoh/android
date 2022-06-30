@@ -1,24 +1,22 @@
 package com.example.competition1;
 
 import android.os.Bundle;
-import android.view.ViewGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import net.daum.mf.map.api.MapView;
 
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_currentsituation);
+        setContentView(R.layout.activity_register);
 
-        MapView mapView = new MapView(this);
+        //MapView mapView = new MapView(this);
 
-        ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.map_view);
-        mapViewContainer.addView(mapView);
+        //ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.map_view);
+        //mapViewContainer.addView(mapView);
     }
 
 
