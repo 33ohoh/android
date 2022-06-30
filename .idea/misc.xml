@@ -16,10 +16,13 @@
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/ic_pest.xml" value="0.332" />
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/ic_search.xml" value="0.332" />
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/location_btn_icon.xml" value="0.332" />
+        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/report_button_background.xml" value="0.332" />
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/report_button_hover.xml" value="0.195" />
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/search_text_style.xml" value="0.332" />
+        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/activity_crop_selection.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/activity_information.xml" value="0.21798365122615804" />
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/activity_main.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/activity_report.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/crop_information.xml" value="0.365625" />
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/pest_form.xml" value="0.3333333333333333" />
       </map>
