@@ -9,11 +9,11 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class ListItemsAdapter extends BaseAdapter {
+public class ReportHistoryAdapter extends BaseAdapter {
     private Context mContext;
-    private ArrayList<ReportHistory> reportHistoryList;
+    private ArrayList<ReportHistory> reportHistoryList;  //신고내역 리스트 데이터
 
-    public ListItemsAdapter(Context mContext, ArrayList<ReportHistory> reportHistoryList) {
+    public ReportHistoryAdapter(Context mContext, ArrayList<ReportHistory> reportHistoryList) {
         this.mContext = mContext;
         this.reportHistoryList = reportHistoryList;
     }
@@ -36,15 +36,16 @@ public class ListItemsAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if(convertView == null){
+            //신고내역 한칸에 해당하는 레이아웃(activity_report_history_list.xml)을 view객체로 만들기 위한 작업으로 LayoutInflatert사용
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.activity_item_list, parent, false);
+            convertView = inflater.inflate(R.layout.activity_report_history_list, parent, false);
         }
 
-        TextView title = (TextView) convertView.findViewById(R.id.title);
-        TextView date = (TextView) convertView.findViewById(R.id.date);
-        TextView status = (TextView) convertView.findViewById(R.id.status);
+        TextView title = (TextView) convertView.findViewById(R.id.title);       //피해신고 제목
+        TextView date = (TextView) convertView.findViewById(R.id.date);         //신고 날짜
+        TextView status = (TextView) convertView.findViewById(R.id.status);     //답변 상태
 
-        title.setText(reportHistoryList.get(position).getTitle());
+        title.setText(reportHistoryList.get(position).getTitle());              //화면에 데이터 표시
         date.setText(reportHistoryList.get(position).getDate());
         status.setText(reportHistoryList.get(position).getStatus());
 
