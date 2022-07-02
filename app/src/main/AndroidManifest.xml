@@ -32,8 +32,11 @@
 
         <!-- 네이티브 앱 키 추가-->
         <meta-data android:name="com.kakao.sdk.AppKey" android:value="f9d48590f679a37f2c4580e36d6f0a19"/>
+
         <activity android:name=".ReportActivity"/>
         <activity android:name=".LoginActivity"/>
+        <activity android:name=".RegisterActivity"/>
+
     </application>
 
 </manifest>

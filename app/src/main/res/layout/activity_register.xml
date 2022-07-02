@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="20dp"
-    android:paddingRight="20dp"
 
     android:orientation="vertical">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/register_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.1"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -16,11 +20,25 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+    <TextView
+        android:id="@+id/textView19"
+        android:fontFamily="@font/gmarket_sans_ttf_bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="24dp"
+        android:layout_weight="0.4"
+        android:textSize="40sp"
+        android:textStyle="normal"
+        android:textColor="#000000"
+        android:text="회원가입" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginBottom="10dp">
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="5dp">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/register_id"
@@ -42,13 +60,15 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/check_id"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:background="@drawable/button_background"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="2dp"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="5dp"
             android:layout_weight="1"
             android:text="중복확인"
             />
@@ -60,15 +80,18 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         android:hint="비밀번호"
         android:padding="2dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
         app:boxBackgroundColor="@color/white"
         app:endIconMode="password_toggle">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:inputType="textPassword"
             android:singleLine="true" />
 
@@ -79,8 +102,10 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         android:hint="비밀번호 확인"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
         android:padding="2dp"
         app:boxBackgroundColor="@color/white"
         app:endIconMode="password_toggle">
@@ -98,8 +123,10 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         android:hint="이름"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
         android:padding="2dp"
         app:boxBackgroundColor="@color/white"
         app:endIconMode="clear_text">
@@ -116,9 +143,11 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         android:hint="주소"
         android:padding="2dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
         app:boxBackgroundColor="@color/white"
         app:endIconMode="clear_text">
 
@@ -140,6 +169,9 @@
         android:background="@drawable/button_background"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="25dp"
+
         android:text="회원가입" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
