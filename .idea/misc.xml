@@ -13,17 +13,15 @@
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_information.xml" value="0.1766304347826087" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_login.xml" value="0.18" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_main.xml" value="0.3605072463768116" />
+        <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_my_page.xml" value="0.25" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_password.xml" value="0.25384615384615383" />
-        <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_register.xml" value="0.5" />
+        <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_password_reset.xml" value="0.13958333333333334" />
+        <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_pest_prediction.xml" value="0.13958333333333334" />
+        <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_register.xml" value="0.22" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_report.xml" value="0.15729483282674772" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/test.xml" value="0.241796875" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.547" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/xml/network_security_config.xml" value="0.31197916666666664" />
-        <entry key="..\:/Users/sec/AndroidStudioProjects/Project3/app/src/main/res/drawable/bg_button.xml" value="0.234" />
-        <entry key="..\:/Users/sec/AndroidStudioProjects/Project3/app/src/main/res/layout/activity_currentsituation.xml" value="0.22327898550724637" />
-        <entry key="..\:/Users/sec/AndroidStudioProjects/Project3/app/src/main/res/layout/activity_my_page.xml" value="0.22327898550724637" />
-        <entry key="..\:/Users/sec/AndroidStudioProjects/Project3/app/src/main/res/layout/activity_password_reset.xml" value="0.22327898550724637" />
-        <entry key="..\:/Users/sec/AndroidStudioProjects/Project3/app/src/main/res/layout/activity_pest_prediction.xml" value="0.22327898550724637" />
       </map>
     </option>
   </component>
