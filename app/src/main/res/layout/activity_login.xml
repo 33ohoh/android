@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_row="0"
         android:layout_column="0"
-        android:layout_rowWeight="3">
+        android:layout_rowWeight="5">
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -93,7 +93,7 @@
         android:layout_height="wrap_content"
         android:layout_row="4"
         android:layout_column="0"
-        android:layout_rowWeight="1"
+        android:layout_rowWeight="3"
         android:orientation="horizontal">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -134,13 +134,15 @@
         android:layout_height="wrap_content"
         android:layout_row="5"
         android:layout_column="0"
-        android:layout_rowWeight="1"
+        android:layout_rowWeight="0.3"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginRight="4.5dp"
+            android:layout_marginLeft="4.5dp"
             android:layout_marginBottom="6dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -151,11 +153,12 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/login_button"
-                android:layout_height="50dp"
                 android:layout_width="0dp"
-                android:background="@drawable/button_background"
-                android:text="로그인"
+                android:layout_height="50dp"
                 android:layout_weight="8"
+                android:background="@drawable/button_background"
+                android:onClick="loginClick"
+                android:text="로그인"
                 app:rippleColor="#66ffa5" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -170,7 +173,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginRight="4.5dp"
+            android:layout_marginLeft="4.5dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
@@ -182,9 +187,10 @@
                 android:id="@+id/register_button"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
-                android:background="@drawable/button_background"
-                android:text="회원가입"
                 android:layout_weight="8"
+                android:background="@drawable/button_background"
+                android:onClick="registerClick"
+                android:text="회원가입"
                 app:rippleColor="#66ffa5" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -209,34 +215,25 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.1">
+            android:layout_height="match_parent"
+            android:layout_weight="1">
         </androidx.constraintlayout.widget.ConstraintLayout>
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button3"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="4"
-            android:background="@drawable/button_background"
-            android:text="아이디찾기" />
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5">
-        </androidx.constraintlayout.widget.ConstraintLayout>
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button4"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="4"
-            android:background="@drawable/button_background"
 
-            android:text="비밀번호찾기" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/finding_button"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="8"
+            android:background="#00ff0000"
+            android:onClick="findingClick"
+            android:text="아이디/비밀번호 찾기"
+            android:textColor="@drawable/fiding_button" />
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.1">
+            android:layout_height="match_parent"
+            android:layout_weight="1">
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>

@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         }, 1000);
+
+
         //MapView mapView = new MapView(this);
 
         //ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.map_view);
@@ -32,4 +34,5 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
 }
