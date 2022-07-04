@@ -8,8 +8,10 @@
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.547" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/drawable/backbutton.xml" value="0.249" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/drawable/background_gradient.xml" value="0.366" />
+        <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/drawable/bg_button.xml" value="0.3305" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/drawable/button_background.xml" value="0.155" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/drawable/crop_button_background.xml" value="0.356" />
+        <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/drawable/fiding_button.xml" value="0.3305" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.547" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/drawable/inputbox.xml" value="0.542" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/drawable/report_button_background.xml" value="0.26" />
@@ -18,8 +20,9 @@
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/font/mainpage.xml" value="0.3953125" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_crop_selection.xml" value="0.3255208333333333" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_currentsituation.xml" value="0.3582427536231884" />
+        <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_finding_id.xml" value="0.22249388753056235" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_information.xml" value="0.1766304347826087" />
-        <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_login.xml" value="0.18" />
+        <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_main.xml" value="0.3605072463768116" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_my_page.xml" value="0.25" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_password.xml" value="0.25384615384615383" />

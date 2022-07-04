@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class LoginActivity extends Activity {
+public class LoginActivity extends Activity  {
 
     Button registration;
 
@@ -25,4 +25,7 @@ public class LoginActivity extends Activity {
             }
         });
     }
+
+
+    // registrationOnClick()
 }
