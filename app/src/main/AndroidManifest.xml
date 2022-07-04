@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.competition1">
-    <!-- 인터넷, 위치 권한 -->
+
+
+    <!--   인터넷, 위치 권한-->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET">
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION">
+    </uses-permission>
+    <!-- 사진 권한-->
+    <uses-permission android:name="android.permission.CAMERA" /><!--카메라 권한-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /><!--파일 읽기 권한-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /><!--파일 쓰기 권한-->
+    <uses-feature android:name="android.hardware.camera" android:required="true"/><!--카메라 기능 사용-->
 
     <application
         android:allowBackup="true"
@@ -14,10 +23,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Competition1"
-        android:usesCleartextTraffic="true">
-        <activity
-            android:name=".ReportHistoryActivity"
-            android:exported="false" />
+        android:usesCleartextTraffic="true"
+        android:networkSecurityConfig="@xml/network_security_config">
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -26,12 +34,21 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- 네이티브 앱 키 추가 -->
-        <meta-data
-            android:name="com.kakao.sdk.AppKey"
-            android:value="f9d48590f679a37f2c4580e36d6f0a19" />
+        </activity>
 
-        <activity android:name=".ReportActivity" />
+        <!-- 네이티브 앱 키 추가-->
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="f9d48590f679a37f2c4580e36d6f0a19"/>
+        <activity android:name=".reportActivity.CropSelectActivity"/>
+        <activity android:name=".reportActivity.LocationSelectActivity"/>
+        <activity android:name=".reportActivity.SymptomSelectActivity"/>
+        <activity android:name=".reportActivity.PestSelectActivity"/>
+    `
+        <activity android:name=".reportActivity.ReportActivity"/>`
+        <activity android:name=".LoginActivity"/>
+        <activity android:name=".RegisterActivity"/>
+        <activity android:name=".FindingActivity"/>
+        <activity android:name=".FindingIdActivity"/>
+        <activity android:name=".FindingPwActivity"/>
     </application>
 
 </manifest>

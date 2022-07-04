@@ -25,54 +25,67 @@
                 android:minHeight="48dp"
                 android:singleLine="true" />
 
-            <Button
-                android:id="@+id/button6"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/Current_Searching_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/button_background"
                 android:layout_marginStart="5dp"
                 android:layout_weight="1"
                 android:text="검색" />
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_height="wrap_content"
+
             android:orientation="horizontal">
 
-
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
+                android:background="@drawable/button_background"
                 android:layout_weight="1"
                 android:text="지도로보기" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
+                android:background="@drawable/button_background"
                 android:layout_weight="1"
                 android:text="게시물로보기" />
+
+
+
         </LinearLayout>
 
+    </LinearLayout>
+
+    <RelativeLayout
+
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
         <RelativeLayout
-
-            android:orientation="vertical"
+            android:id="@+id/map_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context=".MainActivity">
+            android:layout_height="wrap_content" />
 
-            <RelativeLayout
-                android:id="@+id/map_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+    </RelativeLayout>
 
-        </RelativeLayout
-           >
+
+
+
+
+
+
 
 
 
