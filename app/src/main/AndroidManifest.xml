@@ -41,6 +41,13 @@
         <activity android:name=".reportActivity.LocationSelectActivity"/>
         <activity android:name=".reportActivity.SymptomSelectActivity"/>
         <activity android:name=".reportActivity.PestSelectActivity"/>
+    `
+        <activity android:name=".reportActivity.ReportActivity"/>`
+        <activity android:name=".LoginActivity"/>
+        <activity android:name=".RegisterActivity"/>
+        <activity android:name=".FindingActivity"/>
+        <activity android:name=".FindingIdActivity"/>
+        <activity android:name=".FindingPwActivity"/>
     </application>
 
 </manifest>
