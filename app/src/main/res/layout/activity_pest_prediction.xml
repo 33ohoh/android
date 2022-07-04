@@ -20,162 +20,73 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TableLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <TableRow
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:weightSum="10">
+            android:layout_weight="5"
+            android:orientation="vertical">
 
-            <!-- 작목 선택 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="5"
                 android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/crop"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/crop"
-                    android:padding="4dp"/>
-
-                <Spinner
-                    android:id="@+id/spinner_crop"
-                    android:layout_width="65dp"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/bg_spinner"/>
-            </LinearLayout>
-            <!-- 병해충 모델 선택 -->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="5">
 
                 <TextView
                     android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/pest_model"
-                    android:padding="4dp"/>
-
-                <Spinner
-                    android:id="@+id/spinner"
-                    android:layout_width="80dp"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/bg_spinner" />
+                    android:layout_marginVertical="20dp"
+                    android:layout_weight="1"
+                    android:text="최근 1년 이내의 병해충 예측 정보가 조회됩니다."
+                    android:layout_marginHorizontal="10dp"/>
             </LinearLayout>
 
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:weightSum="10">
-            <!-- 지역 선택 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginHorizontal="10dp">
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/region"
-                    android:padding="4dp" />
+                    android:padding="4dp"
+                    android:text="@string/prediction_date" />
+                <!-- 연도 -->
 
+                <!-- 월 -->
                 <Spinner
-                    android:id="@+id/spinner2"
-                    android:layout_width="65dp"
+                    android:id="@+id/spinner4"
+                    android:layout_width="30dp"
                     android:layout_height="match_parent"
-                    android:background="@drawable/bg_spinner"/>
+                    android:background="@drawable/bg_spinner" />
 
-            </LinearLayout>
-            <!-- 예측일자 선택 -->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:id="@+id/textView2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/prediction_date"
-                        android:padding="4dp" />
-                    <!-- 연도 -->
-                    <Spinner
-                        android:id="@+id/spinner3"
-                        android:layout_width="60dp"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/bg_spinner"/>
-                    <TextView
-                        android:id="@+id/textView13"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="년"
-                        android:padding="2dp" />
-                    <!-- 월 -->
-                    <Spinner
-                        android:id="@+id/spinner4"
-                        android:layout_width="30dp"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/bg_spinner"/>
-                    <TextView
-                        android:id="@+id/textView14"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="월"
-                        android:padding="2dp" />
-                    <!-- 일 -->
-                    <Spinner
-                        android:id="@+id/spinner5"
-                        android:layout_width="30dp"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/bg_spinner"/>
-                    <TextView
-                        android:id="@+id/textView15"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="일"
-                        android:padding="2dp" />
+                    android:padding="2dp"
+                    android:text="월" />
 
-                </LinearLayout>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_prediction_result_inquiry"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_button"
+                    android:text="@string/prediction_result_inquiry"
+                    android:textColor="#ffffff" />
+                <!-- 일 -->
 
             </LinearLayout>
 
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginRight="10dp"
-            android:gravity="end">
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_prediction_result_inquiry"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/prediction_result_inquiry"
-                android:textColor="#ffffff"
-                android:background="@drawable/bg_button"/>
-
-        </TableRow>
-
-    </TableLayout>
+        </LinearLayout>
+    </LinearLayout>
 
     <!-- 예측 결과 -->
 
@@ -190,6 +101,63 @@
             android:layout_margin="10dp"
             android:orientation="vertical"
             android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView19"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="이번달에 주의해야할 병해충" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#f0f0f0" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/weather" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginVertical="10dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@mipmap/ic_launcher" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10dp"
+                            android:text="날씨정보" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="#f0f0f0" />
+
+                </LinearLayout>
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/textView4"
