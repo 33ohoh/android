@@ -14,25 +14,9 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sample);
+        setContentView(R.layout.activity_main);
 
-        WebView webView;
-        WebSettings webSettings;
-
-        webView = findViewById(R.id.webview);
-
-        webView.setWebViewClient(new WebViewClient()); //클릭시 새창 뜨지않게
-        webSettings=webView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
-
-        webView.loadUrl("file:///android_asset/index.html");
-
-        //MapView mapView = new MapView(this);
-
-        //ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.map_view);
-        //mapViewContainer.addView(mapView);
     }
 }
