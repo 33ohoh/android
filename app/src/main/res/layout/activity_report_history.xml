@@ -29,13 +29,14 @@
                 android:id="@+id/et_search_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textNoSuggestions|textVisiblePassword"
-                android:hint="제목을 입력해 주세요"
                 android:layout_margin="10dp"
-                android:padding="10dp"
                 android:background="@drawable/edittext_rounded_corner_rectangle"
-                android:textCursorDrawable="@color/black"/>
+                android:ems="10"
+                android:hint="제목을 입력해 주세요"
+                android:inputType="textNoSuggestions|textVisiblePassword"
+                android:minHeight="48dp"
+                android:padding="10dp"
+                android:textCursorDrawable="@color/black" />
 
         </LinearLayout>
 
