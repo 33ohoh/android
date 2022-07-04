@@ -1,6 +1,4 @@
-package com.example.competition1;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.competition1.reportActivity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,16 +7,13 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.bumptech.glide.Glide;
-import com.example.competition1.reportActivity.CropSelectActivity;
-import com.example.competition1.reportActivity.LocationSelectActivity;
-import com.example.competition1.reportActivity.PestSelectActivity;
-import com.example.competition1.reportActivity.SymptomSelectActivity;
+import com.example.competition1.R;
 
-
-public class MainActivity extends AppCompatActivity {
+public class ReportActivity extends AppCompatActivity {
     ImageView selectedImage;
     String detailAddress="";
     String loadAddress="현재위치";
@@ -42,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         locationBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this, LocationSelectActivity.class);
+                Intent intent=new Intent(getApplicationContext(), LocationSelectActivity.class);
                 //intent.putExtra("key","12345".toString());
                 intent.putExtra("detailAddress",detailAddress);
                 intent.putExtra("loadAddress",loadAddress);

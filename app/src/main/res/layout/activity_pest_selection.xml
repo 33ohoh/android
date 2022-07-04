@@ -32,7 +32,7 @@
                     android:background="@drawable/search_text_style"
                     android:drawableEnd="@drawable/ic_search"
                     android:ems="10"
-                    android:hint="농작물 검색"
+                    android:hint="해충 검색"
                     android:inputType="textPersonName"
                     android:maxLength="10"
                     android:paddingLeft="10dp"
@@ -46,7 +46,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.gridlayout.widget.GridLayout
-                android:id="@+id/cropGrid"
+                android:id="@+id/pestGrid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:columnCount="3"
@@ -66,7 +66,7 @@
                         android:layout_height="100dp"
                         android:background="@drawable/crop_button_background"
                         android:drawableTop="@drawable/pepper"
-                        android:text="준비중" />
+                        android:text="" />
 
                     <TextView
                         android:id="@+id/textView11"
@@ -92,7 +92,7 @@
                         android:layout_height="100dp"
                         android:background="@drawable/crop_button_background"
                         android:drawableTop="@drawable/tomato"
-                        android:text="준비중" />
+                        android:text="" />
 
                     <TextView
                         android:id="@+id/textView12"
@@ -118,7 +118,7 @@
                         android:layout_height="100dp"
                         android:background="@drawable/crop_button_background"
                         android:drawableBottom="@drawable/apple"
-                        android:text="준비중" />
+                        android:text="" />
 
                     <TextView
                         android:id="@+id/textView13"

@@ -48,7 +48,8 @@
                     android:id="@+id/spinner_crop"
                     android:layout_width="65dp"
                     android:layout_height="match_parent"
-                    android:background="@drawable/bg_spinner"/>
+                    android:background="@drawable/bg_spinner"
+                    tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
             </LinearLayout>
             <!-- 병해충 모델 선택 -->
             <LinearLayout
@@ -67,7 +68,8 @@
                     android:id="@+id/spinner"
                     android:layout_width="80dp"
                     android:layout_height="match_parent"
-                    android:background="@drawable/bg_spinner" />
+                    android:background="@drawable/bg_spinner"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
             </LinearLayout>
 
         </TableRow>
@@ -96,7 +98,8 @@
                     android:id="@+id/spinner2"
                     android:layout_width="65dp"
                     android:layout_height="match_parent"
-                    android:background="@drawable/bg_spinner"/>
+                    android:background="@drawable/bg_spinner"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
             </LinearLayout>
             <!-- 예측일자 선택 -->
@@ -121,7 +124,8 @@
                         android:id="@+id/spinner3"
                         android:layout_width="60dp"
                         android:layout_height="match_parent"
-                        android:background="@drawable/bg_spinner"/>
+                        android:background="@drawable/bg_spinner"
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
                     <TextView
                         android:id="@+id/textView13"
                         android:layout_width="wrap_content"
@@ -133,7 +137,8 @@
                         android:id="@+id/spinner4"
                         android:layout_width="30dp"
                         android:layout_height="match_parent"
-                        android:background="@drawable/bg_spinner"/>
+                        android:background="@drawable/bg_spinner"
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
                     <TextView
                         android:id="@+id/textView14"
                         android:layout_width="wrap_content"
@@ -145,7 +150,8 @@
                         android:id="@+id/spinner5"
                         android:layout_width="30dp"
                         android:layout_height="match_parent"
-                        android:background="@drawable/bg_spinner"/>
+                        android:background="@drawable/bg_spinner"
+                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
                     <TextView
                         android:id="@+id/textView15"
                         android:layout_width="wrap_content"
