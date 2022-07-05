@@ -5,11 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
-import com.example.competition1.reportActivity.ReportActivity;
+import android.widget.Toast;
 
 public class LoginActivity extends Activity  implements View.OnClickListener {
 
+
+    private long backKeyPressedTime = 0;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,6 +47,22 @@ public class LoginActivity extends Activity  implements View.OnClickListener {
                 startActivity(findingIntent);
                 break;
 
+        }
+    }
+
+    @Override
+    public void onBackPressed(){
+
+        if(System.currentTimeMillis() > backKeyPressedTime + 1500 ){
+            backKeyPressedTime = System.currentTimeMillis();
+            Toast.makeText(this,"한번더 버튼을 누르시면 종료됩니다.",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if(System.currentTimeMillis() <= backKeyPressedTime + 1500){
+            moveTaskToBack(true);
+            finishAndRemoveTask();
+            System.exit(0);
         }
     }
 
