@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.competition1.reportActivity.CropSelectActivity;
+import com.example.competition1.reportActivity.LocationSelectActivity;
 import com.example.competition1.reportActivity.ReportActivity;
 
 public class LoginActivity extends Activity  implements View.OnClickListener {
@@ -37,7 +39,7 @@ public class LoginActivity extends Activity  implements View.OnClickListener {
                 break;
 
             case R.id.login_button:
-                Intent loginIntent = new Intent(getApplicationContext(), RegisterActivity.class);
+                Intent loginIntent = new Intent(getApplicationContext(), PestPredictionActivity.class);
                 startActivity(loginIntent);
                 break;
 
