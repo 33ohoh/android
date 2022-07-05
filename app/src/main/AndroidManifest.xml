@@ -49,7 +49,7 @@
         <activity android:name=".FindingPwActivity"/>
         <activity android:name=".MyPageActivity"/>
         <activity android:name=".ReportHistoryActivity"/>
-        <activity android:name=".PestPredictionActivity"/>`
+        <activity android:name=".pestprediction.PestPredictionActivity"/>`
     </application>
 
 </manifest>

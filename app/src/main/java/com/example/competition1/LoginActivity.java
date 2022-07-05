@@ -6,9 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.competition1.reportActivity.CropSelectActivity;
-import com.example.competition1.reportActivity.LocationSelectActivity;
-import com.example.competition1.reportActivity.ReportActivity;
+import com.example.competition1.pestprediction.PestPredictionActivity;
 
 public class LoginActivity extends Activity  implements View.OnClickListener {
 
