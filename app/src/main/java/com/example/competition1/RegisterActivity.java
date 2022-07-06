@@ -18,7 +18,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -52,8 +51,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         getSupportActionBar().setTitle(""); // 툴바 제목 설정
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.backbutton);  //이미지 설정
 
-        TextInputLayout phone = findViewById(R.id.register_phone_layout);
-        editPhone.addTextChangedListener(new TextWatcherActivity(  phone  ,editPhone,"-을 넣어 입력해주세요."));
+        //TextInputLayout phone = findViewById(R.id.register_phone_layout);
+        //editPhone.addTextChangedListener(new TextWatcherActivity(  phone  ,editPhone,"-을 넣어 입력해주세요."));
 
         register.setOnClickListener(this);
         doubleIdCheck.setOnClickListener(this);
