@@ -2,18 +2,30 @@ package com.example.competition1.pestprediction;
 
 public class PestsOnCropDTO {
     String cropName;
-    String pests;
+    String highLevel;
+    String mediumLevel;
+    String lowLevel;
 
-    public PestsOnCropDTO(String cropName, String pests){
+    public PestsOnCropDTO(String cropName, String highLevel, String mediumLevel, String lowLevel){
         this.cropName = cropName;
-        this.pests = pests;
+        this.highLevel = highLevel;
+        this.mediumLevel = mediumLevel;
+        this.lowLevel = lowLevel;
     }
 
     public String getCropName(){
         return cropName;
     }
 
-    public String getPests(){
-        return pests;
+    public String getHighLevel(){
+        return highLevel;
+    }
+
+    public String getMediumLevel(){
+        return mediumLevel;
+    }
+
+    public String getLowLevel(){
+        return lowLevel;
     }
 }

@@ -2,19 +2,15 @@ package com.example.competition1.pestprediction;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.competition1.R;
-import com.example.competition1.ReportHistory;
-import com.example.competition1.ReportHistoryAdapter;
 
 import java.util.ArrayList;
 
@@ -46,7 +42,7 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         ViewHolder viewHolder = (ViewHolder)holder;
 
-        viewHolder.onBind(pestsOnCropList.get(position), position, selectedItems, mContext);                                      //신고내역 뷰에 어뎁터 연결
+        viewHolder.onBind(pestsOnCropList.get(position), position, selectedItems, mContext);    //예측결과뷰에 작물명, 해당 병충해 정보 저장
 
         viewHolder.setOnViewHolderItemClickListener(new OnViewHolderItemClickListener() {
             @Override
