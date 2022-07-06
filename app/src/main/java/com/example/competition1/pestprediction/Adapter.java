@@ -1,15 +1,20 @@
 package com.example.competition1.pestprediction;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.competition1.R;
+import com.example.competition1.ReportHistory;
+import com.example.competition1.ReportHistoryAdapter;
 
 import java.util.ArrayList;
 
@@ -18,17 +23,21 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private SparseBooleanArray selectedItems;                //작물 ListView에서 선택한 작물의 위치정보를 기억
     private int previousPosition;                            //직전에 선택한 작물의 위치정보
 
-    public Adapter(){
+    private Context mContext;
+
+    public Adapter(Context mContext){
         pestsOnCropList = new ArrayList<>();
         selectedItems = new SparseBooleanArray();
         previousPosition = -1;
+
+        this.mContext = mContext;
     }
 
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(
-                R.layout.pest_information_item, parent, false);    //작물에 대한 병해충 정보 리스트 한칸
+                R.layout.pest_information_list, parent, false);    //작물에 대한 병해충 정보 리스트 한칸
         return new ViewHolder(view);
     }
 
@@ -36,7 +45,8 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
         ViewHolder viewHolder = (ViewHolder)holder;
-        viewHolder.onBind(pestsOnCropList.get(position),position, selectedItems);
+
+        viewHolder.onBind(pestsOnCropList.get(position), position, selectedItems, mContext);                                      //신고내역 뷰에 어뎁터 연결
 
         viewHolder.setOnViewHolderItemClickListener(new OnViewHolderItemClickListener() {
             @Override
