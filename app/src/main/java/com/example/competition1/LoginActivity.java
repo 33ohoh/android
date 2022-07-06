@@ -19,8 +19,6 @@ import com.google.android.material.textfield.TextInputEditText;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Calendar;
-
 
 public class LoginActivity extends Activity implements View.OnClickListener {
 
@@ -28,7 +26,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     private long backKeyPressedTime = 0;
     private TextInputEditText editId;
     private TextInputEditText editPassword;
-    private Calendar VolleyNetwork;
+    private String url = "http://ec2-43-200-8-163.ap-northeast-2.compute.amazonaws.com:3000";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,8 +38,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         Button login = findViewById(R.id.login_button);
         Button finding = findViewById(R.id.finding_button);
         editId = findViewById(R.id.edit_login_id);
-        editPassword= findViewById(R.id.edit_login_pwd);
-
+        editPassword = findViewById(R.id.edit_login_pwd);
 
         // 로그인, 회원가입, 아이디/비밀번호 찾기 리스너 달기
         register.setOnClickListener(this);
@@ -52,6 +49,9 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View view) {
 
+        String id;
+        String password;
+
         switch (view.getId()) {
             case R.id.register_button:
                 Intent registerIntent = new Intent(getApplicationContext(), RegisterActivity.class);
@@ -59,17 +59,22 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                 break;
 
             case R.id.login_button:
-                requestLogin( editId.getText().toString(),  editPassword.getText().toString());
+                id = editId.getText().toString();
+                password =editPassword.getText().toString();
+                requestLogin(id,password );
                 break;
 
             case R.id.finding_button:
                 Intent findingIntent = new Intent(getApplicationContext(), FindingActivity.class);
                 startActivity(findingIntent);
                 break;
+            default:
+                break;
 
         }
     }
 
+    // 뒤로가기 2번 누르면 종료
     @Override
     public void onBackPressed() {
 
@@ -86,61 +91,62 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         }
     }
 
-
+    // 로그인하기
     private void requestLogin(String id, String password) {
-
-        String url = "http://ec2-43-200-8-163.ap-northeast-2.compute.amazonaws.com:3000";
 
         JSONObject requestJsonObject = new JSONObject();
 
-        try {
-            requestJsonObject.put("id", id);
-            requestJsonObject.put("password",password);
+        //인터넷 연결확인
+        int status = NetworkStatusActivity.getConnectivityStatus(getApplicationContext());
+        if (status == NetworkStatusActivity.TYPE_MOBILE || status == NetworkStatusActivity.TYPE_WIFI) {
+            try {
 
+                requestJsonObject.put("id", id);
+                requestJsonObject.put("password", password);
 
-            final RequestQueue requestQueue = Volley.newRequestQueue(LoginActivity.this);
-            final JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url+"/users/login",requestJsonObject, new Response.Listener<JSONObject>() {
+                RequestQueue requestQueue = Volley.newRequestQueue(LoginActivity.this);
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url + "/users/login", requestJsonObject, new Response.Listener<JSONObject>() {
 
-                @Override
-                public void onResponse(JSONObject response) {
-                    try {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response.toString());
 
+                            //Log.v("test","test :" + response.getBoolean("status"));
 
-                        JSONObject jsonObject = new JSONObject(response.toString());
+                            if (response.getBoolean("status")) {   //로그인 성공
+                                // 여기다가 로그인 후 넘어가는 페이지 넣기
 
-                        //Log.v("test","test :" + response.getBoolean("status"));
+                            } else {   //로그인 실패
+                                Toast.makeText(getApplicationContext(), response.getString("message"), Toast.LENGTH_SHORT).show();
+                                editId.setText("");
+                                editPassword.setText("");
+                            }
 
-                        if(response.getBoolean("status")){   //로그인 성공
-                            // 여기다가 로그인 후 넘어가는 페이지 넣기
-
-                        }else{   //로그인 실패
-                            Toast.makeText( getApplicationContext(), response.getString("message"), Toast.LENGTH_SHORT ).show();
-                            editId.setText("");
-                            editPassword.setText("");
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
-
-//
-
-                    } catch (Exception e) {
-                        e.printStackTrace();
                     }
-                }
-                //서버로 데이터 전달 및 응답 받기에 실패한 경우 아래 코드가 실행됩니다.
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    error.printStackTrace();
-                }
-            });
-            jsonObjectRequest.setRetryPolicy(new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-            requestQueue.add(jsonObjectRequest);
+                    //서버로 데이터 전달 및 응답 받기에 실패한 경우 아래 코드가 실행됩니다.
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
+                    }
+                });
+                jsonObjectRequest.setRetryPolicy(new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+                requestQueue.add(jsonObjectRequest);
 
-        } catch (JSONException e) {
-            e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        } else {
+            Toast.makeText(getApplicationContext(), "인터넷 연결을 확인해주세요.", Toast.LENGTH_SHORT).show();
         }
-
-
     }
+
+
 
 }
 
