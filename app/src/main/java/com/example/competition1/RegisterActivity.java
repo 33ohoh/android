@@ -18,6 +18,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -51,6 +52,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         getSupportActionBar().setTitle(""); // 툴바 제목 설정
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.backbutton);  //이미지 설정
 
+        TextInputLayout phone = findViewById(R.id.register_phone_layout);
+        editPhone.addTextChangedListener(new TextWatcherActivity(  phone  ,editPhone,"-을 넣어 입력해주세요."));
+
         register.setOnClickListener(this);
         doubleIdCheck.setOnClickListener(this);
     }
@@ -65,7 +69,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         switch (view.getId()) {
             case R.id.check_id:
-
+                requestCheckId( editId.getText().toString());
                 break;
 
             case R.id.register_result_button:
@@ -94,6 +98,57 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         return super.onOptionsItemSelected(item);
     }
 
+    // 아이디 중복체크
+    private void requestCheckId(String id){
+        JSONObject requestJsonObject = new JSONObject();
+
+        //인터넷 연결확인
+        int status = NetworkStatusActivity.getConnectivityStatus(getApplicationContext());
+        if (status == NetworkStatusActivity.TYPE_MOBILE || status == NetworkStatusActivity.TYPE_WIFI) {
+            try {
+
+                requestJsonObject.put("id", id);
+
+                RequestQueue requestQueue = Volley.newRequestQueue(RegisterActivity.this);
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url + "/users/exist", requestJsonObject, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response.toString());
+
+                            if (response.getBoolean("exist")) {   //중복이 있을때
+
+
+                            } else {   //중복이 없을때
+
+
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    //서버로 데이터 전달 및 응답 받기에 실패한 경우 아래 코드가 실행됩니다.
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
+                    }
+                });
+                jsonObjectRequest.setRetryPolicy(new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+                requestQueue.add(jsonObjectRequest);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        } else {
+            Toast.makeText(getApplicationContext(), "인터넷 연결을 확인해주세요.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    //회원가입
     private void requestRegister(String id, String password, String name, String phone ){
 
         JSONObject requestJsonObject = new JSONObject();
