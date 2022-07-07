@@ -10,6 +10,7 @@ import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -27,8 +28,9 @@ import java.util.ArrayList;
 public class ViewHolder extends RecyclerView.ViewHolder {
     private TextView cropName;              //레이아웃 요소
     private LinearLayout fullLayout;        //전체 레이아웃
-    private LinearLayout detailLayout;      //작물이름 클릭시 나올 레이아웃(해당 작물의 병해충 정보를 보여줌)
+    private ListView pestsOnCropListView;
     private OnViewHolderItemClickListener onViewHolderItemClickListener;
+    private String cro;
 
     private ItemAdapter itemAdapter;
     private ArrayList<String> pestsOnCropList;  //선택한 작물의 병해충 정보 리스트 데이터
@@ -39,8 +41,8 @@ public class ViewHolder extends RecyclerView.ViewHolder {
 
         cropName = itemView.findViewById(R.id.tx_crop_name);      //작물 이름
 
-        fullLayout = itemView.findViewById(R.id.ll_pest_information);         //전체 레이아웃
-        detailLayout = itemView.findViewById(R.id.ll_pest_information_list);  //작물의 병해충 정보가 담긴 레이아웃
+        fullLayout = itemView.findViewById(R.id.ll_pest_information);                //전체 레이아웃
+        pestsOnCropListView = fullLayout.findViewById(R.id.lv_pest_information);     //해충정보를 담을 리스트뷰
 
         fullLayout.setOnClickListener(new View.OnClickListener() {            //작물이름 클릭시 병해충 정보를 보여줌
             @Override
@@ -74,9 +76,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
 
     public void onBind(PestsOnCropDTO pestsOnCropDTO, int position, SparseBooleanArray selectedItems, Context mContext){
         cropName.setText(pestsOnCropDTO.getCropName());
-
-        ListView pestsOnCropListView =
-                detailLayout.findViewById(R.id.lv_pest_information);     //해충정보를 담을 리스트뷰
+        cro = cropName.getText()+"";
 
         setPestsOnCrop(pestsOnCropDTO);                                  //해당 작물의 해충정보 세팅
         itemAdapter = new ItemAdapter(mContext, pestsOnCropList, alertLevelList);
@@ -85,18 +85,37 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         changeVisibility(selectedItems.get(position));
     }
 
+    private int getListViewHeight(ListView list) {   //리스트뷰의 높이를 구함
+
+        ListAdapter adapter = list.getAdapter();
+
+        int listviewHeight = 0;
+
+        list.measure(View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED),
+                View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
+
+        listviewHeight = list.getMeasuredHeight() * adapter.getCount() + (adapter.getCount() * list.getDividerHeight());
+
+        return listviewHeight;
+    }
+
     private void changeVisibility(final boolean isExpanded) {
         ValueAnimator valueAnimator;
+        int list_height;
 
-        valueAnimator = isExpanded ? ValueAnimator.ofInt(0, 600) : ValueAnimator.ofInt(600, 0);
+        //각 작물별 병해충 정보를 담은 리스트 뷰의 높이를 구함
+        list_height = getListViewHeight(pestsOnCropListView);
+
+        //작물별 병해충 정보를 담은 리스트 뷰의 높이가 다르기 때문에 각각의 뷰 높이를 구해 적용해줌
+        valueAnimator = isExpanded ? ValueAnimator.ofInt(0, list_height) : ValueAnimator.ofInt(list_height, 0);
         valueAnimator.setDuration(500);
 
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
-                detailLayout.getLayoutParams().height = (int) animation.getAnimatedValue();  //병해충 정보 높이
-                detailLayout.requestLayout();
-                detailLayout.setVisibility(isExpanded ? View.VISIBLE : View.GONE);
+                pestsOnCropListView.getLayoutParams().height = (int)animation.getAnimatedValue();
+                pestsOnCropListView.requestLayout();
+                pestsOnCropListView.setVisibility(isExpanded ? View.VISIBLE : View.GONE);
             }
         });
 

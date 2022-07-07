@@ -68,12 +68,11 @@ public class PestPredictionActivity extends AppCompatActivity {
     }
 
     private void setPestInformationView(){
+
         RecyclerView recyclerView = findViewById(R.id.rv_prediction_result);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
-
-        boolean is = findViewById(R.id.lv_pest_information) == null;
 
         adapter = new Adapter(getApplicationContext());  //각 작물에 대한 병해충 리스트가 보여지는 뷰);
         recyclerView.setAdapter(adapter);

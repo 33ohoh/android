@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.competition1.R;
@@ -43,6 +44,7 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         ViewHolder viewHolder = (ViewHolder)holder;
 
         viewHolder.onBind(pestsOnCropList.get(position), position, selectedItems, mContext);    //예측결과뷰에 작물명, 해당 병충해 정보 저장
+
 
         viewHolder.setOnViewHolderItemClickListener(new OnViewHolderItemClickListener() {
             @Override
