@@ -7,9 +7,10 @@
 
     <!-- 작물 이름 -->
     <LinearLayout
+        android:id="@+id/ll_crop_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="3dp"
+        android:layout_marginVertical="3dp"
         android:background="@drawable/bg_crop_name"
         android:orientation="vertical"
         android:padding="10dp">
@@ -27,7 +28,6 @@
         android:id="@+id/lv_pest_information"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="3dp"
         android:scrollbars="none">
     </ListView>
 </LinearLayout>

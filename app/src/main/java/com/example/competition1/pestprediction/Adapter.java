@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.competition1.R;
@@ -34,8 +33,8 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(
-                R.layout.pest_information_list, parent, false);    //작물에 대한 병해충 정보 리스트 한칸
-        return new ViewHolder(view);
+                R.layout.item_pest_information_list, parent, false);    //작물에 대한 병해충 정보 리스트 한칸
+        return new ViewHolder(view, mContext);
     }
 
     @Override
@@ -43,7 +42,7 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         ViewHolder viewHolder = (ViewHolder)holder;
 
-        viewHolder.onBind(pestsOnCropList.get(position), position, selectedItems, mContext);    //예측결과뷰에 작물명, 해당 병충해 정보 저장
+        viewHolder.onBind(pestsOnCropList.get(position), position, selectedItems);    //예측결과뷰에 작물명, 해당 병충해 정보 저장
 
 
         viewHolder.setOnViewHolderItemClickListener(new OnViewHolderItemClickListener() {

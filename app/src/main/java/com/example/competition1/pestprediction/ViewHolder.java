@@ -3,6 +3,7 @@ package com.example.competition1.pestprediction;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.provider.SyncStateContract;
 import android.util.Log;
@@ -27,18 +28,19 @@ import java.util.ArrayList;
 
 public class ViewHolder extends RecyclerView.ViewHolder {
     private TextView cropName;              //레이아웃 요소
-    private LinearLayout fullLayout;        //전체 레이아웃
-    private ListView pestsOnCropListView;
+    private LinearLayout fullLayout;        //전체 레이아웃(작물이름 + 해충정보 리스트)
+    private ListView pestsOnCropListView;   //작물별 해충정보를 담을 리스트뷰
     private OnViewHolderItemClickListener onViewHolderItemClickListener;
-    private String cro;
 
-    private ItemAdapter itemAdapter;
+    private Context mContext;
+    private ItemAdapter itemAdapter;            //작물에 대한 어뎁터
     private ArrayList<String> pestsOnCropList;  //선택한 작물의 병해충 정보 리스트 데이터
-    private ArrayList<Integer> alertLevelList;  //각 작물의 경보 단계
+    private ArrayList<Integer> alertLevelList;  //병해충에 대한 경보 단계
 
-    public ViewHolder(@NonNull View itemView) {
+    public ViewHolder(@NonNull View itemView, Context mContext) {
         super(itemView);
 
+        this.mContext = mContext;
         cropName = itemView.findViewById(R.id.tx_crop_name);      //작물 이름
 
         fullLayout = itemView.findViewById(R.id.ll_pest_information);                //전체 레이아웃
@@ -53,12 +55,11 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     }
 
     private void setPestsAndAlertLevel(String alertLevel, int numberOfAlertLevel){
-        if(alertLevel.equals("")) return;             //
+        if(alertLevel.equals("")) return;             //해당 경보단계에 병해충정보가 없을 경우 리스트에 추가하지 않음
 
-        int index;
-        String[] pests = alertLevel.split(",");
+        String[] pests = alertLevel.split(","); //해당 경보단계에 대한 병해충 정보가 ','로 묶여있음
 
-        for(index = 0; index < pests.length; index++){
+        for(int index = 0; index < pests.length; index++){
             pestsOnCropList.add(pests[index]);        //병해충명 저장
             alertLevelList.add(numberOfAlertLevel);   //경보단계 저장
         }
@@ -74,9 +75,8 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         setPestsAndAlertLevel(pestsOnCropDTO.getLowLevel(), Constants.LOW_LEVEL);
     }
 
-    public void onBind(PestsOnCropDTO pestsOnCropDTO, int position, SparseBooleanArray selectedItems, Context mContext){
+    public void onBind(PestsOnCropDTO pestsOnCropDTO, int position, SparseBooleanArray selectedItems){
         cropName.setText(pestsOnCropDTO.getCropName());
-        cro = cropName.getText()+"";
 
         setPestsOnCrop(pestsOnCropDTO);                                  //해당 작물의 해충정보 세팅
         itemAdapter = new ItemAdapter(mContext, pestsOnCropList, alertLevelList);
@@ -99,6 +99,21 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         return listviewHeight;
     }
 
+    private void setCropNameBackground(boolean isExpanded){
+
+        Drawable selectedCropName =
+                ContextCompat.getDrawable(mContext, R.drawable.bg_selected_crop_name);  //선택한 작물의의 배경
+        Drawable unselectedCropName =
+                ContextCompat.getDrawable(mContext, R.drawable.bg_crop_name);           //선택하지 않은 작물의 배경
+
+        if(isExpanded){    //선택한 작물을 표시하기 위해 배경색을 채움
+            fullLayout.findViewById(R.id.ll_crop_name).setBackground(selectedCropName);
+        }
+        else{
+            fullLayout.findViewById(R.id.ll_crop_name).setBackground(unselectedCropName);
+        }
+    }
+
     private void changeVisibility(final boolean isExpanded) {
         ValueAnimator valueAnimator;
         int list_height;
@@ -116,6 +131,8 @@ public class ViewHolder extends RecyclerView.ViewHolder {
                 pestsOnCropListView.getLayoutParams().height = (int)animation.getAnimatedValue();
                 pestsOnCropListView.requestLayout();
                 pestsOnCropListView.setVisibility(isExpanded ? View.VISIBLE : View.GONE);
+
+                setCropNameBackground(isExpanded);   //선택한 작물을 구분하기 위해 배경색을 채워줌
             }
         });
 

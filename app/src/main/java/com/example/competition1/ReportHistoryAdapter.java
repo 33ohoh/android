@@ -38,7 +38,7 @@ public class ReportHistoryAdapter extends BaseAdapter {
         if(convertView == null){
             //신고내역 한칸에 해당하는 레이아웃(activity_report_history_list.xml)을 view객체로 만들기 위한 작업으로 LayoutInflatert사용
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.report_history_item, parent, false);
+            convertView = inflater.inflate(R.layout.item_report_history, parent, false);
         }
 
         TextView title = (TextView) convertView.findViewById(R.id.title);       //피해신고 제목

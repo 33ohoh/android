@@ -1,9 +1,7 @@
 package com.example.competition1.pestprediction;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -68,7 +66,7 @@ public class ItemAdapter extends BaseAdapter {
         if(convertView == null){
             //병해충 이름 한칸에 해당하는 레이아웃을 view객체로 만들기 위한 작업으로 LayoutInflatert사용
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.pest_information_item, parent, false);
+            convertView = inflater.inflate(R.layout.item_pest_information, parent, false);
         }
 
         TextView pest = (TextView) convertView.findViewById(R.id.tx_pest);     //병해충 이름
