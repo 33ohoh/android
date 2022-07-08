@@ -2,14 +2,9 @@ package com.example.competition1.pestprediction;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import android.provider.SyncStateContract;
-import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -21,8 +16,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.competition1.R;
 import com.example.competition1.utility.Constants;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -53,13 +46,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
             }
         });
 
-        pestsOnCropListView.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
     }
 
     private void setPestsAndAlertLevel(String alertLevel, int numberOfAlertLevel){

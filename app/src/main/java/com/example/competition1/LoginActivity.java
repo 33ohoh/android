@@ -14,6 +14,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.competition1.pestprediction.PestPredictionActivity;
 import com.google.android.material.textfield.TextInputEditText;
 
 import org.json.JSONException;
@@ -115,7 +116,9 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                             //Log.v("test","test :" + response.getBoolean("status"));
 
                             if (response.getBoolean("status")) {   //로그인 성공
-                                // 여기다가 로그인 후 넘어가는 페이지 넣기
+                                Intent intent = new Intent(getApplicationContext(), PestPredictionActivity.class);
+                                startActivity(intent);
+
 
                             } else {   //로그인 실패
                                 Toast.makeText(getApplicationContext(), response.getString("message"), Toast.LENGTH_SHORT).show();
