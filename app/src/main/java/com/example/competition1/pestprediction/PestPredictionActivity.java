@@ -1,45 +1,33 @@
 package com.example.competition1.pestprediction;
+
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.competition1.R;
-import com.example.competition1.ReportHistory;
-import com.example.competition1.ReportHistoryAdapter;
 import com.example.competition1.utility.Constants;
 
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
-
 public class PestPredictionActivity extends AppCompatActivity {
     private Adapter adapter;
     private ArrayList<PestsOnCropDTO> foodResourcesList;
     private ArrayList<PestsOnCropDTO> vegetableList;
     private ArrayList<PestsOnCropDTO> fruitTreeList;
-
+    private long backKeyPressedTime = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -62,6 +50,21 @@ public class PestPredictionActivity extends AppCompatActivity {
             }
         });
 
+    }
+    @Override
+    public void onBackPressed() {
+
+        if (System.currentTimeMillis() > backKeyPressedTime + 1500) {
+            backKeyPressedTime = System.currentTimeMillis();
+            Toast.makeText(this, "한번더 버튼을 누르시면 종료됩니다.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (System.currentTimeMillis() <= backKeyPressedTime + 1500) {
+            moveTaskToBack(true);
+            finishAndRemoveTask();
+            System.exit(0);
+        }
     }
 
     private void setCropList(){
