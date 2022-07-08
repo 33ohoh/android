@@ -64,16 +64,17 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="6.5"
+            android:layout_weight="7.5"
             android:layout_marginLeft="3dp"
             android:layout_marginRight="3dp"
             android:hint="아이디">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edit_id"
+                android:id="@+id/edit_login_id"
                 android:singleLine="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -105,13 +106,13 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="6.5"
+            android:layout_weight="7.5"
             android:hint="비밀번호">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edit_pwd"
+                android:id="@+id/edit_login_pwd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="3dp"
