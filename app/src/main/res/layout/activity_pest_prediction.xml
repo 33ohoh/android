@@ -159,14 +159,25 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical" />
+                    android:orientation="vertical" >
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rv_prediction_result"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:splitMotionEvents="false"/>
+                    <!-- 식량작물 -->
+                    <include
+                        layout="@layout/item_pest_forecast"
+                        android:id="@+id/food_resources"/>
+
+                    <!-- 채소 -->
+                    <include
+                        layout="@layout/item_pest_forecast"
+                        android:id="@+id/vegetable"/>
+
+                    <!-- 과일 -->
+                    <include
+                        layout="@layout/item_pest_forecast"
+                        android:id="@+id/fruit_tree"/>
+
+
+                </LinearLayout>
 
             </LinearLayout>
         </LinearLayout>

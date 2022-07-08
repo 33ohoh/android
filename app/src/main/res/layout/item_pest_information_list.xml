@@ -19,7 +19,8 @@
             android:id="@+id/tx_crop_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="작물 이름" />
+            android:text="작물 이름"
+            android:paddingHorizontal="15dp"/>
 
     </LinearLayout>
 
@@ -28,6 +29,7 @@
         android:id="@+id/lv_pest_information"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
         android:scrollbars="none">
     </ListView>
 </LinearLayout>

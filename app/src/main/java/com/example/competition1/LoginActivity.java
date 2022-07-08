@@ -38,7 +38,7 @@ public class LoginActivity extends Activity  implements View.OnClickListener {
                 break;
 
             case R.id.login_button:
-                Intent loginIntent = new Intent(getApplicationContext(), PestAdvisoryActivity.class);
+                Intent loginIntent = new Intent(getApplicationContext(), PestPredictionActivity.class);
                 startActivity(loginIntent);
                 break;
 
