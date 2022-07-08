@@ -14,24 +14,39 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginBottom="5dp">
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="10dp">
+            android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/current_crop_search"
-                android:layout_width="wrap_content"
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="5dp"
-                android:layout_weight="200"
-                android:hint="작물이름을 입력해주세요."
-                android:minHeight="50dp"
-                android:singleLine="true" />
+                android:hint="작물 이름 검색하세요"
+                android:layout_marginBottom="10dp"
+                app:boxBackgroundColor="@color/white"
+                app:endIconMode="clear_text">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/current_crop_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--            <EditText-->
+            <!--                android:id="@+id/current_crop_search"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginEnd="5dp"-->
+            <!--                android:layout_weight="200"-->
+            <!--                android:hint="작물이름을 입력해주세요."-->
+            <!--                android:minHeight="50dp"-->
+            <!--                android:singleLine="true" />-->
 
         </LinearLayout>
 
