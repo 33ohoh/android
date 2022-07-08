@@ -50,6 +50,10 @@
         <activity android:name=".FindingActivity"/>
         <activity android:name=".FindingIdActivity"/>
         <activity android:name=".FindingPwActivity"/>
+        <activity android:name=".MyPageActivity"/>
+        <activity android:name=".ReportHistoryActivity"/>
+        <activity android:name=".pestprediction.PestPredictionActivity"/>`
+        <activity android:name=".pestadvisory.PestAdvisoryActivity"/>
     </application>
 
 </manifest>
