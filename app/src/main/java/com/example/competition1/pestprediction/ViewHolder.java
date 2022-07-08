@@ -52,6 +52,14 @@ public class ViewHolder extends RecyclerView.ViewHolder {
                 onViewHolderItemClickListener.onViewHolderItemClick();
             }
         });
+
+        pestsOnCropListView.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
     private void setPestsAndAlertLevel(String alertLevel, int numberOfAlertLevel){
