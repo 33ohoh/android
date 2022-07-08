@@ -28,7 +28,7 @@
         android:networkSecurityConfig="@xml/network_security_config">
 
         <activity
-            android:name=".MainActivity"
+            android:name=".FirstActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -54,6 +54,7 @@
         <activity android:name=".ReportHistoryActivity"/>
         <activity android:name=".pestprediction.PestPredictionActivity"/>`
         <activity android:name=".pestadvisory.PestAdvisoryActivity"/>
+        <activity android:name=".MainActivity"/>
     </application>
 
 </manifest>
