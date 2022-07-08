@@ -50,7 +50,7 @@
             android:layout_marginBottom="5dp">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button7"
+                android:id="@+id/current_show_map"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
@@ -59,7 +59,7 @@
                 android:text="지도로보기" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button8"
+                android:id="@+id/current_show_table"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -73,10 +73,30 @@
 
     </LinearLayout>
 
-
     <FrameLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <ScrollView
+            android:id="@+id/current_scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:visibility="invisible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ListView
+                    android:id="@+id/current_listview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                </ListView>
+            </LinearLayout>
+        </ScrollView>
 
 
         <RelativeLayout
@@ -84,7 +104,7 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".MainActivity">
+            android:visibility="visible">
 
             <RelativeLayout
                 android:id="@+id/map_view"
@@ -93,17 +113,10 @@
 
         </RelativeLayout>
 
-        <ListView
-            android:id="@+id/listView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/linearLayout"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="0dp"/>
+
 
     </FrameLayout>
+
 
 
 
