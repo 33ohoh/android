@@ -24,12 +24,12 @@
             android:layout_marginBottom="10dp">
 
             <EditText
-                android:id="@+id/editTextTextPersonName"
+                android:id="@+id/current_crop_search"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
                 android:layout_weight="200"
-                android:hint="검색어를 입력해주세요."
+                android:hint="작물이름을 입력해주세요."
                 android:minHeight="50dp"
                 android:singleLine="true" />
 
@@ -109,7 +109,9 @@
             <RelativeLayout
                 android:id="@+id/map_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+
+                />
 
         </RelativeLayout>
 
