@@ -28,6 +28,7 @@ public class PestPredictionActivity extends AppCompatActivity {
     private ArrayList<PestsOnCropDTO> vegetableList;
     private ArrayList<PestsOnCropDTO> fruitTreeList;
     private long backKeyPressedTime = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -49,6 +50,8 @@ public class PestPredictionActivity extends AppCompatActivity {
                 resultLayout.setVisibility(View.VISIBLE);
             }
         });
+
+
 
     }
     @Override

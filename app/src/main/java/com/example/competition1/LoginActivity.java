@@ -14,7 +14,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.competition1.pestprediction.PestPredictionActivity;
 import com.google.android.material.textfield.TextInputEditText;
 
 import org.json.JSONException;
@@ -116,7 +115,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                             //Log.v("test","test :" + response.getBoolean("status"));
 
                             if (response.getBoolean("status")) {   //로그인 성공
-                                Intent intent = new Intent(getApplicationContext(), PestPredictionActivity.class);
+                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                 startActivity(intent);
 
 
