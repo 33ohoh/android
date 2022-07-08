@@ -116,11 +116,12 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                         try {
                             JSONObject jsonObject = new JSONObject(response.toString());
 
-                            if (response.getBoolean("exist")) {   //중복이 있을때
+                            if (response.getBoolean("exist")) {   //중복이 없을때
+                                Toast.makeText(getApplicationContext(), "사용가능한 ID입니다.", Toast.LENGTH_SHORT).show();
 
-
-                            } else {   //중복이 없을때
-
+                            } else {   //중복이 있을때
+                                editId.setText("");
+                                Toast.makeText(getApplicationContext(), "이미 존재하는 ID입니다.", Toast.LENGTH_SHORT).show();
 
                             }
 

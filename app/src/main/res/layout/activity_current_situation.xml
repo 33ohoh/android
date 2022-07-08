@@ -30,7 +30,7 @@
                 android:layout_marginEnd="5dp"
                 android:layout_weight="200"
                 android:hint="검색어를 입력해주세요."
-                android:minHeight="48dp"
+                android:minHeight="50dp"
                 android:singleLine="true" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -38,7 +38,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_background"
-                android:layout_marginStart="5dp"
                 android:layout_weight="1"
                 android:text="검색" />
 
@@ -47,8 +46,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button7"
@@ -74,19 +73,39 @@
 
     </LinearLayout>
 
-    <RelativeLayout
 
-        android:orientation="vertical"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        android:layout_height="match_parent">
+
 
         <RelativeLayout
-            android:id="@+id/map_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
-    </RelativeLayout>
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".MainActivity">
+
+            <RelativeLayout
+                android:id="@+id/map_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayout"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="0dp"/>
+
+    </FrameLayout>
+
+
 
 
 

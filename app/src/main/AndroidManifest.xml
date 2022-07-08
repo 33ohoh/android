@@ -43,7 +43,7 @@
         <activity android:name=".reportActivity.LocationSelectActivity"/>
         <activity android:name=".reportActivity.SymptomSelectActivity"/>
         <activity android:name=".reportActivity.PestSelectActivity"/>
-    `
+        <activity android:name=".CurrentSituationActivity"/>
         <activity android:name=".reportActivity.ReportActivity"/>`
         <activity android:name=".LoginActivity"/>
         <activity android:name=".RegisterActivity"/>
