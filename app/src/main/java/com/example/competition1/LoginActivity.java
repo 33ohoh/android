@@ -14,7 +14,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.competition1.pestprediction.PestPredictionActivity;
 import com.google.android.material.textfield.TextInputEditText;
 
 import org.json.JSONException;
@@ -56,7 +55,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
         switch (view.getId()) {
             case R.id.register_button:
-                Intent registerIntent = new Intent(getApplicationContext(), PestPredictionActivity.class);
+                Intent registerIntent = new Intent(getApplicationContext(), RegisterActivity.class);
                 startActivity(registerIntent);
                 break;
 
@@ -114,7 +113,6 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            JSONObject jsonObject = new JSONObject(response.toString());
 
                             //Log.v("test","test :" + response.getBoolean("status"));
 
