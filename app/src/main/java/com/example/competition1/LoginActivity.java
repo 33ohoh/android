@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.competition1.reportActivity.ReportActivity;
+import com.example.competition1.informationActivity.cropInformationActivity;
 
 public class LoginActivity extends Activity  implements View.OnClickListener {
 
@@ -32,12 +33,12 @@ public class LoginActivity extends Activity  implements View.OnClickListener {
 
         switch (view.getId()) {
             case R.id.register_button:
-                Intent registerIntent = new Intent(getApplicationContext(),RegisterActivity.class);
+                Intent registerIntent = new Intent(getApplicationContext(),cropInformationActivity.class);
                 startActivity(registerIntent);
                 break;
 
             case R.id.login_button:
-                Intent loginIntent = new Intent(getApplicationContext(), RegisterActivity.class);
+                Intent loginIntent = new Intent(getApplicationContext(), ReportActivity.class);
                 startActivity(loginIntent);
                 break;
 

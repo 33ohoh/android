@@ -52,18 +52,30 @@
         <entry key="..\:/Users/sec/AndroidStudioProjects/Project3/app/src/main/res/layout/activity_password_reset.xml" value="0.22327898550724637" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/Project3/app/src/main/res/layout/activity_pest_prediction.xml" value="0.22327898550724637" />
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable-v24/emptybutton_background.xml" value="0.3435" />
+        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/backbutton.xml" value="0.1415" />
+        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/background_gradient.xml" value="0.1285" />
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/bg_button.xml" value="0.3435" />
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/bg_spinner.xml" value="0.3435" />
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/button_background.xml" value="0.3435" />
+        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/circle_button_background.xml" value="0.3205" />
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/crop_button_background.xml" value="0.257" />
+        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/edittext_rounded_corner_rectangle.xml" value="0.196" />
+        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/empty_button_background.xml" value="0.2145" />
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/ic_baseline_gps_fixed_24.xml" value="0.3435" />
+        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/ic_big_pest.xml" value="0.3205" />
+        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/ic_big_symptom.xml" value="0.1945" />
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/ic_image.xml" value="0.3435" />
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3435" />
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/ic_location.xml" value="0.3435" />
+        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/ic_symtom.xml" value="0.1945" />
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/report_button_background.xml" value="0.1285" />
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/report_button_hover.xml" value="0.1285" />
+        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/drawable/seleted_button_background.xml" value="0.2145" />
+        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/activity_address.xml" value="0.24427083333333333" />
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/activity_crop_selection.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/activity_current_situation.xml" value="0.24139492753623187" />
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/activity_currentsituation.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/activity_finding.xml" value="0.3428442028985507" />
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/activity_image_selection.xml" value="0.11770833333333333" />
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/activity_information.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/activity_login.xml" value="0.5" />
@@ -74,6 +86,7 @@
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/activity_pest_selection.xml" value="0.28396739130434784" />
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/activity_register.xml" value="0.22" />
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/activity_report.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/activity_sector_selection.xml" value="0.24427083333333333" />
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/activity_select_location.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/activity_symptom_selection.xml" value="0.28396739130434784" />
       </map>

@@ -21,29 +21,52 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/first_Text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="임산물"
+                    android:fontFamily="@font/gmarket_sans_ttf_bold"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:textColor="#04CF5C"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/second_Text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text=" 선택 후"
+                    android:fontFamily="@font/gmarket_sans_ttf_bold"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:textColor="#000000"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/third_Text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="등록하기 버튼을 눌러주세요. "
+                android:fontFamily="@font/gmarket_sans_ttf_bold"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="#000000"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="68dp">
-
-                <EditText
-                    android:id="@+id/editTextTextPersonName"
-                    android:layout_width="269dp"
-                    android:layout_height="48dp"
-                    android:background="@drawable/search_text_style"
-                    android:drawableEnd="@drawable/ic_search"
-                    android:ems="10"
-                    android:hint="농작물 검색"
-                    android:inputType="textPersonName"
-                    android:maxLength="10"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="15dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                android:layout_height="68dp"/>
 
             <androidx.gridlayout.widget.GridLayout
                 android:id="@+id/cropGrid"
@@ -59,22 +82,334 @@
                     android:orientation="vertical"
                     app:layout_columnWeight="1">
 
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/button1"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="80px"
+                        app:strokeWidth="10px">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/apple"
+                            android:scaleType="fitXY"
+                            android:clipToOutline="true"
+                            />
+                    </com.google.android.material.card.MaterialCardView>
+                    <TextView
+                        android:id="@+id/text1"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:text="감" />
 
-                    <androidx.appcompat.widget.AppCompatButton
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="120dp"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical"
+                    app:layout_columnWeight="1">
+
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/button2"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="80px"
+                        app:strokeWidth="10px">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/apple"
+                            android:scaleType="fitXY"
+                            android:clipToOutline="true"
+                            />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:id="@+id/text2"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:text="고려엉겅퀴" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="120dp"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical"
+                    app:layout_columnWeight="1">
+
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/button3"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="80px"
+                        app:strokeWidth="10px">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/apple"
+                            android:scaleType="fitXY"
+                            android:clipToOutline="true"
+                            />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:id="@+id/text3"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:text="구기자" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="120dp"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical"
+                    app:layout_columnWeight="1">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/button4"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="80px"
+                        app:strokeWidth="10px">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/apple"
+                            android:scaleType="fitXY"
+                            android:clipToOutline="true"
+                            />
+                    </com.google.android.material.card.MaterialCardView>
+                    <TextView
+                        android:id="@+id/text4"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:text="다래" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="120dp"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical"
+                    app:layout_columnWeight="1">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/button5"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="80px"
+                        app:strokeWidth="10px">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/apple"
+                            android:scaleType="fitXY"
+                            android:clipToOutline="true"
+                            />
+                    </com.google.android.material.card.MaterialCardView>
+                    <TextView
+                        android:id="@+id/text5"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:text="당귀" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="120dp"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical"
+                    app:layout_columnWeight="1">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/button6"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="80px"
+                        app:strokeWidth="10px">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/apple"
+                            android:scaleType="fitXY"
+                            android:clipToOutline="true"
+                            />
+                    </com.google.android.material.card.MaterialCardView>
+                    <TextView
+                        android:id="@+id/text6"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:text="대추" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="120dp"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical"
+                    app:layout_columnWeight="1">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/button7"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="80px"
+                        app:strokeWidth="10px">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/apple"
+                            android:scaleType="fitXY"
+                            android:clipToOutline="true"
+                            />
+                    </com.google.android.material.card.MaterialCardView>
+                    <TextView
+                        android:id="@+id/text7"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:text="더덕" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="120dp"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical"
+                    app:layout_columnWeight="1">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/button8"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="80px"
+                        app:strokeWidth="10px">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/apple"
+                            android:scaleType="fitXY"
+                            android:clipToOutline="true"
+                            />
+                    </com.google.android.material.card.MaterialCardView>
+                    <TextView
+                        android:id="@+id/text8"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:text="도라지" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="120dp"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical"
+                    app:layout_columnWeight="1">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/button9"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="80px"
+                        app:strokeWidth="10px">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/apple"
+                            android:scaleType="fitXY"
+                            android:clipToOutline="true"
+                            />
+                    </com.google.android.material.card.MaterialCardView>
+                    <TextView
+                        android:id="@+id/text9"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:text="마" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="120dp"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical"
+                    app:layout_columnWeight="1">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/button10"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="80px"
+                        app:strokeWidth="10px">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/apple"
+                            android:scaleType="fitXY"
+                            android:clipToOutline="true"
+                            />
+                    </com.google.android.material.card.MaterialCardView>
+                    <TextView
+                        android:id="@+id/text10"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:text="밤" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="120dp"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical"
+                    app:layout_columnWeight="1">
+
+                    <com.google.android.material.card.MaterialCardView
                         android:id="@+id/button11"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
-                        android:background="@drawable/crop_button_background"
-                        android:drawableTop="@drawable/pepper"
-                        android:text="준비중" />
-
+                        app:cardCornerRadius="80px"
+                        app:strokeWidth="10px">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/apple"
+                            android:scaleType="fitXY"
+                            android:clipToOutline="true"
+                            />
+                    </com.google.android.material.card.MaterialCardView>
                     <TextView
-                        android:id="@+id/textView11"
+                        android:id="@+id/text11"
                         android:layout_width="match_parent"
                         android:layout_height="20dp"
                         android:textAlignment="center"
                         android:textColor="@color/black"
-                        android:text="고추" />
+                        android:text="복분자" />
 
                 </LinearLayout>
 
@@ -85,25 +420,29 @@
                     android:orientation="vertical"
                     app:layout_columnWeight="1">
 
-
-                    <androidx.appcompat.widget.AppCompatButton
+                    <com.google.android.material.card.MaterialCardView
                         android:id="@+id/button12"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
-                        android:background="@drawable/crop_button_background"
-                        android:drawableTop="@drawable/tomato"
-                        android:text="준비중" />
-
+                        app:cardCornerRadius="80px"
+                        app:strokeWidth="10px">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/apple"
+                            android:scaleType="fitXY"
+                            android:clipToOutline="true"
+                            />
+                    </com.google.android.material.card.MaterialCardView>
                     <TextView
-                        android:id="@+id/textView12"
+                        android:id="@+id/text12"
                         android:layout_width="match_parent"
                         android:layout_height="20dp"
                         android:textAlignment="center"
                         android:textColor="@color/black"
-                        android:text="토마토" />
+                        android:text="산마늘" />
 
                 </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="120dp"
@@ -111,26 +450,29 @@
                     android:orientation="vertical"
                     app:layout_columnWeight="1">
 
-
-                    <androidx.appcompat.widget.AppCompatButton
+                    <com.google.android.material.card.MaterialCardView
                         android:id="@+id/button13"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
-                        android:background="@drawable/crop_button_background"
-                        android:drawableBottom="@drawable/apple"
-                        android:text="준비중" />
-
+                        app:cardCornerRadius="80px"
+                        app:strokeWidth="10px">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/apple"
+                            android:scaleType="fitXY"
+                            android:clipToOutline="true"
+                            />
+                    </com.google.android.material.card.MaterialCardView>
                     <TextView
-                        android:id="@+id/textView13"
+                        android:id="@+id/text13"
                         android:layout_width="match_parent"
                         android:layout_height="20dp"
                         android:textAlignment="center"
                         android:textColor="@color/black"
-                        android:text="사과" />
+                        android:text="산수유" />
 
                 </LinearLayout>
-
-
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="120dp"
@@ -138,42 +480,27 @@
                     android:orientation="vertical"
                     app:layout_columnWeight="1">
 
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/emptyBtn1"
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/button14"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
-                        android:background="@drawable/empty_button_background"
-                        android:text="" />
-
+                        app:cardCornerRadius="80px"
+                        app:strokeWidth="10px">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/apple"
+                            android:scaleType="fitXY"
+                            android:clipToOutline="true"
+                            />
+                    </com.google.android.material.card.MaterialCardView>
                     <TextView
-                        android:id="@+id/emptyText1"
+                        android:id="@+id/text14"
                         android:layout_width="match_parent"
                         android:layout_height="20dp"
-                        android:text="" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="120dp"
-                    android:layout_margin="10dp"
-                    android:orientation="vertical"
-                    app:layout_columnWeight="1">
-
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/emptyBtn2"
-                        android:layout_width="match_parent"
-                        android:layout_height="100dp"
-                        android:background="@drawable/empty_button_background"
-                        android:text="" />
-
-                    <TextView
-                        android:id="@+id/emptyText2"
-                        android:layout_width="match_parent"
-                        android:layout_height="20dp"
-                        android:text="" />
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:text="삽주" />
 
                 </LinearLayout>
 
@@ -184,28 +511,204 @@
                     android:orientation="vertical"
                     app:layout_columnWeight="1">
 
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/emptyBtn3"
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/button15"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
-                        android:background="@drawable/empty_button_background"
-                        android:text="" />
-
+                        app:cardCornerRadius="80px"
+                        app:strokeWidth="10px">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/apple"
+                            android:scaleType="fitXY"
+                            android:clipToOutline="true"
+                            />
+                    </com.google.android.material.card.MaterialCardView>
                     <TextView
-                        android:id="@+id/emptyText3"
+                        android:id="@+id/text15"
                         android:layout_width="match_parent"
                         android:layout_height="20dp"
-                        android:text="" />
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:text="석류" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="120dp"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical"
+                    app:layout_columnWeight="1">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/button16"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="80px"
+                        app:strokeWidth="10px">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/apple"
+                            android:scaleType="fitXY"
+                            android:clipToOutline="true"
+                            />
+                    </com.google.android.material.card.MaterialCardView>
+                    <TextView
+                        android:id="@+id/text16"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:text="오미자" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="120dp"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical"
+                    app:layout_columnWeight="1">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/button17"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="80px"
+                        app:strokeWidth="10px">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/apple"
+                            android:scaleType="fitXY"
+                            android:clipToOutline="true"
+                            />
+                    </com.google.android.material.card.MaterialCardView>
+                    <TextView
+                        android:id="@+id/text17"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:text="작약" />
 
                 </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="120dp"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical"
+                    app:layout_columnWeight="1">
+
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/button18"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="80px"
+                        app:strokeWidth="10px">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/apple"
+                            android:scaleType="fitXY"
+                            android:clipToOutline="true"
+                            />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:id="@+id/text18"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:text="참나물감초" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="120dp"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical"
+                    app:layout_columnWeight="1">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/button19"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="80px"
+                        app:strokeWidth="10px">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/apple"
+                            android:scaleType="fitXY"
+                            android:clipToOutline="true"
+                            />
+                    </com.google.android.material.card.MaterialCardView>
+                    <TextView
+                        android:id="@+id/text19"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:text="천궁" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="120dp"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical"
+                    app:layout_columnWeight="1">
+
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/button20"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="80px"
+                        app:strokeWidth="10px">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/apple"
+                            android:scaleType="fitXY"
+                            android:clipToOutline="true"
+                            />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:id="@+id/text20"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:text="호두" />
+
+                </LinearLayout>
 
             </androidx.gridlayout.widget.GridLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="107dp">
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/cropSaveButton"
+                    android:layout_width="208dp"
+                    android:layout_height="53dp"
+                    android:background="@drawable/button_background"
+                    android:text="등록하기"
+                    android:textColor="#795548"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
