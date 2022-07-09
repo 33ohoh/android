@@ -54,7 +54,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
         switch (view.getId()) {
             case R.id.register_button:
-                Intent registerIntent = new Intent(getApplicationContext(), PestPredictionActivity.class);
+                Intent registerIntent = new Intent(getApplicationContext(), MyPageActivity.class);
                 startActivity(registerIntent);
                 break;
 

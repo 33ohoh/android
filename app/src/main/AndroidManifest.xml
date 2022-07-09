@@ -52,9 +52,15 @@
         <activity android:name=".FindingPwActivity"/>
         <activity android:name=".MyPageActivity"/>
         <activity android:name=".ReportHistoryActivity"/>
+<<<<<<< HEAD
         `
         <activity android:name=".pestadvisory.PestAdvisoryActivity"/>
+=======
+        <activity android:name=".pestprediction.PestPredictionActivity"/>`
+        <activity android:name=".pestdetails.PestDetailsActivity"/>
+>>>>>>> origin/main
         <activity android:name=".MainActivity"/>
+        <activity android:name=".PasswordResetActivity"/>
     </application>
 
 </manifest>
