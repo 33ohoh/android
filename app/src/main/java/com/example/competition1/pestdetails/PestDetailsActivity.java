@@ -47,12 +47,14 @@ public class PestDetailsActivity extends AppCompatActivity {
 
         imageUrl = pestDetails.getImage();
 
-        Thread mThread = new Thread() {
+        Glide.with(this).load(imageUrl).into(imageView);
+
+        /*Thread mThread = new Thread() {
             @Override
             public void run() {
                 try {
-                    //URL url = new URL("https://asddsa.soll0803.repl.co/kospi.PNG");
-                    URL url = new URL(imageUrl);
+                    URL url = new URL("https://asddsa.soll0803.repl.co/kospi.PNG");
+                    //URL url = new URL(imageUrl);
 
                     // Web에서 이미지를 가져온 뒤
                     // ImageView에 지정할 Bitmap을 만든다
@@ -85,7 +87,7 @@ public class PestDetailsActivity extends AppCompatActivity {
 
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
 }

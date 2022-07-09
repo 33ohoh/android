@@ -89,7 +89,6 @@ public class PestPredictionActivity extends AppCompatActivity {
 
     private void test(int month){
 
-        Log.v("테테ㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔ", "완료");
         JSONObject requestJsonObject = new JSONObject();
 
         //인터넷 연결확인
@@ -97,17 +96,17 @@ public class PestPredictionActivity extends AppCompatActivity {
         if (status == NetworkStatusActivity.TYPE_MOBILE || status == NetworkStatusActivity.TYPE_WIFI) {
             try {
 
-                requestJsonObject.put("month", "7");
+                requestJsonObject.put("month", 2);
 
 
                 RequestQueue requestQueue = Volley.newRequestQueue(PestPredictionActivity.this);
-                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url + "/monthly_pests/month", requestJsonObject, new Response.Listener<JSONObject>() {
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url + "/monthlypests/month", requestJsonObject, new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
                             JSONObject jsonObject = new JSONObject(response.toString());
-                            Log.v("테테테테테스스스스스트트트틑","test :" + response.getBoolean("status"));
+                            Log.v("테테테테테스스스스스트트트트","test :" + response.getBoolean("status"));
                             //Log.v("test","test :" + response.getBoolean("status"));
 
                             if (response.getBoolean("status")) {   //로그인 성공

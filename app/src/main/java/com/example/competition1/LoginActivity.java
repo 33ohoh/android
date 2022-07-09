@@ -23,6 +23,7 @@ import org.json.JSONObject;
 
 public class LoginActivity extends Activity implements View.OnClickListener {
 
+    public static String userId;
 
     private long backKeyPressedTime = 0;
     private TextInputEditText editId;
@@ -101,6 +102,8 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         int status = NetworkStatusActivity.getConnectivityStatus(getApplicationContext());
         if (status == NetworkStatusActivity.TYPE_MOBILE || status == NetworkStatusActivity.TYPE_WIFI) {
             try {
+
+                userId = id;
 
                 requestJsonObject.put("id", id);
                 requestJsonObject.put("password", password);
