@@ -140,10 +140,13 @@
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/activity_pest_prediction.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/activity_pest_selection.xml" value="0.28396739130434784" />
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/activity_register.xml" value="0.22" />
-        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/activity_report.xml" value="0.22" />
+        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/activity_report.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/activity_sector_selection.xml" value="0.24427083333333333" />
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/activity_select_location.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/activity_symptom_selection.xml" value="0.28396739130434784" />
+        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/fragment_current.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/fragment_declaration.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/user/Desktop/android/app/src/main/res/layout/fragment_information.xml" value="0.16304347826086957" />
       </map>
     </option>
   </component>

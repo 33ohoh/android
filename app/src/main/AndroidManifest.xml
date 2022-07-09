@@ -39,12 +39,17 @@
 
         <!-- 네이티브 앱 키 추가-->
         <meta-data android:name="com.kakao.sdk.AppKey" android:value="f9d48590f679a37f2c4580e36d6f0a19"/>
-        <activity android:name=".reportActivity.CropSelectActivity"/>
-        <activity android:name=".reportActivity.LocationSelectActivity"/>
-        <activity android:name=".reportActivity.SymptomSelectActivity"/>
-        <activity android:name=".reportActivity.PestSelectActivity"/>
-    `
-        <activity android:name=".reportActivity.ReportActivity"/>`
+        <activity android:name=".report.CropSelectActivity"/>
+        <activity android:name=".report.LocationSelectActivity"/>
+        <activity android:name=".report.SymptomSelectActivity"/>
+        <activity android:name=".report.PestSelectActivity"/>
+        <activity android:name=".report.ReportActivity"/>
+        <activity android:name=".information.CropInformationActivity"/>
+        <activity android:name=".information.InformationViewActivity"/>
+        <activity android:name=".information.PestInformationActivity"/>
+        <activity android:name=".information.SectorSelectionActivity"/>
+        <activity android:name=".information.SymptomInformationActivity"/>
+        <activity android:name=".kakaoMap.AddressApiActivity"/>
         <activity android:name=".LoginActivity"/>
         <activity android:name=".RegisterActivity"/>
         <activity android:name=".FindingActivity"/>
@@ -52,8 +57,7 @@
         <activity android:name=".FindingPwActivity"/>
         <activity android:name=".MyPageActivity"/>
         <activity android:name=".ReportHistoryActivity"/>
-        <activity android:name=".pestprediction.PestPredictionActivity"/>`
-        <activity android:name=".pestadvisory.PestAdvisoryActivity"/>
+        <activity android:name=".pestprediction.PestPredictionActivity"/>
         <activity android:name=".MainActivity"/>
     </application>
 

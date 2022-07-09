@@ -1,8 +1,10 @@
-package com.example.competition1.reportActivity;
+package com.example.competition1.report;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.View;
@@ -18,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.competition1.R;
+import com.google.android.material.textfield.TextInputEditText;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -30,6 +33,7 @@ public class SymptomSelectActivity extends AppCompatActivity {
     String selectedSymptom;
     NodeList symptomList;
     ArrayList<LoadedData> datas=new ArrayList<LoadedData>();
+    androidx.gridlayout.widget.GridLayout gridLayout;;
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -46,6 +50,7 @@ public class SymptomSelectActivity extends AppCompatActivity {
 
         }
         //crop 이름으로 검색
+        gridLayout=(androidx.gridlayout.widget.GridLayout) findViewById(R.id.symptomGrid);
         attachButton();
         AppCompatButton selectButton=(AppCompatButton) findViewById(R.id.symptomSaveButton);
         if(symptomList.getLength()==0) {
@@ -66,12 +71,46 @@ public class SymptomSelectActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        TextInputEditText searchText=(TextInputEditText) findViewById(R.id.symptom_search);
+        searchText.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                String text = searchText.getText().toString();
+                search(text);
+            }
+        });
+    }
+
+    private void search(String text){
+        gridLayout.removeAllViews();
+        if (text.length() == 0) {
+            for(int i = 0;i < datas.size(); i++)
+                gridLayout.addView(datas.get(i).linearLayout);
+        }
+        else
+        {
+            // 리스트의 모든 데이터를 검색한다.
+            for(int i = 0;i < datas.size(); i++)
+            {
+                // arraylist의 모든 데이터에 입력받은 단어(charText)가 포함되어 있으면 true를 반환한다.
+                if (datas.get(i).textView.getText().toString().contains(text))
+                {
+                    // 검색된 데이터를 리스트에 추가한다.
+                    gridLayout.addView(datas.get(i).linearLayout);
+                }
+            }
+        }
     }
 
 
-
     private void attachButton(){
-        androidx.gridlayout.widget.GridLayout gridLayout=(androidx.gridlayout.widget.GridLayout) findViewById(R.id.symptomGrid);
         final float scale = gridLayout.getContext().getResources().getDisplayMetrics().density;
         int pixels = (int) (120 * scale + 0.5f);
         DisplayMetrics metrics = getResources().getDisplayMetrics();

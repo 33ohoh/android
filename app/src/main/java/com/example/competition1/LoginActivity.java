@@ -14,7 +14,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.competition1.pestprediction.PestPredictionActivity;
+import com.example.competition1.report.ReportActivity;
 import com.google.android.material.textfield.TextInputEditText;
 
 import org.json.JSONException;
@@ -55,7 +55,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
         switch (view.getId()) {
             case R.id.register_button:
-                Intent registerIntent = new Intent(getApplicationContext(), PestPredictionActivity.class);
+                Intent registerIntent = new Intent(getApplicationContext(), ReportActivity.class);
                 startActivity(registerIntent);
                 break;
 
