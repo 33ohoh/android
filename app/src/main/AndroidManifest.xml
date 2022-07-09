@@ -53,8 +53,9 @@
         <activity android:name=".MyPageActivity"/>
         <activity android:name=".ReportHistoryActivity"/>
         <activity android:name=".pestprediction.PestPredictionActivity"/>`
-        <activity android:name=".pestadvisory.PestAdvisoryActivity"/>
+        <activity android:name=".pestdetails.PestDetailsActivity"/>
         <activity android:name=".MainActivity"/>
+        <activity android:name=".PasswordResetActivity"/>
     </application>
 
 </manifest>
