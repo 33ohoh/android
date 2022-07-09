@@ -1,4 +1,4 @@
-package com.example.competition1.reportActivity;
+package com.example.competition1.informationActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -10,14 +10,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
-import com.example.competition1.API.*;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import com.bumptech.glide.Glide;
+import com.example.competition1.API.PestAPITask;
 import com.example.competition1.R;
+import com.example.competition1.reportActivity.LoadedData;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -25,7 +26,7 @@ import org.w3c.dom.NodeList;
 
 import java.util.ArrayList;
 
-public class SymptomSelectActivity extends AppCompatActivity {
+public class SymptomInformationActivity extends AppCompatActivity {
     String cropName;
     String selectedSymptom;
     NodeList symptomList;
@@ -36,8 +37,6 @@ public class SymptomSelectActivity extends AppCompatActivity {
         setContentView(R.layout.activity_symptom_selection);
         Intent intent=getIntent();
         cropName=intent.getStringExtra("cropName");
-        selectedSymptom=intent.getStringExtra("selectedSymptom");
-        System.out.println(selectedSymptom);
         PestAPITask task=new PestAPITask();
         try{
             symptomList=task.execute(cropName,"symptom").get();
@@ -45,25 +44,43 @@ public class SymptomSelectActivity extends AppCompatActivity {
         catch (Exception e){
 
         }
+        TextView firstText=(TextView) findViewById(R.id.symptom_first_Text);
+        TextView secondText=(TextView) findViewById(R.id.symptom_second_Text);
+        TextView thirdText=(TextView) findViewById(R.id.symptom_third_Text);
+        firstText.setText("질병");
+        thirdText.setText("정보조회 버튼을 눌러주세요");
         //crop 이름으로 검색
         attachButton();
         AppCompatButton selectButton=(AppCompatButton) findViewById(R.id.symptomSaveButton);
+        selectButton.setText("정보조회");
         if(symptomList.getLength()==0) {
             selectButton.setText("뒤로가기");
-            TextView firstText=(TextView) findViewById(R.id.symptom_first_Text);
             firstText.setText(cropName);
-            TextView secondText=(TextView) findViewById(R.id.symptom_second_Text);
             secondText.setText("와(과) 관련된");
-            TextView thirdText=(TextView) findViewById(R.id.symptom_third_Text);
-            thirdText.setText("증상정보가 없습니다.");
+            thirdText.setText("질병정보가 없습니다.");
         }
         selectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent symptomIntent=new Intent();
-                symptomIntent.putExtra("selectedSymptom",selectedSymptom);
-                setResult(RESULT_OK,symptomIntent);
-                finish();
+                if(symptomList.getLength()==0)
+                    finish();
+                else {
+                    if(selectedSymptom.equals("")){
+                        Toast.makeText(getApplicationContext(), "질병을 선택하지 않았습니다.", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        Intent symptomIntent = new Intent(getApplicationContext(), InformationViewActivity.class);
+                        symptomIntent.putExtra("sickKey", selectedSymptom);
+                        for(int i=0;i<symptomList.getLength();i++){
+                            if(getSymptomKey((Element) symptomList.item(i)).equals(selectedSymptom)) {
+                                symptomIntent.putExtra("name",getSymptomName((Element)symptomList.item(i)));
+                                symptomIntent.putExtra("image", getSymptomImage((Element) symptomList.item(i)));
+                            }
+                        }
+                        symptomIntent.putExtra("type",1);
+                        startActivity(symptomIntent);
+                    }
+                }
             }
         });
     }
@@ -83,6 +100,7 @@ public class SymptomSelectActivity extends AppCompatActivity {
             Node node=symptomList.item(i);
             datas.add(i,new LoadedData());
             LoadedData data=datas.get(i);
+            data.key=getSymptomKey((Element) node);
             data.linearLayout=new LinearLayout(this);
             data.linearLayout.setMinimumWidth(widthPixels);
             params.setMargins(0, (int) (10 * scale + 0.5f), 0, (int) (10 * scale + 0.5f));
@@ -98,12 +116,6 @@ public class SymptomSelectActivity extends AppCompatActivity {
             data.imageView.setClipToOutline(true);
             data.imageView.setScaleType(ImageView.ScaleType.FIT_XY);
             data.textView.setText(getSymptomName((Element) node));
-            if(data.textView.getText().toString().equals(selectedSymptom)){
-                data.cardView.setStrokeColor(Color.parseColor("#04CF5C"));
-                data.selected=true;
-            }
-            else
-                data.cardView.setStrokeColor(null);
             data.imageView.setOnClickListener(new imageClickListener(data));
             Glide.with(this).load(getSymptomImage((Element) node)).into(data.imageView);
             data.textView.setGravity(Gravity.CENTER);
@@ -122,6 +134,11 @@ public class SymptomSelectActivity extends AppCompatActivity {
     }
     private String getSymptomImage(Element element){
         NodeList nodeList=element.getElementsByTagName("thumbImg").item(0).getChildNodes();
+        Node node=(Node) nodeList.item(0);
+        return node.getNodeValue();
+    }
+    private String getSymptomKey(Element element){
+        NodeList nodeList=element.getElementsByTagName("sickKey").item(0).getChildNodes();
         Node node=(Node) nodeList.item(0);
         return node.getNodeValue();
     }
@@ -144,7 +161,7 @@ public class SymptomSelectActivity extends AppCompatActivity {
                 }
                 data.selected=true;
                 data.cardView.setStrokeColor(Color.parseColor("#04CF5C"));
-                selectedSymptom=data.textView.getText().toString();
+                selectedSymptom=data.key;
             }
             else {
                 data.selected=false;

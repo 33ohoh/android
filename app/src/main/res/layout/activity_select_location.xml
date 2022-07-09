@@ -34,7 +34,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="5dp"
-                    android:text="농작물"
+                    android:text="임산물"
+                    android:fontFamily="@font/gmarket_sans_ttf_bold"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                     android:textColor="#04CF5C"
                     android:textSize="25dp"
@@ -46,6 +47,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:text="의 위치를 등록해주세요"
+                    android:fontFamily="@font/gmarket_sans_ttf_bold"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                     android:textColor="#000000"
                     android:textSize="25dp"
@@ -60,7 +62,7 @@
             app:layout_rowWeight="1.5">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button19"
+                android:id="@+id/currentLocationButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="현재 위치로 주소찾기"
@@ -72,7 +74,7 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName2"
+                android:id="@+id/locationSearchText"
                 android:layout_width="269dp"
                 android:layout_height="48dp"
                 android:background="@drawable/search_text_style"
@@ -80,9 +82,10 @@
                 android:ems="10"
                 android:hint="주소 검색"
                 android:inputType="textPersonName"
-                android:maxLength="10"
                 android:paddingLeft="10dp"
                 android:paddingRight="15dp"
+                android:editable="false"
+                android:focusable="false"
                 app:layout_constraintBottom_toTopOf="@+id/button19"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -94,6 +97,19 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             app:layout_rowWeight="6">
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".MainActivity">
+
+                <RelativeLayout
+                    android:id="@+id/map_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </RelativeLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -117,7 +133,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="5dp"
-                    android:text="현재 위치"
+                    android:text=""
                     android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                     android:textColor="#111111"
                     android:textSize="25dp"

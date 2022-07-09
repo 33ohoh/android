@@ -1,47 +1,53 @@
-package com.example.competition1.reportActivity;
+package com.example.competition1.informationActivity;
 
-
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.competition1.R;
+import com.example.competition1.reportActivity.CropData;
 
 import java.util.ArrayList;
 
-public class CropSelectActivity extends Activity {
-    String selectedCrop;
+public class CropInformationActivity extends AppCompatActivity {
+    String selectedCrop="";
     ArrayList<CropData> datas =new ArrayList<CropData>();
 
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crop_selection);
-
-        Intent intent=getIntent();
-        selectedCrop =intent.getStringExtra("cropName");
+        AppCompatButton selectButton=(AppCompatButton) findViewById(R.id.cropSaveButton);
+        selectButton.setText("병충해 조회");
+        TextView thirdText=(TextView) findViewById(R.id.third_Text);
+        SpannableString text=new SpannableString("병충해 조회 버튼을 눌러주세요.");
+        text.setSpan(new ForegroundColorSpan(Color.parseColor("#04CF5C")),0,3, Spanned.SPAN_INTERMEDIATE);
+        thirdText.setText(text);
         loadViews();
         for(int i=0;i<20;i++){
-            if(datas.get(i).textView.getText().toString().equals(selectedCrop)) {
-                datas.get(i).selected=true;
-                datas.get(i).button.setStrokeColor(Color.parseColor("#04CF5C"));
-            }
-            datas.get(i).button.setOnClickListener(new cropClickListener(datas.get(i)));
+            datas.get(i).button.setOnClickListener(new cropInformationListener(datas.get(i)));
         }
 
         AppCompatButton saveButton=(AppCompatButton) findViewById(R.id.cropSaveButton);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent cropIntent=new Intent();
-                cropIntent.putExtra("cropName",selectedCrop);
-                setResult(RESULT_OK,cropIntent);
-                finish();
+                if(selectedCrop.equals(""))
+                    Toast.makeText(getApplicationContext(), "임산물이 선택되지 않았습니다.", Toast.LENGTH_SHORT).show();
+                else {
+                    Intent intent = new Intent(getApplicationContext(), SectorSelectionActivity.class);
+                    intent.putExtra("cropName", selectedCrop);
+                    startActivity(intent);
+                }
             }
         });
 
@@ -92,10 +98,10 @@ public class CropSelectActivity extends Activity {
         datas.get(19).textView=(TextView) findViewById(R.id.text20);
     }
 
-    public class cropClickListener implements View.OnClickListener {
+    public class cropInformationListener implements View.OnClickListener {
         CropData data;
 
-        public cropClickListener(CropData data) {
+        public cropInformationListener(CropData data) {
             this.data=data;
         }
 
