@@ -35,7 +35,7 @@ public class FragmentMypage extends Fragment {
         Button withdrawal = view.findViewById(R.id.withdrawal);
         TextView loginedId = view.findViewById(R.id.mypage_logined_id);
 
-        loginedId.setText( ((LoginedId) getActivity().getApplication()).getId() + " 님" ); // 로그인된 id 설정
+        loginedId.setText(  ((LoginedId) getActivity().getApplication()).getId() + " 님");  // 로그인된 아이디 표시;
 
         reportHistory.setOnClickListener(new View.OnClickListener() {
             @Override
