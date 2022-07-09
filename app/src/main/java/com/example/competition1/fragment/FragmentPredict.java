@@ -97,7 +97,7 @@ public class FragmentPredict extends Fragment {
 
 
                 RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
-                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url + "/monthly_pests/month", requestJsonObject, new Response.Listener<JSONObject>() {
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url + "/monthlypests/month", requestJsonObject, new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
