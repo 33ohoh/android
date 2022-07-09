@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.competition1.R;
@@ -17,7 +16,7 @@ import java.util.ArrayList;
 
 public class CropSelectActivity extends Activity {
     String selectedCrop;
-    ArrayList<cropData> datas =new ArrayList<cropData>();
+    ArrayList<CropData> datas =new ArrayList<CropData>();
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -50,7 +49,7 @@ public class CropSelectActivity extends Activity {
 
     private void loadViews(){
         for(int i=0;i<20;i++)
-            datas.add(new cropData());
+            datas.add(new CropData());
         datas.get(0).button=(com.google.android.material.card.MaterialCardView) findViewById(R.id.button1);
         datas.get(0).textView=(TextView) findViewById(R.id.text1);
         datas.get(1).button=(com.google.android.material.card.MaterialCardView) findViewById(R.id.button2);
@@ -94,9 +93,9 @@ public class CropSelectActivity extends Activity {
     }
 
     public class cropClickListener implements View.OnClickListener {
-        cropData data;
+        CropData data;
 
-        public cropClickListener(cropData data) {
+        public cropClickListener(CropData data) {
             this.data=data;
         }
 

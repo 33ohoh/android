@@ -71,7 +71,7 @@ public class LocationSelectActivity extends AppCompatActivity implements MapView
 
         Intent intent=getIntent();
         longitude=intent.getDoubleExtra("longitude",127.075032);
-        latitude=intent.getDoubleExtra("latitude",39.5495538);
+        latitude=intent.getDoubleExtra("latitude",37.5495538);
         String loadAddress=intent.getStringExtra("loadAddress");
         String detailAddress=intent.getStringExtra("detailAddress");
         MARKER_POINT=MapPoint.mapPointWithGeoCoord(latitude, longitude);
@@ -124,15 +124,15 @@ public class LocationSelectActivity extends AppCompatActivity implements MapView
                 }
             }
         });
-        if (!checkLocationServicesStatus()) {
-            showDialogForLocationServiceSetting();
-        }else {
-            checkRunTimePermission();
-        }
         AppCompatButton currentLocationButton=(AppCompatButton) findViewById(R.id.currentLocationButton);
         currentLocationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (!checkLocationServicesStatus()) {
+                    showDialogForLocationServiceSetting();
+                }else {
+                    checkRunTimePermission();
+                }
                 gpsTracker = new com.tistory.webnautes.get_gps_location.GpsTracker(getApplicationContext());
 
                 latitude = gpsTracker.getLatitude();
@@ -143,7 +143,6 @@ public class LocationSelectActivity extends AppCompatActivity implements MapView
                 mapView.setMapCenterPoint(MapPoint.mapPointWithGeoCoord(latitude, longitude), true);
                 MARKER_POINT=mapView.getMapCenterPoint();
                 marker.setMapPoint(MARKER_POINT);
-                Toast.makeText(getApplicationContext(), "현재위치 \n위도 " + latitude + "\n경도 " + longitude, Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -530,10 +529,10 @@ public class LocationSelectActivity extends AppCompatActivity implements MapView
     //여기부터는 GPS 활성화를 위한 메소드들
     private void showDialogForLocationServiceSetting() {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
-        builder.setTitle("위치 서비스 비활성화");
-        builder.setMessage("앱을 사용하기 위해서는 위치 서비스가 필요합니다.\n"
-                + "위치 설정을 수정하실래요?");
+        AlertDialog.Builder builder = new AlertDialog.Builder(LocationSelectActivity.this);
+        builder.setTitle("위치 접근 권한");
+        builder.setMessage("현재 위치를 찾기 위해서는 위치 서비스가 필요합니다.\n"
+                + "위치 권한 설정을 수정해주세요.");
         builder.setCancelable(true);
         builder.setPositiveButton("설정", new DialogInterface.OnClickListener() {
             @Override

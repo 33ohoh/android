@@ -5,87 +5,128 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="216dp"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="183dp"
-                android:layout_height="match_parent"
-                tools:srcCompat="@drawable/apple" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="282dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/detailCardView"
+                    android:layout_width="205dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginRight="10dp"
+                    app:cardCornerRadius="50dp"
+                    app:strokeWidth="5dp"
+                    app:strokeColor="@color/FarmGreen"
+                    >
+
+                    <ImageView
+                        android:id="@+id/detailImage"
+                        android:layout_width="205dp"
+                        android:layout_height="match_parent"
+                        tools:srcCompat="@drawable/apple" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp">
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/detailNameText"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:textSize="20dp"
+                        android:fontFamily="@font/gmarket_sans_ttf_bold"
+                        android:text="병명"
+                        android:textColor="@color/FarmGreen"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/detailNameEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:text="Name" />
+
+                    <TextView
+                        android:id="@+id/characterText"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:textSize="20dp"
+                        android:fontFamily="@font/gmarket_sans_ttf_bold"
+                        android:text="특징"
+                        android:textColor="@color/FarmGreen"
+                        android:textStyle="bold" />
+
+                    <MultiAutoCompleteTextView
+                        android:id="@+id/characterTextEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="MultiAutoCompleteTextView" />
+
+                </LinearLayout>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="16dp">
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
                 <TextView
-                    android:id="@+id/textView16"
+                    android:id="@+id/damageText"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="38dp"
+                    android:fontFamily="@font/gmarket_sans_ttf_bold"
+                    android:text="치료방법"
+                    android:textSize="20dp"
                     android:textColor="@color/FarmGreen"
-                    android:textStyle="bold"
-                    android:text="병명" />
-
-                <EditText
-                    android:id="@+id/editTextTextPersonName4"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="Name" />
-
-                <TextView
-                    android:id="@+id/textView17"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/FarmGreen"
-                    android:textStyle="bold"
-                    android:text="특징" />
+                    android:textStyle="bold" />
 
                 <MultiAutoCompleteTextView
-                    android:id="@+id/multiAutoCompleteTextView"
+                    android:id="@+id/damageEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="MultiAutoCompleteTextView" />
+                    android:text="dsagbsdjkgjkasdgkjasndgkjnadsjkngjksadngjknasdkjgnasdkjngkjasdngkjnasdkjgnakjsdngkja" />
+
+                <TextView
+                    android:id="@+id/preventText"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:fontFamily="@font/gmarket_sans_ttf_bold"
+                    android:text="방제방법"
+                    android:textSize="20dp"
+                    android:textColor="@color/FarmGreen"
+                    android:textStyle="bold" />
+
+                <MultiAutoCompleteTextView
+                    android:id="@+id/preventEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="dsagbsdjkgjkasdgkjasndgkjnadsjkngjksadngjknasdkjgnasdkjngkjasdngkjnasdkjgnakjsdngkja" />
 
             </LinearLayout>
-
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textView18"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textColor="@color/FarmGreen"
-                android:text="치료방법" />
-
-            <MultiAutoCompleteTextView
-                android:id="@+id/multiAutoCompleteTextView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="dsagbsdjkgjkasdgkjasndgkjnadsjkngjksadngjknasdkjgnasdkjngkjasdngkjnasdkjgnakjsdngkja" />
-
-        </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

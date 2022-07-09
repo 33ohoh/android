@@ -49,11 +49,11 @@
         <activity android:name=".FindingIdActivity"/>
         <activity android:name=".FindingPwActivity"/>
         <activity android:name=".kakaoMap.AddressApiActivity"/>
-        <activity android:name=".informationActivity.cropInformationActivity"/>
-        <activity android:name=".informationActivity.sectorSelectionActivity"/>
-        <activity android:name=".informationActivity.pestInformationActivity"/>
-        <activity android:name=".informationActivity.symptomInformationActivity"/>
-        <activity android:name=".informationActivity.informationViewActivity"/>
+        <activity android:name=".informationActivity.CropInformationActivity"/>
+        <activity android:name=".informationActivity.SectorSelectionActivity"/>
+        <activity android:name=".informationActivity.PestInformationActivity"/>
+        <activity android:name=".informationActivity.SymptomInformationActivity"/>
+        <activity android:name=".informationActivity.InformationViewActivity"/>
     </application>
 
 </manifest>

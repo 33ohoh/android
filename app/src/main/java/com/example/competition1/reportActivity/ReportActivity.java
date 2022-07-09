@@ -17,7 +17,7 @@ import com.example.competition1.R;
 
 public class ReportActivity extends AppCompatActivity {
     ImageView selectedImage;
-    double latitude=39.5495538;
+    double latitude=37.5495538;
     double longitude=127.075032;
     String loadAdress="";
     String detailAddress="";
@@ -114,7 +114,7 @@ public class ReportActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"위치정보와 임산물 정보는 필수입니다.",Toast.LENGTH_LONG).show();
                 }
                 else{
-
+                    
                     finish();
                 }
             }

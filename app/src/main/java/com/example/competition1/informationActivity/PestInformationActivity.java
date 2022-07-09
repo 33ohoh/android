@@ -16,10 +16,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.bumptech.glide.Glide;
-import com.example.competition1.API.pestAPITask;
+import com.example.competition1.API.PestAPITask;
 import com.example.competition1.R;
-import com.example.competition1.reportActivity.PestSelectActivity;
-import com.example.competition1.reportActivity.loadedData;
+import com.example.competition1.reportActivity.LoadedData;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -27,18 +26,18 @@ import org.w3c.dom.NodeList;
 
 import java.util.ArrayList;
 
-public class pestInformationActivity extends AppCompatActivity {
+public class PestInformationActivity extends AppCompatActivity {
     String cropName;
     String selectedPest;
     NodeList pestList;
-    ArrayList<loadedData> datas=new ArrayList<loadedData>();
+    ArrayList<LoadedData> datas=new ArrayList<LoadedData>();
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pest_selection);
         Intent intent=getIntent();
         cropName=intent.getStringExtra("cropName");
-        pestAPITask task=new pestAPITask();
+        PestAPITask task=new PestAPITask();
         try{
             pestList=task.execute(cropName,"pest").get();
         }
@@ -70,8 +69,15 @@ public class pestInformationActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "해충을 선택하지 않았습니다.", Toast.LENGTH_SHORT).show();
                     }
                     else {
-                        Intent pestIntent = new Intent(getApplicationContext(),informationViewActivity.class);
-                        pestIntent.putExtra("selectedPest", selectedPest);
+                        Intent pestIntent = new Intent(getApplicationContext(), InformationViewActivity.class);
+                        pestIntent.putExtra("insectKey", selectedPest);
+                        for(int i=0;i<pestList.getLength();i++){
+                            if(getPestKey((Element) pestList.item(i)).equals(selectedPest)) {
+                                pestIntent.putExtra("name", getPestName((Element) pestList.item(i)));
+                                pestIntent.putExtra("image", getPestImage((Element) pestList.item(i)));
+                            }
+                        }
+                        pestIntent.putExtra("type", 2);
                         startActivity(pestIntent);
                     }
                 }
@@ -89,8 +95,8 @@ public class pestInformationActivity extends AppCompatActivity {
         ViewGroup.LayoutParams textParams=new ViewGroup.LayoutParams(widthPixels,(int) (20 * scale + 0.5f));
         for(int i=0;i<pestList.getLength();i++) {
             Node node=pestList.item(i);
-            datas.add(i,new loadedData());
-            loadedData data=datas.get(i);
+            datas.add(i,new LoadedData());
+            LoadedData data=datas.get(i);
             data.key=getPestKey((Element) node);
             data.linearLayout=new LinearLayout(this);
             data.linearLayout.setMinimumWidth(widthPixels);
@@ -134,9 +140,9 @@ public class pestInformationActivity extends AppCompatActivity {
         return node.getNodeValue();
     }
     public class imageClickListener implements View.OnClickListener {
-        loadedData data;
+        LoadedData data;
 
-        public imageClickListener(loadedData data) {
+        public imageClickListener(LoadedData data) {
             this.data=data;
         }
 

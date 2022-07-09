@@ -2,7 +2,6 @@ package com.example.competition1.reportActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
@@ -14,10 +13,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
-import androidx.gridlayout.widget.GridLayout;
 
 import com.bumptech.glide.Glide;
-import com.example.competition1.API.pestAPITask;
+import com.example.competition1.API.PestAPITask;
 import com.example.competition1.R;
 
 import org.w3c.dom.Element;
@@ -30,7 +28,7 @@ public class PestSelectActivity extends AppCompatActivity {
     String cropName;
     String selectedPest;
     NodeList pestList;
-    ArrayList<loadedData> datas=new ArrayList<loadedData>();
+    ArrayList<LoadedData> datas=new ArrayList<LoadedData>();
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -38,8 +36,7 @@ public class PestSelectActivity extends AppCompatActivity {
         Intent intent=getIntent();
         cropName=intent.getStringExtra("cropName");
         selectedPest=intent.getStringExtra("selectedPest");
-        System.out.println(selectedPest);
-        pestAPITask task=new pestAPITask();
+        PestAPITask task=new PestAPITask();
         try{
             pestList=task.execute(cropName,"pest").get();
         }
@@ -56,7 +53,7 @@ public class PestSelectActivity extends AppCompatActivity {
             TextView secondText=(TextView) findViewById(R.id.pest_second_Text);
             secondText.setText("와(과) 관련된");
             TextView thirdText=(TextView) findViewById(R.id.pest_third_Text);
-            thirdText.setText("해충정보가 없습니다.");
+            thirdText.setText("해충정보가 없습니다,.");
         }
         selectButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,8 +84,8 @@ public class PestSelectActivity extends AppCompatActivity {
         ViewGroup.LayoutParams textParams=new ViewGroup.LayoutParams(widthPixels,(int) (20 * scale + 0.5f));
         for(int i=0;i<pestList.getLength();i++) {
             Node node=pestList.item(i);
-            datas.add(i,new loadedData());
-            loadedData data=datas.get(i);
+            datas.add(i,new LoadedData());
+            LoadedData data=datas.get(i);
             data.linearLayout=new LinearLayout(this);
             data.linearLayout.setMinimumWidth(widthPixels);
             params.setMargins(0, (int) (10 * scale + 0.5f), 0, (int) (10 * scale + 0.5f));
@@ -133,9 +130,9 @@ public class PestSelectActivity extends AppCompatActivity {
     }
 
     public class imageClickListener implements View.OnClickListener {
-        loadedData data;
+        LoadedData data;
 
-        public imageClickListener(loadedData data) {
+        public imageClickListener(LoadedData data) {
             this.data=data;
         }
 

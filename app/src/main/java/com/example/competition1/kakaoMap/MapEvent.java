@@ -3,7 +3,7 @@ package com.example.competition1.kakaoMap;
 import net.daum.mf.map.api.MapPoint;
 import net.daum.mf.map.api.MapView;
 
-public class mapEvent implements MapView.MapViewEventListener {
+public class MapEvent implements MapView.MapViewEventListener {
     @Override
     public void onMapViewInitialized(MapView mapView) {
 

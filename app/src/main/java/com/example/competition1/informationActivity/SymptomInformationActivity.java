@@ -16,10 +16,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.bumptech.glide.Glide;
-import com.example.competition1.API.pestAPITask;
+import com.example.competition1.API.PestAPITask;
 import com.example.competition1.R;
-import com.example.competition1.reportActivity.SymptomSelectActivity;
-import com.example.competition1.reportActivity.loadedData;
+import com.example.competition1.reportActivity.LoadedData;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -27,18 +26,18 @@ import org.w3c.dom.NodeList;
 
 import java.util.ArrayList;
 
-public class symptomInformationActivity extends AppCompatActivity {
+public class SymptomInformationActivity extends AppCompatActivity {
     String cropName;
     String selectedSymptom;
     NodeList symptomList;
-    ArrayList<loadedData> datas=new ArrayList<loadedData>();
+    ArrayList<LoadedData> datas=new ArrayList<LoadedData>();
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_symptom_selection);
         Intent intent=getIntent();
         cropName=intent.getStringExtra("cropName");
-        pestAPITask task=new pestAPITask();
+        PestAPITask task=new PestAPITask();
         try{
             symptomList=task.execute(cropName,"symptom").get();
         }
@@ -70,8 +69,15 @@ public class symptomInformationActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "질병을 선택하지 않았습니다.", Toast.LENGTH_SHORT).show();
                     }
                     else {
-                        Intent symptomIntent = new Intent(getApplicationContext(),informationViewActivity.class);
-                        symptomIntent.putExtra("selectedSymptom", selectedSymptom);
+                        Intent symptomIntent = new Intent(getApplicationContext(), InformationViewActivity.class);
+                        symptomIntent.putExtra("sickKey", selectedSymptom);
+                        for(int i=0;i<symptomList.getLength();i++){
+                            if(getSymptomKey((Element) symptomList.item(i)).equals(selectedSymptom)) {
+                                symptomIntent.putExtra("name",getSymptomName((Element)symptomList.item(i)));
+                                symptomIntent.putExtra("image", getSymptomImage((Element) symptomList.item(i)));
+                            }
+                        }
+                        symptomIntent.putExtra("type",1);
                         startActivity(symptomIntent);
                     }
                 }
@@ -92,8 +98,8 @@ public class symptomInformationActivity extends AppCompatActivity {
         ViewGroup.LayoutParams textParams=new ViewGroup.LayoutParams(widthPixels,(int) (20 * scale + 0.5f));
         for(int i=0;i<symptomList.getLength();i++) {
             Node node=symptomList.item(i);
-            datas.add(i,new loadedData());
-            loadedData data=datas.get(i);
+            datas.add(i,new LoadedData());
+            LoadedData data=datas.get(i);
             data.key=getSymptomKey((Element) node);
             data.linearLayout=new LinearLayout(this);
             data.linearLayout.setMinimumWidth(widthPixels);
@@ -138,9 +144,9 @@ public class symptomInformationActivity extends AppCompatActivity {
     }
 
     public class imageClickListener implements View.OnClickListener {
-        loadedData data;
+        LoadedData data;
 
-        public imageClickListener(loadedData data) {
+        public imageClickListener(LoadedData data) {
             this.data=data;
         }
 

@@ -9,7 +9,7 @@ import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.competition1.R;
 
-public class sectorSelectionActivity extends AppCompatActivity {
+public class SectorSelectionActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +20,7 @@ public class sectorSelectionActivity extends AppCompatActivity {
         symptomButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(),symptomInformationActivity.class);
+                Intent intent=new Intent(getApplicationContext(), SymptomInformationActivity.class);
                 intent.putExtra("cropName",selectedCrop);
                 startActivity(intent);
             }
@@ -28,7 +28,7 @@ public class sectorSelectionActivity extends AppCompatActivity {
         pestButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(),pestInformationActivity.class);
+                Intent intent=new Intent(getApplicationContext(), PestInformationActivity.class);
                 intent.putExtra("cropName",selectedCrop);
                 startActivity(intent);
             }

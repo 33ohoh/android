@@ -4,7 +4,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class loadedData {
+public class LoadedData {
     public LinearLayout linearLayout;
     public ImageView imageView;
     public TextView textView;

@@ -2,7 +2,6 @@ package com.example.competition1.reportActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
@@ -17,7 +16,6 @@ import com.example.competition1.API.*;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
-import androidx.cardview.widget.CardView;
 
 import com.example.competition1.R;
 
@@ -31,7 +29,7 @@ public class SymptomSelectActivity extends AppCompatActivity {
     String cropName;
     String selectedSymptom;
     NodeList symptomList;
-    ArrayList<loadedData> datas=new ArrayList<loadedData>();
+    ArrayList<LoadedData> datas=new ArrayList<LoadedData>();
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -40,7 +38,7 @@ public class SymptomSelectActivity extends AppCompatActivity {
         cropName=intent.getStringExtra("cropName");
         selectedSymptom=intent.getStringExtra("selectedSymptom");
         System.out.println(selectedSymptom);
-        pestAPITask task=new pestAPITask();
+        PestAPITask task=new PestAPITask();
         try{
             symptomList=task.execute(cropName,"symptom").get();
         }
@@ -83,8 +81,8 @@ public class SymptomSelectActivity extends AppCompatActivity {
         ViewGroup.LayoutParams textParams=new ViewGroup.LayoutParams(widthPixels,(int) (20 * scale + 0.5f));
         for(int i=0;i<symptomList.getLength();i++) {
             Node node=symptomList.item(i);
-            datas.add(i,new loadedData());
-            loadedData data=datas.get(i);
+            datas.add(i,new LoadedData());
+            LoadedData data=datas.get(i);
             data.linearLayout=new LinearLayout(this);
             data.linearLayout.setMinimumWidth(widthPixels);
             params.setMargins(0, (int) (10 * scale + 0.5f), 0, (int) (10 * scale + 0.5f));
@@ -129,9 +127,9 @@ public class SymptomSelectActivity extends AppCompatActivity {
     }
 
     public class imageClickListener implements View.OnClickListener {
-        loadedData data;
+        LoadedData data;
 
-        public imageClickListener(loadedData data) {
+        public imageClickListener(LoadedData data) {
             this.data=data;
         }
 

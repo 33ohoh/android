@@ -14,13 +14,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.competition1.R;
-import com.example.competition1.reportActivity.cropData;
+import com.example.competition1.reportActivity.CropData;
 
 import java.util.ArrayList;
 
-public class cropInformationActivity extends AppCompatActivity {
+public class CropInformationActivity extends AppCompatActivity {
     String selectedCrop="";
-    ArrayList<cropData> datas =new ArrayList<cropData>();
+    ArrayList<CropData> datas =new ArrayList<CropData>();
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -44,7 +44,7 @@ public class cropInformationActivity extends AppCompatActivity {
                 if(selectedCrop.equals(""))
                     Toast.makeText(getApplicationContext(), "임산물이 선택되지 않았습니다.", Toast.LENGTH_SHORT).show();
                 else {
-                    Intent intent = new Intent(getApplicationContext(),sectorSelectionActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), SectorSelectionActivity.class);
                     intent.putExtra("cropName", selectedCrop);
                     startActivity(intent);
                 }
@@ -55,7 +55,7 @@ public class cropInformationActivity extends AppCompatActivity {
 
     private void loadViews(){
         for(int i=0;i<20;i++)
-            datas.add(new cropData());
+            datas.add(new CropData());
         datas.get(0).button=(com.google.android.material.card.MaterialCardView) findViewById(R.id.button1);
         datas.get(0).textView=(TextView) findViewById(R.id.text1);
         datas.get(1).button=(com.google.android.material.card.MaterialCardView) findViewById(R.id.button2);
@@ -99,9 +99,9 @@ public class cropInformationActivity extends AppCompatActivity {
     }
 
     public class cropInformationListener implements View.OnClickListener {
-        cropData data;
+        CropData data;
 
-        public cropInformationListener(cropData data) {
+        public cropInformationListener(CropData data) {
             this.data=data;
         }
 
