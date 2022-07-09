@@ -48,6 +48,7 @@ public class PestDetailsActivity extends AppCompatActivity {
         imageUrl = pestDetails.getImage();
 
         Glide.with(this).load(imageUrl).into(imageView);
+        //Glide.with(this).load(imageUrl).error(R.drawable.ic_apple).into(imageView);
 
         /*Thread mThread = new Thread() {
             @Override
