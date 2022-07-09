@@ -46,18 +46,23 @@ public class MainActivity extends AppCompatActivity {
             switch(menuItem.getItemId())
             {
                 case R.id.tab_current:
+                    fragmentCurrent = new FragmentCurrent();
                     transaction.replace(R.id.frameLayout, fragmentCurrent).commitAllowingStateLoss();
                     break;
                 case R.id.tab_declaration:
+                    fragmentDeclaration = new FragmentDeclaration();
                     transaction.replace(R.id.frameLayout, fragmentDeclaration).commitAllowingStateLoss();
                     break;
                 case R.id.tab_information:
+                    fragmentInformation = new FragmentInformation();
                     transaction.replace(R.id.frameLayout, fragmentInformation).commitAllowingStateLoss();
                     break;
                 case R.id.tab_mypage:
+                    fragmentMypage = new FragmentMypage();
                     transaction.replace(R.id.frameLayout, fragmentMypage).commitAllowingStateLoss();
                     break;
                 case R.id.predict_menu:
+                    fragmentPredict = new FragmentPredict();
                     transaction.replace(R.id.frameLayout, fragmentPredict).commitAllowingStateLoss();
                     break;
             }

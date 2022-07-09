@@ -28,7 +28,7 @@ public class CropSelectActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_crop_selection);
+        setContentView(R.layout.fragment_information);
 
         Intent intent=getIntent();
         selectedCrop =intent.getStringExtra("cropName");

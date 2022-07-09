@@ -16,10 +16,12 @@ import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.example.competition1.R;
-import com.example.competition1.reportActivity.CropSelectActivity;
-import com.example.competition1.reportActivity.LocationSelectActivity;
-import com.example.competition1.reportActivity.PestSelectActivity;
-import com.example.competition1.reportActivity.SymptomSelectActivity;
+import com.example.competition1.report.CropSelectActivity;
+import com.example.competition1.report.LocationSelectActivity;
+import com.example.competition1.report.PestSelectActivity;
+import com.example.competition1.report.SymptomSelectActivity;
+import com.example.competition1.report.CropSelectActivity;
+import com.example.competition1.report.LocationSelectActivity;
 
 
 public class FragmentDeclaration extends Fragment {
@@ -61,6 +63,7 @@ public class FragmentDeclaration extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity().getApplicationContext(), LocationSelectActivity.class);
+
                 //intent.putExtra("key","12345".toString());
                 intent.putExtra("loadAddress", loadAddress);
                 intent.putExtra("detailAddress", detailAddress);
