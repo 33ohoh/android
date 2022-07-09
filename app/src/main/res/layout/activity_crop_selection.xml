@@ -66,7 +66,30 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="68dp"/>
+                android:layout_height="68dp">
+                <com.google.android.material.textfield.TextInputLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="검색어를 입력해주세요"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    app:boxBackgroundColor="@color/white"
+                    app:endIconMode="clear_text"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/crop_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.gridlayout.widget.GridLayout
                 android:id="@+id/cropGrid"
@@ -76,6 +99,7 @@
                 app:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/layout1"
                     android:layout_width="wrap_content"
                     android:layout_height="120dp"
                     android:layout_margin="10dp"
@@ -107,6 +131,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layout2"
                     android:layout_width="wrap_content"
                     android:layout_height="120dp"
                     android:layout_margin="10dp"
@@ -140,6 +165,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layout3"
                     android:layout_width="wrap_content"
                     android:layout_height="120dp"
                     android:layout_margin="10dp"
@@ -173,6 +199,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layout4"
                     android:layout_width="wrap_content"
                     android:layout_height="120dp"
                     android:layout_margin="10dp"
@@ -203,6 +230,7 @@
 
                 </LinearLayout>
                 <LinearLayout
+                    android:id="@+id/layout5"
                     android:layout_width="wrap_content"
                     android:layout_height="120dp"
                     android:layout_margin="10dp"
@@ -233,6 +261,7 @@
 
                 </LinearLayout>
                 <LinearLayout
+                    android:id="@+id/layout6"
                     android:layout_width="wrap_content"
                     android:layout_height="120dp"
                     android:layout_margin="10dp"
@@ -263,6 +292,7 @@
 
                 </LinearLayout>
                 <LinearLayout
+                    android:id="@+id/layout7"
                     android:layout_width="wrap_content"
                     android:layout_height="120dp"
                     android:layout_margin="10dp"
@@ -293,6 +323,7 @@
 
                 </LinearLayout>
                 <LinearLayout
+                    android:id="@+id/layout8"
                     android:layout_width="wrap_content"
                     android:layout_height="120dp"
                     android:layout_margin="10dp"
@@ -323,6 +354,7 @@
 
                 </LinearLayout>
                 <LinearLayout
+                    android:id="@+id/layout9"
                     android:layout_width="wrap_content"
                     android:layout_height="120dp"
                     android:layout_margin="10dp"
@@ -353,6 +385,7 @@
 
                 </LinearLayout>
                 <LinearLayout
+                    android:id="@+id/layout10"
                     android:layout_width="wrap_content"
                     android:layout_height="120dp"
                     android:layout_margin="10dp"
@@ -383,6 +416,7 @@
 
                 </LinearLayout>
                 <LinearLayout
+                    android:id="@+id/layout11"
                     android:layout_width="wrap_content"
                     android:layout_height="120dp"
                     android:layout_margin="10dp"
@@ -414,6 +448,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layout12"
                     android:layout_width="wrap_content"
                     android:layout_height="120dp"
                     android:layout_margin="10dp"
@@ -444,6 +479,7 @@
 
                 </LinearLayout>
                 <LinearLayout
+                    android:id="@+id/layout13"
                     android:layout_width="wrap_content"
                     android:layout_height="120dp"
                     android:layout_margin="10dp"
@@ -474,6 +510,7 @@
 
                 </LinearLayout>
                 <LinearLayout
+                    android:id="@+id/layout14"
                     android:layout_width="wrap_content"
                     android:layout_height="120dp"
                     android:layout_margin="10dp"
@@ -505,6 +542,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layout15"
                     android:layout_width="wrap_content"
                     android:layout_height="120dp"
                     android:layout_margin="10dp"
@@ -535,6 +573,7 @@
 
                 </LinearLayout>
                 <LinearLayout
+                    android:id="@+id/layout16"
                     android:layout_width="wrap_content"
                     android:layout_height="120dp"
                     android:layout_margin="10dp"
@@ -565,6 +604,7 @@
 
                 </LinearLayout>
                 <LinearLayout
+                    android:id="@+id/layout17"
                     android:layout_width="wrap_content"
                     android:layout_height="120dp"
                     android:layout_margin="10dp"
@@ -596,6 +636,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layout18"
                     android:layout_width="wrap_content"
                     android:layout_height="120dp"
                     android:layout_margin="10dp"
@@ -628,6 +669,7 @@
 
                 </LinearLayout>
                 <LinearLayout
+                    android:id="@+id/layout19"
                     android:layout_width="wrap_content"
                     android:layout_height="120dp"
                     android:layout_margin="10dp"
@@ -659,6 +701,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layout20"
                     android:layout_width="wrap_content"
                     android:layout_height="120dp"
                     android:layout_margin="10dp"
@@ -689,6 +732,51 @@
                         android:textColor="@color/black"
                         android:text="호두" />
 
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/emptylayout1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="120dp"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical"
+                    app:layout_columnWeight="1">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:background="@drawable/empty"
+                        android:scaleType="fitXY"
+                        android:clipToOutline="true"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:text="" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/emptylayout2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="120dp"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical"
+                    app:layout_columnWeight="1">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:background="@drawable/empty"
+                        android:scaleType="fitXY"
+                        android:clipToOutline="true"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:text="" />
                 </LinearLayout>
 
             </androidx.gridlayout.widget.GridLayout>
