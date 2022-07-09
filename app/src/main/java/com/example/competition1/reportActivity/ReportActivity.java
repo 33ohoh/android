@@ -35,7 +35,7 @@ public class ReportActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_report);
+        //setContentView(R.layout.activity_report);
 
         EditText editText=(EditText) findViewById(R.id.detailText);
         selectedImage=(ImageView)findViewById(R.id.selectedImage);
