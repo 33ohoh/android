@@ -27,9 +27,9 @@
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_password.xml" value="0.25384615384615383" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_password_reset.xml" value="0.33" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_pest_advisory.xml" value="0.21145833333333333" />
+        <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_pest_details.xml" value="0.30052083333333335" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_pest_prediction.xml" value="0.1" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_pest_selection.xml" value="0.16875" />
-
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_register.xml" value="0.22" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_report.xml" value="0.15729483282674772" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_report_history.xml" value="0.22" />
@@ -49,12 +49,10 @@
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/xml/network_security_config.xml" value="0.31197916666666664" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/drawable/backbutton.xml" value="0.259" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/drawable/background_gradient.xml" value="0.259" />
-        <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/drawable/bg_border.xml" value="0.128" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/drawable/bg_button.xml" value="0.2555" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/drawable/bg_circle_shape.xml" value="0.259" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/drawable/bg_crop_name.xml" value="0.258" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/drawable/bg_green_circle.xml" value="0.1" />
-        <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/drawable/bg_pest_information.xml" value="0.258" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/drawable/bg_rectangle_border.xml" value="0.2225" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/drawable/bg_red_circle.xml" value="0.106" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/drawable/bg_selected_crop_name.xml" value="0.1595" />
@@ -75,12 +73,11 @@
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/activity_item_list.xml" value="0.20689655172413793" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/activity_login.xml" value="0.2033514492753623" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/activity_my_page.xml" value="0.264" />
+        <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/activity_my_page.xml" value="0.4" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/activity_password_reset.xml" value="0.264" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/activity_pest_damage_report_history.xml" value="0.2" />
-        <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/activity_pest_details.xml" value="0.264" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/activity_pest_forecast.xml" value="0.4" />
-        <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/activity_pest_prediction.xml" value="0.3907766990291262" />
+        <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/activity_pest_prediction.xml" value="0.20145631067961164" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/activity_pest_selection.xml" value="0.20833333333333334" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/activity_register.xml" value="0.20260416666666667" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/activity_report.xml" value="0.264" />
@@ -92,14 +89,12 @@
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/custom_dropdown_item.xml" value="0.12335359675785208" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/custom_simple_dropdown_item_1line.xml" value="0.1" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/dropdown_item.xml" value="0.1" />
-        <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/fragment_mypage.xml" value="0.20108695652173914" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/item.xml" value="0.4" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/item_crop_type_and_pest.xml" value="0.536" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/item_pest_control_period.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/item_pest_forecast.xml" value="0.4" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/item_pest_information.xml" value="0.1" />
-        <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/item_pest_information_list.xml" value="0.12562814070351758" />
-        <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/item_report_history.xml" value="0.17300724637681159" />
+        <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/item_pest_information_list.xml" value="0.18453865336658354" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/layout_pest_forecast.xml" value="0.2526041666666667" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/pest_information_item.xml" value="0.4" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/pest_information_list.xml" value="0.23487544483985764" />
