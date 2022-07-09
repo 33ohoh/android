@@ -77,16 +77,6 @@
             android:background="#f0f0f0" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/terms_of_service"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="10dp"
-            android:text="이용 약관 및 개인정보 처리 동의"
-            android:textAlignment="viewStart"
-            android:stateListAnimator="@null"
-            android:backgroundTint="@color/white"/>
-
-        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/logout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
