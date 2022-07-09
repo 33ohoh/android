@@ -54,6 +54,7 @@
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/drawable/ic_location.xml" value="0.1285" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/activity_crop_selection.xml" value="0.264" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/activity_current_situation.xml" value="0.264" />
+        <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/activity_current_situation_list.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/activity_currentsituation.xml" value="0.22327898550724637" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/activity_finding.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/activity_finding_pw.xml" value="0.22239583333333332" />
@@ -64,6 +65,7 @@
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/activity_my_page.xml" value="0.4" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/activity_password_reset.xml" value="0.264" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/activity_pest_damage_report_history.xml" value="0.2" />
+        <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/activity_pest_details.xml" value="0.16" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/activity_pest_forecast.xml" value="0.4" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/activity_pest_prediction.xml" value="0.20145631067961164" />
         <entry key="..\:/Users/sec/AndroidStudioProjects/PestForecasting/app/src/main/res/layout/activity_pest_selection.xml" value="0.20833333333333334" />

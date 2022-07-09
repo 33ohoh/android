@@ -2,13 +2,16 @@ package com.example.competition1.pestprediction;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
+import android.os.Parcelable;
 import android.provider.SyncStateContract;
 import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
@@ -20,11 +23,21 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.competition1.R;
+import com.example.competition1.pestdetails.PestDetails;
+import com.example.competition1.pestdetails.PestDetailsActivity;
 import com.example.competition1.utility.Constants;
 
 import org.w3c.dom.Text;
 
+import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
+
+import okhttp3.Call;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
 
 public class ViewHolder extends RecyclerView.ViewHolder {
     private TextView cropName;              //레이아웃 요소
@@ -36,6 +49,10 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     private ItemAdapter itemAdapter;            //작물에 대한 어뎁터
     private ArrayList<String> pestsOnCropList;  //선택한 작물의 병해충 정보 리스트 데이터
     private ArrayList<Integer> alertLevelList;  //병해충에 대한 경보 단계
+
+    private String pestName;
+    private String sickKey;
+    private String tag;
 
     public ViewHolder(@NonNull View itemView, Context mContext) {
         super(itemView);
@@ -53,13 +70,153 @@ public class ViewHolder extends RecyclerView.ViewHolder {
             }
         });
 
-        pestsOnCropListView.setOnClickListener(new View.OnClickListener() {
-
+        pestsOnCropListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+
+                pestName = pestsOnCropList.get(position);
+                String url = String.format(getUrlForCode(),cropName.getText(), pestName);
+
+                try{
+                    OkHttpClient okHttpClient = new OkHttpClient();
+                    Request request = new Request.Builder()
+                            .url(url)
+                            .get()
+                            .build();
+                    final Call call = okHttpClient.newCall(request);
+
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                Response response = call.execute();
+                                String responseString = response.body().string();
+                                sickKey = getValue(responseString, tag);
+                                intentDetailPage();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }).start();
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
 
             }
         });
+    }
+
+    private String getUrlForCode(){
+        String url;
+
+        if(pestName.indexOf("병") != -1 || pestName.indexOf("바이러스") != -1){
+            url = "http://ncpms.rda.go.kr/npmsAPI/service?apiKey=2022c62d6340fb3f2718baa5efac9a3c8575&serviceCode=SVC01&serviceType=[AA001:XML,AA002:Ajax]&cropName=%s&sickNameKor=%s";
+            tag = "sickKey";
+        }
+        else{
+            url = "http://ncpms.rda.go.kr/npmsAPI/service?apiKey=2022c62d6340fb3f2718baa5efac9a3c8575&serviceCode=SVC03&serviceType=[AA001:XML,AA002:Ajax]&cropName=%s&insectKorName=%s";
+            tag = "insectKey";
+        }
+
+        return url;
+    }
+
+
+    private String getValue(String xml, String tag){
+        tag = String.format("<%s>", tag);
+        int beginIndex = xml.indexOf(tag) + tag.length();
+        int endIndex = xml.indexOf("<", beginIndex);
+        return xml.substring(beginIndex, endIndex);
+    }
+
+    private String removeHmlTage(String content){
+        content = content.replaceAll("&lt;br/&gt;&#xD;", "\n");
+        content = content.replaceAll("&lt;br/&gt;", "\n");
+        content = content.replaceAll("&#xD;", "\n");
+
+        return content;
+    }
+
+    private String getUrlForDetails(){
+        String url;
+
+        if(pestName.indexOf("병") != -1 || pestName.indexOf("바이러스") != -1){
+            url = String.format("http://ncpms.rda.go.kr/npmsAPI/service?apiKey=2022c62d6340fb3f2718baa5efac9a3c8575&serviceCode=SVC05&sickKey=%s", sickKey);
+        }
+        else{
+            url = String.format("http://ncpms.rda.go.kr/npmsAPI/service?apiKey=2022c62d6340fb3f2718baa5efac9a3c8575&serviceCode=SVC07&insectKey=%s", sickKey);
+        }
+
+        return url;
+    }
+
+    private PestDetails getPestDetails(String responseString){
+        String image, pest, cropName, symptom, controlMethod;
+        PestDetails pestDetails;
+
+        if(pestName.indexOf("병") != -1 || pestName.indexOf("바이러스") != -1){
+            image = getValue(responseString, "image");
+            pest = removeHmlTage(getValue(responseString, "sickNameKor"));
+            cropName = removeHmlTage(getValue(responseString, "cropName"));
+            symptom = removeHmlTage(getValue(responseString, "symptoms"));
+
+            controlMethod = removeHmlTage(getValue(responseString, "preventionMethod"));
+            controlMethod += removeHmlTage(getValue(responseString, "biologyPrvnbeMth"));
+            controlMethod += removeHmlTage(getValue(responseString, "chemicalPrvnbeMth"));
+
+            pestDetails = new PestDetails(pest, cropName, image, symptom, controlMethod);
+        }
+        else{
+            image = getValue(responseString, "image");
+            pest = removeHmlTage(getValue(responseString, "insectSpeciesKor"));
+            cropName = removeHmlTage(getValue(responseString, "cropName"));
+            symptom = removeHmlTage(getValue(responseString, "damageInfo"));
+
+            if(symptom.equals("")){
+                symptom = removeHmlTage(getValue(responseString, "ecologyInfo"));
+            }
+
+            controlMethod = removeHmlTage(getValue(responseString, "preventMethod"));
+            controlMethod += removeHmlTage(getValue(responseString, "biologyPrvnbeMth"));
+            controlMethod += removeHmlTage(getValue(responseString, "chemicalPrvnbeMth"));
+
+            pestDetails = new PestDetails(pest, cropName, image, symptom, controlMethod);
+        }
+
+        return pestDetails;
+    }
+
+    private void intentDetailPage(){
+        String url = getUrlForDetails();
+
+        try{
+            OkHttpClient okHttpClient = new OkHttpClient();
+            Request request = new Request.Builder()
+                    .url(url)
+                    .get()
+                    .build();
+            final Call call = okHttpClient.newCall(request);
+
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Response response = call.execute();
+                        String responseString = response.body().string();
+
+                        Intent intent = new Intent(mContext, PestDetailsActivity.class);
+                        intent.putExtra("details", getPestDetails(responseString));
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        mContext.startActivity(intent);
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }).start();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
     private void setPestsAndAlertLevel(String alertLevel, int numberOfAlertLevel){
