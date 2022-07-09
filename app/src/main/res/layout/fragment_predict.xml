@@ -20,7 +20,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:text="병해충 예측 정보"
+                android:text="병해충 예보"
                 android:textSize="20sp"
                 android:layout_margin="15dp"
                 android:textStyle="bold"/>
@@ -37,13 +37,25 @@
                     android:layout_weight="5"
                     android:orientation="vertical"
                     android:layout_marginHorizontal="10dp"
-                    android:background="@drawable/bg_rectangle_border">
+                    android:background="@drawable/bg_border">
 
                     <!-- 병해충 예측 정보 메뉴에 대한 설명 -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_marginTop="20dp"
+                            android:text="이달의 병해충 예보"
+                            android:fontFamily="@font/gmarket_sans_ttf_bold"
+                            android:textSize="30sp"
+                            android:textColor="#000000"
+                            />
+
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -93,9 +105,8 @@
                             android:id="@+id/btn_prediction_result_inquiry"
                             android:layout_width="100dp"
                             android:layout_height="match_parent"
-                            android:background="@drawable/bg_button"
-                            android:text="결과조회"
-                            android:textColor="#ffffff" />
+                            android:background="@drawable/button_background"
+                            android:text="결과조회"/>
 
                     </LinearLayout>
 

@@ -17,7 +17,7 @@ public class PasswordResetActivity extends Activity {
         passwordResetSuccess.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent registerIntent = new Intent(getApplicationContext(), MyPageActivity.class);
+                Intent registerIntent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(registerIntent);
             }
         });
