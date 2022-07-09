@@ -76,6 +76,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_login_id"
                 android:singleLine="true"
+                android:inputType="textNoSuggestions|textVisiblePassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -116,8 +117,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="3dp"
+                android:inputType="textNoSuggestions|textPassword"
                 android:layout_marginRight="3dp"
-                android:inputType="textPassword"
                 android:singleLine="true" />
 
         </com.google.android.material.textfield.TextInputLayout>

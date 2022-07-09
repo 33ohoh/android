@@ -24,19 +24,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+            <com.google.android.material.textfield.TextInputLayout
 
-            <EditText
-                android:id="@+id/et_search_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:background="@drawable/edittext_rounded_corner_rectangle"
-                android:ems="10"
                 android:hint="제목을 입력해 주세요"
-                android:inputType="textNoSuggestions|textVisiblePassword"
-                android:minHeight="48dp"
-                android:padding="10dp"
-                android:textCursorDrawable="@color/black" />
+                app:boxBackgroundColor="@color/white"
+                app:endIconMode="clear_text">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_search_title"
+                    android:layout_width="match_parent"
+                    android:inputType="textNoSuggestions|textVisiblePassword"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
 
         </LinearLayout>
 

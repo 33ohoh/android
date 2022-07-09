@@ -115,6 +115,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                             //Log.v("test","test :" + response.getBoolean("status"));
 
                             if (response.getBoolean("status")) {   //로그인 성공
+                                ((LoginedId) getApplication()).setId(response.getString("id"));  // 로그인된 아이디 저장
                                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                 startActivity(intent);
 
