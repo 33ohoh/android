@@ -130,9 +130,9 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     }
 
     private String removeHmlTage(String content){
-        content = content.replaceAll("&lt;br/&gt;&#xD;", "\n");
-        content = content.replaceAll("&lt;br/&gt;", "\n");
-        content = content.replaceAll("&#xD;", "\n");
+        content = content.replaceAll("&lt;br/&gt;&#xD;", "\n\n");
+        content = content.replaceAll("&lt;br/&gt;", "\n\n");
+        content = content.replaceAll("&#xD;", "\n\n");
 
         return content;
     }

@@ -1,31 +1,47 @@
 package com.example.competition1.pestprediction;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.competition1.LoginActivity;
+import com.example.competition1.NetworkStatusActivity;
 import com.example.competition1.R;
 import com.example.competition1.utility.Constants;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 import okhttp3.Call;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
 public class PestPredictionActivity extends AppCompatActivity {
     private Adapter adapter;
@@ -33,7 +49,6 @@ public class PestPredictionActivity extends AppCompatActivity {
     private ArrayList<PestsOnCropDTO> vegetableList;
     private ArrayList<PestsOnCropDTO> fruitTreeList;
     private String url = "http://ec2-43-200-8-163.ap-northeast-2.compute.amazonaws.com:3000";
-    private String httpResult="엥";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +57,13 @@ public class PestPredictionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pest_prediction);
 
         setMonthSpinner();                  //월을 선택하는 spinner값
+
+        LinearLayout resultLayout = findViewById(R.id.ll_prediction_result);   //조회 결과를 표시할 레이아웃
+        resultLayout.setVisibility(View.VISIBLE);
+        setPestInformationForEachCrop1();    //작물별 병해충 정보를 어뎁터에 담음
+        setCropList();                      //작물목록
+
+        test(7);
 
         Button btnInquiry = findViewById(R.id.btn_prediction_result_inquiry);  //결과 조회 버튼
         btnInquiry.setOnClickListener(new View.OnClickListener() {
@@ -65,6 +87,65 @@ public class PestPredictionActivity extends AppCompatActivity {
 
     }
 
+    private void test(int month){
+
+        Log.v("테테ㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔ", "완료");
+        JSONObject requestJsonObject = new JSONObject();
+
+        //인터넷 연결확인
+        int status = NetworkStatusActivity.getConnectivityStatus(getApplicationContext());
+        if (status == NetworkStatusActivity.TYPE_MOBILE || status == NetworkStatusActivity.TYPE_WIFI) {
+            try {
+
+                requestJsonObject.put("month", "7");
+
+
+                RequestQueue requestQueue = Volley.newRequestQueue(PestPredictionActivity.this);
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url + "/monthly_pests/month", requestJsonObject, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response.toString());
+                            Log.v("테테테테테스스스스스트트트틑","test :" + response.getBoolean("status"));
+                            //Log.v("test","test :" + response.getBoolean("status"));
+
+                            if (response.getBoolean("status")) {   //로그인 성공
+                                // 여기다가 로그인 후 넘어가는 페이지 넣기
+                                Log.v("test","test :" + response);
+                            } else {   //로그인 실패
+
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    //서버로 데이터 전달 및 응답 받기에 실패한 경우 아래 코드가 실행됩니다.
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
+                    }
+                });
+                jsonObjectRequest.setRetryPolicy(new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+                requestQueue.add(jsonObjectRequest);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        } else {
+            Toast.makeText(getApplicationContext(), "인터넷 연결을 확인해주세요.", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+
+
+
+
+
     private String getMonth(){
         Spinner month = (Spinner)findViewById(R.id.spn_month);
         return month.getSelectedItem().toString();
@@ -76,14 +157,17 @@ public class PestPredictionActivity extends AppCompatActivity {
         View fruitTreeView = findViewById(R.id.fruit_tree);
 
         ((TextView)foodResourcesView.findViewById(R.id.tx_crop_type)).setText(Constants.FOOD_RESOURCES);
+        ((ImageView)foodResourcesView.findViewById(R.id.crop_icon)).setImageResource(R.drawable.ic_rice);
         setPestInformationView(foodResourcesView.findViewById(R.id.rv_prediction_result));           //병해충 정보를 나타낼 recyclerView
         addToAddapter(foodResourcesList);
 
         ((TextView)vegetableView.findViewById(R.id.tx_crop_type)).setText(Constants.VEGETABLE);
+        ((ImageView)vegetableView.findViewById(R.id.crop_icon)).setImageResource(R.drawable.ic_cabbage);
         setPestInformationView(vegetableView.findViewById(R.id.rv_prediction_result));           //병해충 정보를 나타낼 recyclerView
         addToAddapter(vegetableList);
 
         ((TextView)fruitTreeView.findViewById(R.id.tx_crop_type)).setText(Constants.FRUIT_TREE);
+        ((ImageView)fruitTreeView.findViewById(R.id.crop_icon)).setImageResource(R.drawable.ic_apple);
         setPestInformationView(fruitTreeView.findViewById(R.id.rv_prediction_result));           //병해충 정보를 나타낼 recyclerView
         addToAddapter(fruitTreeList);
 

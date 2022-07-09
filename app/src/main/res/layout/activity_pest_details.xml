@@ -32,7 +32,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="○ 병해충명"
-                        android:layout_marginBottom="5dp"/>
+                        android:layout_marginBottom="20dp"/>
                     <TextView
                         android:id="@+id/tx_pest_name"
                         android:layout_width="match_parent"
@@ -51,7 +51,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="○ 피해 증상"
-                        android:layout_marginBottom="5dp"/>
+                        android:layout_marginBottom="20dp"/>
                     <TextView
                         android:id="@+id/tx_symptom"
                         android:layout_width="match_parent"
@@ -70,7 +70,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="○ 방제 방법"
-                        android:layout_marginBottom="5dp"/>
+                        android:layout_marginBottom="20dp"/>
                     <TextView
                         android:id="@+id/tx_pest_control_method"
                         android:layout_width="match_parent"
