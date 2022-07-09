@@ -6,22 +6,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.example.competition1.LoginActivity;
+import com.example.competition1.LoginedId;
+import com.example.competition1.MainActivity;
 import com.example.competition1.PasswordResetActivity;
 import com.example.competition1.R;
 import com.example.competition1.ReportHistoryActivity;
 
 
 public class FragmentMypage extends Fragment {
-    private View view;
-    private FragmentTransaction transaction;
-    private FragmentDeclaration fragmentDeclaration;
 
+
+    private View view;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -33,6 +33,9 @@ public class FragmentMypage extends Fragment {
         Button password = view.findViewById(R.id.password);
         Button logout = view.findViewById(R.id.logout);
         Button withdrawal = view.findViewById(R.id.withdrawal);
+        TextView loginedId = view.findViewById(R.id.mypage_logined_id);
+
+        loginedId.setText( ((LoginedId) getActivity().getApplication()).getId() + " 님" ); // 로그인된 id 설정
 
         reportHistory.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,10 +70,5 @@ public class FragmentMypage extends Fragment {
         });
 
         return view;
-    }
-
-    public void setFragment(int frameLayout, FragmentTransaction transaction, FragmentDeclaration fragmentDeclaration){
-        this.transaction = transaction;
-        this.fragmentDeclaration = fragmentDeclaration;
     }
 }
