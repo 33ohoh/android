@@ -44,7 +44,6 @@
         <activity android:name=".report.LocationSelectActivity"/>
         <activity android:name=".report.SymptomSelectActivity"/>
         <activity android:name=".report.PestSelectActivity"/>
-        <activity android:name=".report.ReportActivity"/>
         <activity android:name=".information.InformationViewActivity"/>
         <activity android:name=".information.PestInformationActivity"/>
         <activity android:name=".information.SectorSelectionActivity"/>
