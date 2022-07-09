@@ -6,8 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.competition1.LoginActivity;
 import com.example.competition1.PasswordResetActivity;
@@ -16,9 +18,10 @@ import com.example.competition1.ReportHistoryActivity;
 
 
 public class FragmentMypage extends Fragment {
-
-
     private View view;
+    private FragmentTransaction transaction;
+    private FragmentDeclaration fragmentDeclaration;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -64,5 +67,10 @@ public class FragmentMypage extends Fragment {
         });
 
         return view;
+    }
+
+    public void setFragment(int frameLayout, FragmentTransaction transaction, FragmentDeclaration fragmentDeclaration){
+        this.transaction = transaction;
+        this.fragmentDeclaration = fragmentDeclaration;
     }
 }

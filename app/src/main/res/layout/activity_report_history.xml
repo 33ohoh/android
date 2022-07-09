@@ -62,16 +62,4 @@
 
     </LinearLayout>
 
-    <!-- 병해충 피해 신고내역 작성 버튼 -->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        android:layout_margin="20dp"
-        app:elevation="6dp"
-        android:src="@drawable/pencil"
-        app:fabSize="normal"
-        app:tint="@null">
-    </com.google.android.material.floatingactionbutton.FloatingActionButton>
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
