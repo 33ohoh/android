@@ -1,4 +1,4 @@
-package com.example.competition1.informationActivity;
+package com.example.competition1.information;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package com.example.competition1.reportActivity;
+package com.example.competition1.report;
 
 import android.widget.ImageView;
 import android.widget.LinearLayout;

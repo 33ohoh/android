@@ -7,7 +7,11 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -16,7 +20,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="282dp"
+                android:layout_height="247dp"
                 android:orientation="horizontal">
 
                 <com.google.android.material.card.MaterialCardView
@@ -25,12 +29,11 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="5dp"
                     android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
                     app:cardCornerRadius="50dp"
-                    app:strokeWidth="5dp"
                     app:strokeColor="@color/FarmGreen"
-                    >
+                    app:strokeWidth="5dp">
 
                     <ImageView
                         android:id="@+id/detailImage"
@@ -54,10 +57,10 @@
                         android:id="@+id/detailNameText"
                         android:layout_width="match_parent"
                         android:layout_height="35dp"
-                        android:textSize="20dp"
                         android:fontFamily="@font/gmarket_sans_ttf_bold"
                         android:text="병명"
                         android:textColor="@color/FarmGreen"
+                        android:textSize="20dp"
                         android:textStyle="bold" />
 
                     <EditText
@@ -67,22 +70,6 @@
                         android:ems="10"
                         android:inputType="textPersonName"
                         android:text="Name" />
-
-                    <TextView
-                        android:id="@+id/characterText"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:textSize="20dp"
-                        android:fontFamily="@font/gmarket_sans_ttf_bold"
-                        android:text="특징"
-                        android:textColor="@color/FarmGreen"
-                        android:textStyle="bold" />
-
-                    <MultiAutoCompleteTextView
-                        android:id="@+id/characterTextEditText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="MultiAutoCompleteTextView" />
 
                 </LinearLayout>
 
@@ -94,13 +81,29 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/characterText"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:fontFamily="@font/gmarket_sans_ttf_bold"
+                    android:text="특징"
+                    android:textColor="@color/FarmGreen"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <MultiAutoCompleteTextView
+                    android:id="@+id/characterTextEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="MultiAutoCompleteTextView" />
+
+                <TextView
                     android:id="@+id/damageText"
                     android:layout_width="match_parent"
                     android:layout_height="38dp"
                     android:fontFamily="@font/gmarket_sans_ttf_bold"
                     android:text="치료방법"
-                    android:textSize="20dp"
                     android:textColor="@color/FarmGreen"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
 
                 <MultiAutoCompleteTextView
@@ -115,8 +118,8 @@
                     android:layout_height="38dp"
                     android:fontFamily="@font/gmarket_sans_ttf_bold"
                     android:text="방제방법"
-                    android:textSize="20dp"
                     android:textColor="@color/FarmGreen"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
 
                 <MultiAutoCompleteTextView

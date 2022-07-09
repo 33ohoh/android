@@ -24,7 +24,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.competition1.R;
 
 public class AddressApiActivity extends AppCompatActivity {
-    private static String IP_ADDRESS = "54.180.106.226:3000";
 
     class MyJavaScriptInterface
     {
@@ -94,7 +93,7 @@ public class AddressApiActivity extends AppCompatActivity {
             }
         });
 
-        wv_search_address.loadUrl("http://" + IP_ADDRESS);
+        wv_search_address.loadUrl("http://ec2-43-200-8-163.ap-northeast-2.compute.amazonaws.com:3000");
 
     }
 
