@@ -49,6 +49,10 @@ public class FragmentPredict extends Fragment {
     private ArrayList<PestsOnCropDTO> vegetableList;
     private ArrayList<PestsOnCropDTO> fruitTreeList;
     private String url = "http://ec2-43-200-8-163.ap-northeast-2.compute.amazonaws.com:3000";
+    private View foodResourcesView;
+    private View vegetableView;
+    private View fruitTreeView;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -56,12 +60,16 @@ public class FragmentPredict extends Fragment {
 
         view = inflater.inflate(R.layout.fragment_predict, container, false);
 
+        foodResourcesView = view.findViewById(R.id.food_resources);
+        vegetableView = view.findViewById(R.id.vegetable);
+        fruitTreeView = view.findViewById(R.id.fruit_tree);
+
         setMonthSpinner();                  //월을 선택하는 spinner값
 
         LinearLayout resultLayout = view.findViewById(R.id.ll_prediction_result);   //조회 결과를 표시할 레이아웃
         resultLayout.setVisibility(View.VISIBLE);
 
-        getPestListFromServer(7);    //작물별 병해충 정보를 어뎁터에 담음
+        getPestListFromServer(getCurrentMonth());    //작물별 병해충 정보를 어뎁터에 담음
 
         Button btnInquiry = view.findViewById(R.id.btn_prediction_result_inquiry);  //결과 조회 버튼
         btnInquiry.setOnClickListener(new View.OnClickListener() {
@@ -167,9 +175,6 @@ public class FragmentPredict extends Fragment {
     }
 
     private void setCropList(){
-        View foodResourcesView = view.findViewById(R.id.food_resources);
-        View vegetableView = view.findViewById(R.id.vegetable);
-        View fruitTreeView = view.findViewById(R.id.fruit_tree);
 
         ((TextView)foodResourcesView.findViewById(R.id.tx_crop_type)).setText(Constants.FOOD_RESOURCES);
         ((ImageView)foodResourcesView.findViewById(R.id.crop_icon)).setImageResource(R.drawable.ic_rice);

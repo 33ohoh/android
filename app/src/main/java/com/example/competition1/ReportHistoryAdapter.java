@@ -47,7 +47,7 @@ public class ReportHistoryAdapter extends BaseAdapter {
 
         title.setText(reportHistoryList.get(position).getTitle());              //화면에 데이터 표시
         date.setText(reportHistoryList.get(position).getDate());
-        status.setText(reportHistoryList.get(position).getStatus());
+        status.setText("답변 대기중");
 
         return convertView;
     }

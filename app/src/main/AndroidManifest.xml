@@ -55,9 +55,8 @@
         <activity android:name=".FindingActivity"/>
         <activity android:name=".FindingIdActivity"/>
         <activity android:name=".FindingPwActivity"/>
-        <activity android:name=".MyPageActivity"/>
         <activity android:name=".ReportHistoryActivity"/>
-        <activity android:name=".pestprediction.PestPredictionActivity"/>`
+        <activity android:name=".ReportRecordActivity"/>`
         <activity android:name=".pestdetails.PestDetailsActivity"/>
         <activity android:name=".MainActivity"/>
         <activity android:name=".PasswordResetActivity"/>
