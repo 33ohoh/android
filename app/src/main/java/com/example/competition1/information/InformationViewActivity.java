@@ -35,20 +35,20 @@ public class InformationViewActivity extends AppCompatActivity {
         imageURL=intent.getStringExtra("image");
         name=intent.getStringExtra("name");
         ImageView detailImage=(ImageView) findViewById(R.id.detailImage);
-        detailImage.setScaleType(ImageView.ScaleType.FIT_XY);
-        detailImage.setClipToOutline(true);
+        //detailImage.setScaleType(ImageView.ScaleType.FIT_XY);
+        //detailImage.setClipToOutline(true);
         Glide.with(this).load(imageURL).into(detailImage);
         TextView detailText=(TextView) findViewById(R.id.detailNameText);
-        EditText nameEdit=(EditText) findViewById(R.id.detailNameEditText);
+        TextView nameEdit=(TextView) findViewById(R.id.detailNameEditText);
         TextView characterText=(TextView) findViewById(R.id.characterText);
         TextView damageText=(TextView) findViewById(R.id.damageText);
-        EditText characterEdit=(EditText)findViewById(R.id.characterTextEditText);
-        EditText damageEdit=(EditText)findViewById(R.id.damageEditText);
-        EditText preventText=(EditText)findViewById(R.id.preventEditText);
+        TextView characterEdit=(TextView)findViewById(R.id.characterTextEditText);
+        TextView damageEdit=(TextView)findViewById(R.id.damageEditText);
+        TextView preventText=(TextView)findViewById(R.id.preventEditText);
         nameEdit.setText(name);
         if(type==1){//질병정보
-            characterText.setText("발생조건");
-            damageText.setText("피해양상");
+            characterText.setText("○ 발생조건");
+            damageText.setText("○ 증상");
             DetailAPITask task=new DetailAPITask();
             try{
                 List=task.execute(sickKey,"symptom").get();
@@ -62,8 +62,8 @@ public class InformationViewActivity extends AppCompatActivity {
             preventText.setText(getPrevention((Element) element,"preventionMethod"));
         }
         else if(type==2){
-            detailText.setText("해충명");
-            damageText.setText("증상");
+            detailText.setText("○ 해충명");
+            damageText.setText("○ 증상");
             DetailAPITask task=new DetailAPITask();
             try{
                 List=task.execute(insectKey,"pest").get();
