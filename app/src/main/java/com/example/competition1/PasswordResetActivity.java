@@ -40,7 +40,7 @@ public class PasswordResetActivity extends Activity {
         passwordResetSuccess.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                requestCorrectPw(newPassword.getText().toString());
+                requestCorrectPw(recentPassword.getText().toString());
             }
         });
 
@@ -73,7 +73,7 @@ public class PasswordResetActivity extends Activity {
                                     Toast.makeText(getApplicationContext(), "입력한 비밀번호가 다릅니다", Toast.LENGTH_SHORT).show();
                                     return;
                                 }else{
-                                    requestChangePw(((LoginedId) getApplication()).getId(),password);
+                                    requestChangePw(((LoginedId) getApplication()).getId(),newPassword.getText().toString());
                                 }
 
                             } else {   //비밀번호 불일치
