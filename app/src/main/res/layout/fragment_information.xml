@@ -115,7 +115,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/apple"
+                            android:src="@drawable/crop1"
                             android:scaleType="fitXY"
                             android:clipToOutline="true"
                             />
@@ -127,6 +127,39 @@
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:text="감" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/layout0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="120dp"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical"
+                    app:layout_columnWeight="1">
+
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/button0"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="80px"
+                        app:strokeWidth="10px">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/crop0"
+                            android:scaleType="fitXY"
+                            android:clipToOutline="true"
+                            />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:id="@+id/text0"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:text="감초" />
 
                 </LinearLayout>
 
@@ -148,7 +181,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/apple"
+                            android:src="@drawable/crop2"
                             android:scaleType="fitXY"
                             android:clipToOutline="true"
                             />
@@ -182,7 +215,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/apple"
+                            android:src="@drawable/crop3"
                             android:scaleType="fitXY"
                             android:clipToOutline="true"
                             />
@@ -215,7 +248,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/apple"
+                            android:src="@drawable/crop4"
                             android:scaleType="fitXY"
                             android:clipToOutline="true"
                             />
@@ -246,7 +279,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/apple"
+                            android:src="@drawable/crop5"
                             android:scaleType="fitXY"
                             android:clipToOutline="true"
                             />
@@ -277,7 +310,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/apple"
+                            android:src="@drawable/crop6"
                             android:scaleType="fitXY"
                             android:clipToOutline="true"
                             />
@@ -308,7 +341,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/apple"
+                            android:src="@drawable/crop7"
                             android:scaleType="fitXY"
                             android:clipToOutline="true"
                             />
@@ -339,7 +372,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/apple"
+                            android:src="@drawable/crop8"
                             android:scaleType="fitXY"
                             android:clipToOutline="true"
                             />
@@ -370,7 +403,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/apple"
+                            android:src="@drawable/crop9"
                             android:scaleType="fitXY"
                             android:clipToOutline="true"
                             />
@@ -401,7 +434,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/apple"
+                            android:src="@drawable/crop10"
                             android:scaleType="fitXY"
                             android:clipToOutline="true"
                             />
@@ -432,7 +465,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/apple"
+                            android:src="@drawable/crop11"
                             android:scaleType="fitXY"
                             android:clipToOutline="true"
                             />
@@ -464,7 +497,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/apple"
+                            android:src="@drawable/crop12"
                             android:scaleType="fitXY"
                             android:clipToOutline="true"
                             />
@@ -495,7 +528,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/apple"
+                            android:src="@drawable/crop13"
                             android:scaleType="fitXY"
                             android:clipToOutline="true"
                             />
@@ -526,7 +559,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/apple"
+                            android:src="@drawable/crop14"
                             android:scaleType="fitXY"
                             android:clipToOutline="true"
                             />
@@ -558,7 +591,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/apple"
+                            android:src="@drawable/crop15"
                             android:scaleType="fitXY"
                             android:clipToOutline="true"
                             />
@@ -589,7 +622,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/apple"
+                            android:src="@drawable/crop16"
                             android:scaleType="fitXY"
                             android:clipToOutline="true"
                             />
@@ -620,7 +653,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/apple"
+                            android:src="@drawable/crop17"
                             android:scaleType="fitXY"
                             android:clipToOutline="true"
                             />
@@ -653,7 +686,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/apple"
+                            android:src="@drawable/crop18"
                             android:scaleType="fitXY"
                             android:clipToOutline="true"
                             />
@@ -665,7 +698,7 @@
                         android:layout_height="20dp"
                         android:textAlignment="center"
                         android:textColor="@color/black"
-                        android:text="참나물감초" />
+                        android:text="참나물" />
 
                 </LinearLayout>
                 <LinearLayout
@@ -685,7 +718,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/apple"
+                            android:src="@drawable/crop19"
                             android:scaleType="fitXY"
                             android:clipToOutline="true"
                             />
@@ -718,7 +751,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/apple"
+                            android:src="@drawable/crop2"
                             android:scaleType="fitXY"
                             android:clipToOutline="true"
                             />

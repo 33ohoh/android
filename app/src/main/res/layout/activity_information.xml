@@ -1,135 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent">
 
         <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:layout_marginVertical="20dp"
+            android:layout_marginHorizontal="50dp">
+
+            <ImageView
+                android:id="@+id/detailImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="247dp"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="50dp">
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/detailCardView"
-                    android:layout_width="205dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginBottom="10dp"
-                    app:cardCornerRadius="50dp"
-                    app:strokeColor="@color/FarmGreen"
-                    app:strokeWidth="5dp">
-
-                    <ImageView
-                        android:id="@+id/detailImage"
-                        android:layout_width="205dp"
-                        android:layout_height="match_parent"
-                        tools:srcCompat="@drawable/apple" />
-                </com.google.android.material.card.MaterialCardView>
-
-                <LinearLayout
+                <TextView
+                    android:id="@+id/detailNameText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="○ 병명"
+                    android:layout_marginBottom="20dp"/>
+                <TextView
+                    android:id="@+id/detailNameEditText"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="16dp">
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <TextView
-                        android:id="@+id/detailNameText"
-                        android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:fontFamily="@font/gmarket_sans_ttf_bold"
-                        android:text="병명"
-                        android:textColor="@color/FarmGreen"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
-
-                    <EditText
-                        android:id="@+id/detailNameEditText"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:ems="10"
-                        android:inputType="textPersonName"
-                        android:text="Name" />
-
-                </LinearLayout>
+                    android:layout_height="wrap_content"
+                    android:text="갈색균핵병(논벼)" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="50dp">
 
                 <TextView
                     android:id="@+id/characterText"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:fontFamily="@font/gmarket_sans_ttf_bold"
-                    android:text="특징"
-                    android:textColor="@color/FarmGreen"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-
-                <MultiAutoCompleteTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="○ 특징"
+                    android:layout_marginBottom="20dp"/>
+                <TextView
                     android:id="@+id/characterTextEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="MultiAutoCompleteTextView" />
+                    android:text="잎집에 타원형 내지 부정형의 작은 반점을 나타낸다." />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="50dp">
 
                 <TextView
                     android:id="@+id/damageText"
-                    android:layout_width="match_parent"
-                    android:layout_height="38dp"
-                    android:fontFamily="@font/gmarket_sans_ttf_bold"
-                    android:text="치료방법"
-                    android:textColor="@color/FarmGreen"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-
-                <MultiAutoCompleteTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="○ 피해 증상"
+                    android:layout_marginBottom="20dp"/>
+                <TextView
                     android:id="@+id/damageEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="dsagbsdjkgjkasdgkjasndgkjnadsjkngjksadngjknasdkjgnasdkjngkjasdngkjnasdkjgnakjsdngkja" />
+                    android:text="잎집에 타원형 내지 부정형의 작은 반점을 나타낸다." />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="50dp">
 
                 <TextView
                     android:id="@+id/preventText"
-                    android:layout_width="match_parent"
-                    android:layout_height="38dp"
-                    android:fontFamily="@font/gmarket_sans_ttf_bold"
-                    android:text="방제방법"
-                    android:textColor="@color/FarmGreen"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-
-                <MultiAutoCompleteTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="○ 방제 방법"
+                    android:layout_marginBottom="20dp"/>
+                <TextView
                     android:id="@+id/preventEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="dsagbsdjkgjkasdgkjasndgkjnadsjkngjksadngjknasdkjgnasdkjngkjasdngkjnasdkjgnakjsdngkja" />
+                    android:text="잎집에 타원형 내지 부정형의 작은 반점을 나타낸다."
+                    android:layout_marginBottom="50dp" />
 
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
