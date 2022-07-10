@@ -132,6 +132,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         });
     }
 
+
     private String getUrlForCode(){
         String url;
 

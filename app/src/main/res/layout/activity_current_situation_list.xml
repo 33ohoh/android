@@ -46,39 +46,37 @@
 
 
                     <TextView
-                        android:id="@+id/current_crop_name"
+                        android:id="@+id/current_crop_id"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
                         android:text="아이디"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        android:layout_marginBottom="5dp"/>
 
                     <TextView
                         android:id="@+id/current_crop_address"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="left"
+                        android:layout_height="fill_parent"
+                        android:gravity="left|center"
                         android:text="주소"
                         android:textSize="15sp" />
 
-                    <TextView
-                        android:id="@+id/current_crop_description"
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:gravity="left"
-                        android:text="설명"
-                        android:textSize="15sp" />
+
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/current_crop_image"
-                    android:layout_marginStart="30dp">
+                    android:layout_marginStart="8dp"
+                    >
 
                     <TextView
-                        android:id="@+id/content_tv"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/current_crop_name"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:text="작물이름"
                         android:textSize="15sp" />
                 </LinearLayout>

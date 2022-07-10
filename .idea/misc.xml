@@ -14,7 +14,7 @@
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/font/mainpage.xml" value="0.3953125" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_crop_selection.xml" value="0.3255208333333333" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_current_situation.xml" value="0.33" />
-        <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_current_situation_list.xml" value="0.21022727272727273" />
+        <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_current_situation_list.xml" value="0.25" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_currentsituation.xml" value="0.22" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_finding.xml" value="0.22" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_finding_id.xml" value="0.2" />
@@ -35,11 +35,13 @@
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_report_history_list.xml" value="0.25" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_sector_selection.xml" value="0.13541666666666666" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/activity_select_location.xml" value="0.5536458333333333" />
-        <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/fragment_current.xml" value="0.18" />
+        <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/fragment_current.xml" value="0.1" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/fragment_declaration.xml" value="0.21920289855072464" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/fragment_information.xml" value="0.21920289855072464" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/fragment_mypage.xml" value="0.2" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/fragment_predict.xml" value="0.21145833333333333" />
+        <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/item_pest_information.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/item_pest_information_list.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/main.xml" value="0.21145833333333333" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/layout/test.xml" value="0.241796875" />
         <entry key="..\:/Users/rong5/Desktop/android/app/src/main/res/menu/navi_menu.xml" value="0.1" />

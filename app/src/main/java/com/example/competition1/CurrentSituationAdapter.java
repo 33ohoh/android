@@ -49,12 +49,17 @@ public class CurrentSituationAdapter extends BaseAdapter {
 
         ImageView imageView = (ImageView) convertView.findViewById(R.id.current_crop_image);       // 작물 사진
         TextView name = (TextView) convertView.findViewById(R.id.current_crop_name);         // 작물 이름
-        TextView description = (TextView) convertView.findViewById(R.id.current_crop_description);     //본문 설명
+       // TextView description = (TextView) convertView.findViewById(R.id.current_crop_description);     //본문 설명
+        TextView address = (TextView) convertView.findViewById(R.id.current_crop_address);         // 주소
+        TextView id = (TextView) convertView.findViewById(R.id.current_crop_id);   //제목
 
         String url = currentHistoryList.get(position).getImageUrl(); //이미지 url로 넣기
         Glide.with(mContext).load(url).into(imageView);
+
         name.setText(currentHistoryList.get(position).getCropName());    //이름 넣기
-        description.setText(currentHistoryList.get(position).getDescription());   //설명 넣기
+        //description.setText(currentHistoryList.get(position).getDescription());   //설명 넣기
+        address.setText(currentHistoryList.get(position).getAddress());    //주소 넣기
+        id.setText(currentHistoryList.get(position).getTitle());   //제목
 
         return convertView;
     }
