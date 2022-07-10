@@ -10,8 +10,9 @@ public class CurrentSituation {
     private String address;
     private String title;
     private String date;
-
-    public CurrentSituation(String imageUrl, String cropName, String description,String id, String address,String title, String date){
+    private String symptom;
+    private String pestName;
+    public CurrentSituation(String imageUrl, String cropName, String description,String id, String address,String title, String date,String symptom ,String pestName){
         this.imageUrl = imageUrl;
         this.cropName = cropName;
         this.id = id;
@@ -19,8 +20,13 @@ public class CurrentSituation {
         this.description = description;
         this.title = title;
         this.date = date;
+        this.symptom =symptom;
+        this.pestName = pestName;
     }
 
+    public String getPestName() {
+        return pestName;
+    }
     public String getImageUrl() {
         return imageUrl;
     }
@@ -30,11 +36,12 @@ public class CurrentSituation {
     public String getAddress() {
         return address;
     }
-
     public String getCropName(){
         return cropName;
     }
-
+    public String getSymptom() {
+        return symptom;
+    }
     public String getDescription() {
         return description;
     }

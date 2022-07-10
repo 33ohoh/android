@@ -65,8 +65,6 @@ public class ReportHistoryActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 ReportHistory reportHistory = reportHistoryList.get(position);    //신고내역
 
-                Intent findingIntent = new Intent(getApplicationContext(), FindingActivity.class);
-                startActivity(findingIntent);
 
                 Intent intent = new Intent(getApplicationContext(), ReportRecordActivity.class);
                 intent.putExtra("reportHistory", reportHistory);
