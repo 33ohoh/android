@@ -10,8 +10,9 @@ public class Mapdata {
     private String address;
     private String title;
     private String date;
-
-    public Mapdata(String productName, String details, Double latitude, Double longitude,String id, String address,String title, String date){
+    private String symptom;
+    private String pestName;
+    public Mapdata(String productName, String details, Double latitude, Double longitude,String id, String address,String title, String date,String sysymptom){
         this.productName = productName;
         this.details = details;
         this.latitude = latitude;
@@ -20,12 +21,19 @@ public class Mapdata {
         this.address = address;
         this.title = title;
         this.date = date;
+        this.symptom =symptom;
+        this.pestName= pestName;
     }
 
     public String getProductName() {
         return productName;
     }
-
+    public String getPestName() {
+        return pestName;
+    }
+    public String getSymptom() {
+        return symptom;
+    }
     public String getDetails() {
         return details;
     }

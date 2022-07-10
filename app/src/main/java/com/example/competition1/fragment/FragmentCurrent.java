@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -42,6 +43,8 @@ import com.example.competition1.LoginedId;
 import com.example.competition1.Mapdata;
 import com.example.competition1.NetworkStatusActivity;
 import com.example.competition1.R;
+import com.example.competition1.ReportHistory;
+import com.example.competition1.ReportRecordActivity;
 import com.example.competition1.report.LocationSelectActivity;
 
 import net.daum.mf.map.api.CalloutBalloonAdapter;
@@ -106,6 +109,7 @@ public class FragmentCurrent extends Fragment implements View.OnClickListener {
 
 
 
+
         scrollView = view.findViewById(R.id.current_scrollview);
         Button mapButton = view.findViewById(R.id.current_show_map);
         Button tableButton = view.findViewById(R.id.current_show_table);
@@ -115,12 +119,9 @@ public class FragmentCurrent extends Fragment implements View.OnClickListener {
         mapButton.setOnClickListener(this);
         tableButton.setOnClickListener(this);
 
-
         //데이터들 파싱해서 리스트에 넣기
         setMapdataList();
 
-        // 마커클릭하면 말풍선
-       // mapView.setCalloutBalloonAdapter(new CustomCalloutBalloonAdapter());
 
         //검색 해당 테이블만 보여주기
         cropSearch.addTextChangedListener(new TextWatcher() {
@@ -210,8 +211,9 @@ public class FragmentCurrent extends Fragment implements View.OnClickListener {
                  String address = obj.getString("street_address");
                  String title = obj.getString("title");
                  String date = obj.getString("date");
+                 String symptom = obj.getString("symptom");
 
-                 mapdataList.add(new Mapdata(productName,details,latitude,longitude,id,address,title,date));
+                 mapdataList.add(new Mapdata(productName,details,latitude,longitude,id,address,title,date,symptom));
             }
 
         }catch (JSONException e) {
@@ -278,7 +280,7 @@ public class FragmentCurrent extends Fragment implements View.OnClickListener {
 
             Mapdata obj = mapdataList.get(index);
 
-            currentHistoryList.add(new CurrentSituation("data:image/jpeg;base64,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", obj.getProductName(), obj.getDetails(),obj.getId(),obj.getAddress(),obj.getTitle(),obj.getDate()));
+            currentHistoryList.add(new CurrentSituation("data:image/jpeg;base64,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", obj.getProductName(), obj.getDetails(),obj.getId(),obj.getAddress(),obj.getTitle(),obj.getDate(),obj.getSymptom(),obj.getPestName()));
         }
 
         currentHistoryAdapter = new CurrentSituationAdapter( getActivity().getApplicationContext(), currentHistoryList);  //어뎁터
@@ -287,6 +289,23 @@ public class FragmentCurrent extends Fragment implements View.OnClickListener {
 
         searchHistoryList = new ArrayList<>();
         searchHistoryList.addAll(currentHistoryList);
+
+        currentHistoryView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+
+                CurrentSituation a = searchHistoryList.get(position);
+
+                ReportHistory reportHistory = new ReportHistory(a.getTitle(),a.getDate(),a.getAddress(),a.getCropName(),a.getSymptom(),a.getPestName(),a.getImageUrl(),a.getDescription());
+
+                Intent intent = new Intent(getActivity().getApplicationContext(), ReportRecordActivity.class);
+                intent.putExtra("reportHistory", reportHistory);
+                startActivity(intent);
+
+
+            }
+        });
+
 
     }
 
@@ -306,28 +325,6 @@ public class FragmentCurrent extends Fragment implements View.OnClickListener {
                 break;
         }
     }
-
-//
-//    class CustomCalloutBalloonAdapter implements CalloutBalloonAdapter {
-//        private final View mCalloutBalloon;
-//
-//        public CustomCalloutBalloonAdapter() {
-//            mCalloutBalloon = getActivity().getLayoutInflater().inflate(R.layout.custom_callout_balloon, null);
-//        }
-//
-//        @Override
-//        public View getCalloutBalloon(MapPOIItem poiItem) {
-//            ((ImageView) mCalloutBalloon.findViewById(R.id.badge)).setImageResource(R.drawable.ic_launcher);
-//            ((TextView) mCalloutBalloon.findViewById(R.id.title)).setText(poiItem.getItemName());
-//            ((TextView) mCalloutBalloon.findViewById(R.id.desc)).setText("Custom CalloutBalloon");
-//            return mCalloutBalloon;
-//        }
-//
-//        @Override
-//        public View getPressedCalloutBalloon(MapPOIItem poiItem) {
-//            return null;
-//        }
-//    }
 
 
 
