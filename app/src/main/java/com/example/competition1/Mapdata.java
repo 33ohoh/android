@@ -8,14 +8,18 @@ public class Mapdata {
     private Double longitude;
     private String id;
     private String address;
+    private String title;
+    private String date;
 
-    public Mapdata(String productName, String details, Double latitude, Double longitude,String id, String address){
+    public Mapdata(String productName, String details, Double latitude, Double longitude,String id, String address,String title, String date){
         this.productName = productName;
         this.details = details;
         this.latitude = latitude;
         this.longitude = longitude;
         this.id = id;
         this.address = address;
+        this.title = title;
+        this.date = date;
     }
 
     public String getProductName() {
@@ -38,6 +42,13 @@ public class Mapdata {
     }
     public String getAddress() {
         return address;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+    public String getDate() {
+        return date;
     }
 
     public void setProductName(String productName) {
