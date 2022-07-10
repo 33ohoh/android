@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -36,6 +38,9 @@ public class ReportHistoryActivity extends AppCompatActivity {
     private ReportHistoryAdapter reportHistoryAdapter;
     private ArrayList<ReportHistory> reportHistoryList;
     private String url = "http://ec2-43-200-8-163.ap-northeast-2.compute.amazonaws.com:3000";
+    private ArrayList<ReportHistory> currentHistoryList;
+    //private ArrayList<ReportHistory> searchHistoryList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +48,34 @@ public class ReportHistoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report_history);
 
+        currentHistoryList = new ArrayList<>();
+
         reportHistoryView = (ListView) findViewById(R.id.lv_report_history);  //신고 내역 리스트가 보여지는 뷰
 
         ListView reportList = findViewById(R.id.lv_report_history);  //신고내역 리스트뷰
 
         getPestListFromServer();
+
+        EditText searchTitle = findViewById(R.id.et_search_title);
+
+        searchTitle.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                Log.v("테테테", searchTitle.getText()+"");
+                String text = searchTitle.getText().toString();
+                search(text);
+            }
+        });
 
         reportList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -60,6 +88,33 @@ public class ReportHistoryActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void search(String charText) {
+        // 문자 입력시마다 리스트를 지우고 새로 뿌려준다.
+        currentHistoryList.clear();
+
+        // 문자 입력이 없을때는 모든 데이터를 보여준다.
+        if (charText.length() == 0) {
+            currentHistoryList.addAll(reportHistoryList);
+            Log.v("오아우", "dd");
+        }
+        else
+        {
+            // 리스트의 모든 데이터를 검색한다.
+            for(int i = 0;i < reportHistoryList.size(); i++)
+            {
+                // arraylist의 모든 데이터에 입력받은 단어(charText)가 포함되어 있으면 true를 반환한다.
+                if (reportHistoryList.get(i).getTitle().toLowerCase().contains(charText))
+                {
+                    // 검색된 데이터를 리스트에 추가한다.
+                    currentHistoryList.add(reportHistoryList.get(i));
+                }
+            }
+        }
+        // 리스트 데이터가 변경되었으므로 아답터를 갱신하여 검색된 데이터를 화면에 보여준다.
+
+        reportHistoryAdapter.notifyDataSetChanged();
     }
 
     private void setReportHistoryList(JSONObject jsonObject){
@@ -110,7 +165,8 @@ public class ReportHistoryActivity extends AppCompatActivity {
                             if (response.getBoolean("status")) {
                                 setReportHistoryList(jsonObject);
 
-                                reportHistoryAdapter = new ReportHistoryAdapter(getApplicationContext(), reportHistoryList);  //어뎁터
+                                currentHistoryList.addAll(reportHistoryList);
+                                reportHistoryAdapter = new ReportHistoryAdapter(getApplicationContext(), currentHistoryList);  //어뎁터
                                 reportHistoryView.setAdapter(reportHistoryAdapter);              //서버에서 가져온 작물, 각 병해충 정보 데이터 저장
 
                                 if(reportHistoryList.size() == 0){

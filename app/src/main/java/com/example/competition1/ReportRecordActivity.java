@@ -2,12 +2,17 @@ package com.example.competition1;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.competition1.pestdetails.PestDetails;
+
+import java.util.ArrayList;
 
 public class ReportRecordActivity extends AppCompatActivity {
     @Override
@@ -34,5 +39,6 @@ public class ReportRecordActivity extends AppCompatActivity {
         symptom.setText(reportHistory.getSymptom());
         pest.setText(reportHistory.getPestName());
         details.setText(reportHistory.getDetails());
+
     }
 }
