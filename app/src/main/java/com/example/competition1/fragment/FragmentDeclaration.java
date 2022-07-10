@@ -3,6 +3,7 @@ package com.example.competition1.fragment;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -26,6 +28,7 @@ import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.example.competition1.LoginActivity;
 import com.example.competition1.LoginedId;
+import com.example.competition1.MainActivity;
 import com.example.competition1.NetworkStatusActivity;
 import com.example.competition1.R;
 import com.example.competition1.report.CropSelectActivity;
@@ -38,18 +41,22 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.sql.Blob;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+import androidx.fragment.app.FragmentManager;
 
 public class FragmentDeclaration extends Fragment {
-
+    MainActivity mainActivity;
     private String url = "http://ec2-43-200-8-163.ap-northeast-2.compute.amazonaws.com:3000";
     ImageView selectedImage;
     double latitude=37.5495538;
     double longitude=127.075032;
     String detailAddress="";
-    String loadAddress="경기도";
+    String loadAddress="";
     String cropName="";
     String symptomName="";
     String pestName="";
@@ -63,6 +70,9 @@ public class FragmentDeclaration extends Fragment {
     TextInputEditText titleText;
     private View view;
 
+    public FragmentDeclaration(MainActivity mainActivity){
+        this.mainActivity=mainActivity;
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -175,14 +185,30 @@ public class FragmentDeclaration extends Fragment {
 
         return view;
     }
+    public Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight) {
+        int width = bm.getWidth();
+        int height = bm.getHeight();
+        float scaleWidth = ((float) newWidth) / width;
+        float scaleHeight = ((float) newHeight) / height;
+        // CREATE A MATRIX FOR THE MANIPULATION
+        Matrix matrix = new Matrix();
+        // RESIZE THE BIT MAP
+        matrix.postScale(scaleWidth, scaleHeight);
 
-    private String bitmapToByteArray(Bitmap bitmap){
+        // "RECREATE" THE NEW BITMAP
+        Bitmap resizedBitmap = Bitmap.createBitmap(
+                bm, 0, 0, width, height, matrix, false);
+        bm.recycle();
+        return resizedBitmap;
+    }
+    private byte[] bitmapToByteArray(Bitmap bitmap) {
         String image="";
         ByteArrayOutputStream stream=new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG,100,stream);
         byte[] byteArray=stream.toByteArray();
-        image = byteArrayToBinaryString(byteArray);
-        return image;
+        //image = byteArrayToBinaryString(byteArray);
+        //Log.v("test",image);
+        return byteArray;
     }
     public String byteArrayToBinaryString(byte[] b){
         StringBuilder sb=new StringBuilder();
@@ -268,8 +294,69 @@ public class FragmentDeclaration extends Fragment {
             }
         }
     }
-    private void requestRegister(String id, String detailText,String bitmap,String title ){
+    private void requestRegister(String id, String detailText,byte[] bitmap,String title ) {
+        Blob blob=new Blob() {
+            @Override
+            public long length() throws SQLException {
+                return 0;
+            }
 
+            @Override
+            public byte[] getBytes(long l, int i) throws SQLException {
+                return new byte[0];
+            }
+
+            @Override
+            public InputStream getBinaryStream() throws SQLException {
+                return null;
+            }
+
+            @Override
+            public long position(byte[] bytes, long l) throws SQLException {
+                return 0;
+            }
+
+            @Override
+            public long position(Blob blob, long l) throws SQLException {
+                return 0;
+            }
+
+            @Override
+            public int setBytes(long l, byte[] bytes) throws SQLException {
+                return 0;
+            }
+
+            @Override
+            public int setBytes(long l, byte[] bytes, int i, int i1) throws SQLException {
+                return 0;
+            }
+
+            @Override
+            public OutputStream setBinaryStream(long l) throws SQLException {
+                return null;
+            }
+
+            @Override
+            public void truncate(long l) throws SQLException {
+
+            }
+
+            @Override
+            public void free() throws SQLException {
+
+            }
+
+            @Override
+            public InputStream getBinaryStream(long l, long l1) throws SQLException {
+                return null;
+            }
+        };
+        try{
+            blob.setBytes(1,bitmap);
+        }
+        catch (Exception e){
+
+        }
         JSONObject requestJsonObject = new JSONObject();
         Date date=new Date(System.currentTimeMillis());
         SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd");
@@ -287,7 +374,7 @@ public class FragmentDeclaration extends Fragment {
                 requestJsonObject.put("product_name", cropName);
                 requestJsonObject.put("symptom", symptomName);
                 requestJsonObject.put("pest_name", pestName);
-                requestJsonObject.put("image_url", bitmap);
+                requestJsonObject.put("image_url", blob);
                 requestJsonObject.put("details", detailText);
 
                 RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
@@ -299,6 +386,7 @@ public class FragmentDeclaration extends Fragment {
                         try {
                             if(response.getBoolean("status")){
                                 Toast.makeText(getActivity().getApplicationContext(), "신고가 정상적으로 접수되었습니다", Toast.LENGTH_SHORT).show();
+                                mainActivity.reconnect();
                             }
                             else{
                                 Toast.makeText(getActivity().getApplicationContext(), "서버 통신 오류", Toast.LENGTH_SHORT).show();

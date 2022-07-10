@@ -17,10 +17,10 @@ import com.example.competition1.fragment.FragmentPredict;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
-
+    MainActivity mainActivity=this;
     private FragmentManager fragmentManager = getSupportFragmentManager();
     private FragmentCurrent fragmentCurrent = new FragmentCurrent();
-    private FragmentDeclaration fragmentDeclaration = new FragmentDeclaration();
+    private FragmentDeclaration fragmentDeclaration = new FragmentDeclaration(mainActivity);
     private FragmentInformation fragmentInformation = new FragmentInformation();
     private FragmentMypage fragmentMypage = new FragmentMypage();
     private FragmentPredict fragmentPredict = new FragmentPredict();
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                     transaction.replace(R.id.frameLayout, fragmentCurrent).commitAllowingStateLoss();
                     break;
                 case R.id.tab_declaration:
-                    fragmentDeclaration = new FragmentDeclaration();
+                    fragmentDeclaration = new FragmentDeclaration(mainActivity);
                     transaction.replace(R.id.frameLayout, fragmentDeclaration).commitAllowingStateLoss();
                     break;
                 case R.id.tab_information:
@@ -84,5 +84,10 @@ public class MainActivity extends AppCompatActivity {
             finishAndRemoveTask();
             System.exit(0);
         }
+    }
+    public void reconnect(){
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        fragmentMypage = new FragmentMypage();
+        transaction.replace(R.id.frameLayout, fragmentMypage).commitAllowingStateLoss();
     }
 }
