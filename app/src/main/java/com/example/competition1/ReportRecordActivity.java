@@ -30,7 +30,7 @@ public class ReportRecordActivity extends AppCompatActivity {
         title.setText(reportHistory.getTitle());
         date.setText(reportHistory.getDate());
         address.setText(reportHistory.getAddress());
-        //crop.setText(reportHistory.getCropName());
+        crop.setText(reportHistory.getCropName());
         symptom.setText(reportHistory.getSymptom());
         pest.setText(reportHistory.getPestName());
         details.setText(reportHistory.getDetails());
