@@ -22,16 +22,21 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.competition1.API.PestAPITask;
 import com.example.competition1.R;
 import com.example.competition1.pestdetails.PestDetails;
 import com.example.competition1.pestdetails.PestDetailsActivity;
 import com.example.competition1.utility.Constants;
 
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 import okhttp3.Call;
 import okhttp3.OkHttpClient;
@@ -54,6 +59,27 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     private String sickKey;
     private String tag;
 
+    private String getSymptomName(Element element){
+        NodeList nodeList=element.getElementsByTagName("sickNameKor").item(0).getChildNodes();
+        Node node=(Node) nodeList.item(0);
+        return node.getNodeValue();
+    }
+
+    private String getPestName(Element element){
+        NodeList nodeList=element.getElementsByTagName("insectKorName").item(0).getChildNodes();
+        Node node=(Node) nodeList.item(0);
+        return node.getNodeValue();
+    }
+    private String getPestImage(Element element){
+        NodeList nodeList=element.getElementsByTagName("thumbImg").item(0).getChildNodes();
+        Node node=(Node) nodeList.item(0);
+        return node.getNodeValue();
+    }
+    private String getPestKey(Element element){
+        NodeList nodeList=element.getElementsByTagName("insectKey").item(0).getChildNodes();
+        Node node=(Node) nodeList.item(0);
+        return node.getNodeValue();
+    }
     public ViewHolder(@NonNull View itemView, Context mContext) {
         super(itemView);
 
@@ -150,14 +176,50 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         return url;
     }
 
+    private String getImageUrlForDisease(String cropName, String pestName){
+        PestAPITask task=new PestAPITask();
+        NodeList pestList;
+        try {
+            pestList=task.execute(cropName, "symptom").get();
+            for(int i=0 ;i<pestList.getLength(); i++){
+                if(getSymptomName((Element) pestList.item(i)).equals(pestName)){
+                    return getPestImage((Element) pestList.item(i));
+                }
+            }
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
+    private String getImageUrlForPest(String cropName, String pestName){
+        PestAPITask task=new PestAPITask();
+        NodeList pestList;
+        try {
+            pestList=task.execute(cropName, "pest").get();
+            for(int i=0 ;i<pestList.getLength(); i++){
+                if(getPestName((Element) pestList.item(i)).equals(pestName)){
+                    return getPestImage((Element) pestList.item(i));
+                }
+            }
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
     private PestDetails getPestDetails(String responseString){
         String image, pest, cropName, symptom, controlMethod;
         PestDetails pestDetails;
 
         if(pestName.indexOf("병") != -1 || pestName.indexOf("바이러스") != -1){
-            image = getValue(responseString, "image");
             pest = removeHmlTage(getValue(responseString, "sickNameKor"));
             cropName = removeHmlTage(getValue(responseString, "cropName"));
+            image = getImageUrlForDisease(cropName, pest);
             symptom = removeHmlTage(getValue(responseString, "symptoms"));
 
             controlMethod = removeHmlTage(getValue(responseString, "preventionMethod"));
@@ -167,9 +229,9 @@ public class ViewHolder extends RecyclerView.ViewHolder {
             pestDetails = new PestDetails(pest, cropName, image, symptom, controlMethod);
         }
         else{
-            image = getValue(responseString, "image");
             pest = removeHmlTage(getValue(responseString, "insectSpeciesKor"));
             cropName = removeHmlTage(getValue(responseString, "cropName"));
+            image = getImageUrlForPest(cropName, pest);
             symptom = removeHmlTage(getValue(responseString, "damageInfo"));
 
             if(symptom.equals("")){
