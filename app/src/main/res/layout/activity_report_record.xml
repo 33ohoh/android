@@ -62,7 +62,7 @@
 
                 <ImageView
                     android:layout_width="25sp"
-                    android:layout_height="25sp"
+                    android:layout_height="25sp     "
                     android:src="@drawable/ic_calendar"
                     android:layout_marginTop="10dp"
                     android:padding="3dp"/>

@@ -63,9 +63,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
             case R.id.login_button:
                 id = editId.getText().toString();
                 password =editPassword.getText().toString();
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-                //requestLogin(id,password );
+                requestLogin(id,password );
                 break;
 
             case R.id.finding_button:
