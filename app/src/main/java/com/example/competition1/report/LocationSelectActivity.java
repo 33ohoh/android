@@ -475,7 +475,6 @@ public class LocationSelectActivity extends AppCompatActivity implements MapView
             }
 
         }
-
     }
 
 
