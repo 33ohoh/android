@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,29 +43,16 @@ public class ReportHistoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report_history);
 
-        //Log.v("아이디값 테스트", ((LoginedId) getApplicationContext()).getId());
-        //getPestListFromServer();
-
         reportHistoryView = (ListView) findViewById(R.id.lv_report_history);  //신고 내역 리스트가 보여지는 뷰
-        reportHistoryList = new ArrayList<>();
-
-        //임시로 넣은 신고데이터
-        reportHistoryList.add(new ReportHistory("옥수수 시들음", "2022-07-01", "서울특별시 군자동(세종대학교 학생회관 304B)", "옥수수", "과수화상병", "멸강나방", "", "멸강나방으로 옥수수가 피해를 입었습니다."));         //신고내역 리스트에 들어갈 데이터
-        reportHistoryList.add(new ReportHistory("사과 시들음", "2022-07-01", "서울특별시 군자동(세종대학교 학생회관 304B)", "옥수수", "과수화상병", "멸강나방", "", "멸강나방으로 옥수수가 피해를 입었습니다."));
-        reportHistoryList.add(new ReportHistory("배추 시들음", "2022-07-01", "서울특별시 군자동(세종대학교 학생회관 304B)", "옥수수", "과수화상병", "멸강나방", "", "멸강나방으로 옥수수가 피해를 입었습니다."));
-        reportHistoryList.add(new ReportHistory("양피 무름", "2022-07-01", "서울특별시 군자동(세종대학교 학생회관 304B)", "옥수수", "과수화상병", "멸강나방", "", "멸강나방으로 옥수수가 피해를 입었습니다."));
-        reportHistoryList.add(new ReportHistory("옥수수 무름", "2022-07-01", "서울특별시 군자동(세종대학교 학생회관 304B)", "옥수수", "과수화상병", "멸강나방", "", "멸강나방으로 옥수수가 피해를 입었습니다."));
-
-        reportHistoryAdapter = new ReportHistoryAdapter(getApplicationContext(), reportHistoryList);  //어뎁터
-        reportHistoryView.setAdapter(reportHistoryAdapter);                                           //신고내역 뷰에 어뎁터 연결
 
         ListView reportList = findViewById(R.id.lv_report_history);  //신고내역 리스트뷰
+
+        getPestListFromServer();
 
         reportList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 ReportHistory reportHistory = reportHistoryList.get(position);    //신고내역
-
 
                 Intent intent = new Intent(getApplicationContext(), ReportRecordActivity.class);
                 intent.putExtra("reportHistory", reportHistory);
@@ -75,13 +63,12 @@ public class ReportHistoryActivity extends AppCompatActivity {
     }
 
     private void setReportHistoryList(JSONObject jsonObject){
-        reportHistoryView = (ListView) findViewById(R.id.lv_report_history);  //신고 내역 리스트가 보여지는 뷰
         reportHistoryList = new ArrayList<>();                                //신고 내역 리스트
 
         String title, date, address, cropName, symptom, pestName, imageUrl, details;
 
         try {
-            JSONArray jsonArray = jsonObject.getJSONArray("pests");
+            JSONArray jsonArray = jsonObject.getJSONArray("result");
 
             for(int index = 0; index < jsonArray.length(); index++){
                 JSONObject obj = jsonArray.getJSONObject(index);
@@ -100,15 +87,6 @@ public class ReportHistoryActivity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
-
-        /*reportHistoryList.add(new ReportHistory("애호박", "2022-07-01", "답변 대기중"));         //신고내역 리스트에 들어갈 데이터
-        reportHistoryList.add(new ReportHistory("상추시들음병", "2022-06-30", "답변 대기중"));
-        reportHistoryList.add(new ReportHistory("늙은호박 병", "2022-06-30", "답변 대기중"));
-        reportHistoryList.add(new ReportHistory("옥수수 병리 문의", "2022-06-30", "답변 대기중"));
-        reportHistoryList.add(new ReportHistory("느티나무 잎벌레 문의입니다", "2022-06-29", "답변 대기중"));
-        reportHistoryList.add(new ReportHistory("오미자", "2022-06-29", "답변 대기중"));
-        reportHistoryList.add(new ReportHistory("사과잎 진단", "2022-06-28", "답변 대기중"));*/
     }
 
     private void getPestListFromServer(){
@@ -122,16 +100,22 @@ public class ReportHistoryActivity extends AppCompatActivity {
                 requestJsonObject.put("id", ((LoginedId) getApplicationContext()).getId());
 
                 RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url + "/declaration/report", requestJsonObject, new Response.Listener<JSONObject>() {
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url + "/declarations/report", requestJsonObject, new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
                             JSONObject jsonObject = new JSONObject(response.toString());
-                            Log.v("제이슨테스트트트트",response.toString() );
 
                             if (response.getBoolean("status")) {
-                                setReportHistoryList(jsonObject);   //서버에서 가져온 작물, 각 병해충 정보 데이터 저장
+                                setReportHistoryList(jsonObject);
+
+                                reportHistoryAdapter = new ReportHistoryAdapter(getApplicationContext(), reportHistoryList);  //어뎁터
+                                reportHistoryView.setAdapter(reportHistoryAdapter);              //서버에서 가져온 작물, 각 병해충 정보 데이터 저장
+
+                                if(reportHistoryList.size() == 0){
+                                    findViewById(R.id.ll_no_result).setVisibility(View.VISIBLE);
+                                }
                             } else {   //로그인 실패
 
                             }

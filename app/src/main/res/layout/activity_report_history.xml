@@ -45,6 +45,45 @@
 
         </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/ll_no_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="10dp"
+        android:visibility="gone">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginBottom="10dp"
+            android:background="#f0f0f0" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginVertical="10dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tx_crop_type_with_no_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="100dp"
+                android:text="병해충 신고 내역이 없습니다."/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_margin="10dp"
+            android:background="#f0f0f0" />
+
+    </LinearLayout>
+
         <!-- 병해충 피해 신고내역 리스트뷰 -->
         <ScrollView
             android:layout_width="match_parent"
