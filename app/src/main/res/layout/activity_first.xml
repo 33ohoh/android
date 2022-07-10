@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/gmarket_sans_ttf_bold"
-        android:text="병해충 앱"
+        android:text="Past Pest"
         android:textSize="40sp"
         android:textStyle="normal"
         android:textColor="#FFFFFF"

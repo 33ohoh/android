@@ -30,7 +30,7 @@ android {
             enable true
             reset()
             include 'x86', 'x86_64', 'armeabi-v7a', 'armeabi'
-            universalApk false
+            universalApk true
         }
     }
 

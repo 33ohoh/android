@@ -40,7 +40,7 @@ public class PasswordResetActivity extends Activity {
         passwordResetSuccess.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                requestCorrectPw(recentPassword.getText().toString());
+                requestCorrectPw(newPassword.getText().toString());
             }
         });
 
