@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Competition1</string>
+    <string name="app_name">PastPest</string>
     <string-array name="month">
         <item>1</item>
         <item>2</item>
