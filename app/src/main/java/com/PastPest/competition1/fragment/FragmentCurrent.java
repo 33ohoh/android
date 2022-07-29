@@ -26,6 +26,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import com.PastPest.competition1.utility.Constants;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -221,13 +222,13 @@ public class FragmentCurrent extends Fragment implements View.OnClickListener {
         mapdataList= new ArrayList<>();
 
         JSONObject requestJsonObject = new JSONObject();
-        String url = "http://ec2-3-39-234-0.ap-northeast-2.compute.amazonaws.com:3000";
+
         //인터넷 연결확인
         int status = NetworkStatusActivity.getConnectivityStatus(getActivity().getApplicationContext());
         if (status == NetworkStatusActivity.TYPE_MOBILE || status == NetworkStatusActivity.TYPE_WIFI) {
 
             RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
-            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url + "/declarations/data", requestJsonObject, new Response.Listener<JSONObject>() {
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, Constants.SERVER_URL + "/declarations/data", requestJsonObject, new Response.Listener<JSONObject>() {
 
                 @Override
                 public void onResponse(JSONObject response) {

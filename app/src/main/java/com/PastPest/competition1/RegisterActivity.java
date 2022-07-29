@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.PastPest.competition1.utility.Constants;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -24,7 +25,6 @@ import org.json.JSONObject;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private String url = "http://ec2-3-39-234-0.ap-northeast-2.compute.amazonaws.com:3000";
     private TextInputEditText editId;
     private TextInputEditText editPassword;
     private TextInputEditText editRepassword;
@@ -109,7 +109,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 requestJsonObject.put("id", id);
 
                 RequestQueue requestQueue = Volley.newRequestQueue(RegisterActivity.this);
-                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url + "/users/exist", requestJsonObject, new Response.Listener<JSONObject>() {
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, Constants.SERVER_URL + "/users/exist", requestJsonObject, new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
@@ -164,7 +164,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 requestJsonObject.put("phone", phone);
 
                 RequestQueue requestQueue = Volley.newRequestQueue(RegisterActivity.this);
-                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url + "/users/register", requestJsonObject, new Response.Listener<JSONObject>() {
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, Constants.SERVER_URL + "/users/register", requestJsonObject, new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {

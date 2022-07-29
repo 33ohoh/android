@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.PastPest.competition1.utility.Constants;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -27,7 +28,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     private long backKeyPressedTime = 0;
     private TextInputEditText editId;
     private TextInputEditText editPassword;
-    private String url = "http://ec2-3-39-234-0.ap-northeast-2.compute.amazonaws.com:3000";
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -108,7 +109,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                 requestJsonObject.put("password", password);
 
                 RequestQueue requestQueue = Volley.newRequestQueue(LoginActivity.this);
-                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url + "/users/login", requestJsonObject, new Response.Listener<JSONObject>() {
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, Constants.SERVER_URL + "/users/login", requestJsonObject, new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {

@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.PastPest.competition1.utility.Constants;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -31,7 +32,6 @@ public class ReportHistoryActivity extends AppCompatActivity {
     private ListView reportHistoryView;
     private ReportHistoryAdapter reportHistoryAdapter;
     private ArrayList<ReportHistory> reportHistoryList;
-    private String url = "http://ec2-3-39-234-0.ap-northeast-2.compute.amazonaws.com:3000";
     private ArrayList<ReportHistory> currentHistoryList;
     //private ArrayList<ReportHistory> searchHistoryList;
 
@@ -149,7 +149,7 @@ public class ReportHistoryActivity extends AppCompatActivity {
                 requestJsonObject.put("id", ((LoginedId) getApplicationContext()).getId());
 
                 RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url + "/declarations/report", requestJsonObject, new Response.Listener<JSONObject>() {
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, Constants.SERVER_URL + "/declarations/report", requestJsonObject, new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {

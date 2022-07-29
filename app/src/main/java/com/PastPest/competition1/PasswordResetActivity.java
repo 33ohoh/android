@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.PastPest.competition1.utility.Constants;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -21,7 +22,6 @@ import org.json.JSONObject;
 
 public class PasswordResetActivity extends Activity {
 
-    private String url = "http://ec2-3-39-234-0.ap-northeast-2.compute.amazonaws.com:3000";
     private EditText recentPassword;
     private EditText newPassword;
     private EditText rePassword;
@@ -58,7 +58,7 @@ public class PasswordResetActivity extends Activity {
                 requestJsonObject.put("password", password);
 
                 RequestQueue requestQueue = Volley.newRequestQueue(PasswordResetActivity.this);
-                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url + "/users/login", requestJsonObject, new Response.Listener<JSONObject>() {
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, Constants.SERVER_URL + "/users/login", requestJsonObject, new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
@@ -117,7 +117,7 @@ public class PasswordResetActivity extends Activity {
                 requestJsonObject.put("password", password);
 
                 RequestQueue requestQueue = Volley.newRequestQueue(PasswordResetActivity.this);
-                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.PUT, url + "/users/changepw", requestJsonObject, new Response.Listener<JSONObject>() {
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.PUT, Constants.SERVER_URL + "/users/changepw", requestJsonObject, new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {

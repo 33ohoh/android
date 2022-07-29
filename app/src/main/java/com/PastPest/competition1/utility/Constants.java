@@ -8,5 +8,5 @@ public class Constants {
     public final static String FOOD_RESOURCES = "식량작물";
     public final static String FRUIT_TREE = "과수";
     public final static String VEGETABLE = "채소";
-
+    public final static String SERVER_URL = "http://ec2-15-165-205-64.ap-northeast-2.compute.amazonaws.com:3000";
 }

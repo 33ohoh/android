@@ -47,7 +47,6 @@ public class FragmentPredict extends Fragment {
     private ArrayList<PestsOnCropDTO> foodResourcesList;
     private ArrayList<PestsOnCropDTO> vegetableList;
     private ArrayList<PestsOnCropDTO> fruitTreeList;
-    private String url = "http://ec2-3-39-234-0.ap-northeast-2.compute.amazonaws.com:3000";
     private View foodResourcesView;
     private View vegetableView;
     private View fruitTreeView;
@@ -91,7 +90,7 @@ public class FragmentPredict extends Fragment {
                 requestJsonObject.put("month", month);
 
                 RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
-                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url + "/monthlypests/month", requestJsonObject, new Response.Listener<JSONObject>() {
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, Constants.SERVER_URL + "/monthlypests/month", requestJsonObject, new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {

@@ -16,6 +16,7 @@ import android.widget.Toast;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 
+import com.PastPest.competition1.utility.Constants;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -47,7 +48,7 @@ import java.util.Date;
 
 public class FragmentDeclaration extends Fragment {
     MainActivity mainActivity;
-    private String url = "http://ec2-3-39-234-0.ap-northeast-2.compute.amazonaws.com:3000";
+
     ImageView selectedImage;
     double latitude=37.5495538;
     double longitude=127.075032;
@@ -374,7 +375,7 @@ public class FragmentDeclaration extends Fragment {
                 requestJsonObject.put("details", detailText);
 
                 RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
-                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url + "/declarations/report/add", requestJsonObject, new Response.Listener<JSONObject>() {
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, Constants.SERVER_URL + "/declarations/report/add", requestJsonObject, new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {

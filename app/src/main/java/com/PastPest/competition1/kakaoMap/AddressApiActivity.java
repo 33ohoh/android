@@ -18,6 +18,7 @@ import android.widget.ProgressBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.PastPest.competition1.R;
+import com.PastPest.competition1.utility.Constants;
 
 public class AddressApiActivity extends AppCompatActivity {
 
@@ -89,7 +90,7 @@ public class AddressApiActivity extends AppCompatActivity {
             }
         });
 
-        wv_search_address.loadUrl("http://ec2-3-39-234-0.ap-northeast-2.compute.amazonaws.com:3000");
+        wv_search_address.loadUrl(Constants.SERVER_URL);
 
     }
 
