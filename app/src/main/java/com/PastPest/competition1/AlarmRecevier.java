@@ -1,4 +1,4 @@
-package com.example.competition1;
+package com.PastPest.competition1;
 
 import static android.content.Context.NOTIFICATION_SERVICE;
 
