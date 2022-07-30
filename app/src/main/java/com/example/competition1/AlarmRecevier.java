@@ -25,7 +25,8 @@ public class AlarmRecevier extends BroadcastReceiver {
 
         // 기기(device)의 SDK 버전 확인 ( SDK 26 버전 이상인지 - VERSION_CODES.O = 26)
         if(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O){
-            NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID,"pestNotification",mNotificationManager.IMPORTANCE_HIGH);
+            NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID,
+                    "병해충 알림",mNotificationManager.IMPORTANCE_HIGH); //휴대폰 알림 설정에 표시되는 이름
 
             notificationChannel.enableLights(true);
             notificationChannel.enableVibration(true);
@@ -43,7 +44,7 @@ public class AlarmRecevier extends BroadcastReceiver {
         NotificationCompat.Builder notifyBuilder = new NotificationCompat.Builder(context, CHANNEL_ID)
                 .setContentTitle("오늘의 병해충 소식")
                 .setContentText("병해충 ")
-                .setSmallIcon(R.drawable.apple)
+                .setSmallIcon(R.drawable.pest)
                 .setContentIntent(notificationPendingIntent)
                 .setAutoCancel(true); //알림창 클릭시 상단바에서 알림창을 없앰
 
