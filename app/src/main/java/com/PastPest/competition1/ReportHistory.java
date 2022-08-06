@@ -3,14 +3,19 @@ package com.PastPest.competition1;
 import java.io.Serializable;
 
 public class ReportHistory implements Serializable {
-    private String title;
-    private String date;
+
+    private String id;
     private String address;
     private String cropName;
+    private Double latitude;
+    private Double longitude;
     private String symptom;
     private String pestName;
     private String imageUrl;
     private String details;
+    private String title;
+    private String date;
+
 
     public ReportHistory(String title, String date, String address, String cropName,
                          String symptom, String pestName, String imageUrl, String details){
@@ -23,6 +28,43 @@ public class ReportHistory implements Serializable {
         this.imageUrl = imageUrl;
         this.details = details;
     }
+
+
+
+    public ReportHistory(String cropName, String details, Double latitude, Double longitude,String id, String address,String title, String date,String symptom,String pestName){
+        this.cropName = cropName;
+        this.details = details;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.id = id;
+        this.address = address;
+        this.title = title;
+        this.date = date;
+        this.symptom =symptom;
+        this.pestName= pestName;
+    }
+
+    public ReportHistory(String imageUrl, String cropName, String details,String id, String address,String title, String date,String symptom ,String pestName){
+        this.imageUrl = imageUrl;
+        this.cropName = cropName;
+        this.id = id;
+        this.address = address;
+        this.details = details;
+        this.title = title;
+        this.date = date;
+        this.symptom =symptom;
+        this.pestName = pestName;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public Double getLongitude() {return longitude;}
 
     public String getTitle() {
         return title;
