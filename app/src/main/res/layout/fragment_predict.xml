@@ -4,198 +4,216 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     tools:context=".FirstActivity">
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="8">
+
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="병해충 예보"
-                android:textSize="20sp"
-                android:layout_margin="15dp"
-                android:textStyle="bold"/>
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="병해충 예보"
+                    android:textSize="20sp"
+                    android:layout_margin="15dp"
+                    android:textStyle="bold"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="5"
-                    android:orientation="vertical"
-                    android:layout_marginHorizontal="10dp"
-                    android:background="@drawable/bg_border">
+                    android:orientation="vertical">
 
-                    <!-- 병해충 예측 정보 메뉴에 대한 설명 -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:layout_weight="5"
+                        android:orientation="vertical"
+                        android:layout_marginHorizontal="10dp"
+                        android:background="@drawable/bg_border">
 
-                        <TextView
+                        <!-- 병해충 예측 정보 메뉴에 대한 설명 -->
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="10dp"
-                            android:layout_marginTop="20dp"
-                            android:text="이달의 병해충 예보"
-                            android:fontFamily="@font/gmarket_sans_ttf_bold"
-                            android:textSize="30sp"
-                            android:textColor="#000000"
-                            />
+                            android:orientation="vertical">
 
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_marginTop="20dp"
+                                android:text="이달의 병해충 예보"
+                                android:fontFamily="@font/gmarket_sans_ttf_bold"
+                                android:textSize="30sp"
+                                android:textColor="#000000"
+                                />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginVertical="20dp"
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_weight="1"
+                                android:text="최근 1년 이내의 병해충 예측 정보가 조회됩니다.\n조회 하고 싶은 월을 선택하고 버튼을 눌러주세요." />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="20dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingRight="4dp"
+                                android:paddingVertical="7dp"
+                                android:text="예측일자" />
+
+                            <!-- 월 선택 -->
+                            <Spinner
+                                android:id="@+id/spn_month"
+                                android:layout_width="40dp"
+                                android:layout_height="match_parent"
+                                android:spinnerMode="dropdown"
+                                android:background="@drawable/bg_spinner" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="2dp"
+                                android:text="월" />
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"/>
+
+                            <!-- 결과 조회 버튼 -->
+                            <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/btn_prediction_result_inquiry"
+                                android:layout_width="100dp"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/button_background"
+                                android:text="결과조회"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- 예측 결과 -->
+                <LinearLayout
+                    android:id="@+id/prediction_result"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <!-- 경보 단계 안내 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="right"
+                        android:layout_marginTop="20dp">
+
+                        <TextView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_margin="2dp"
+                            android:background="@drawable/bg_red_circle" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginVertical="20dp"
-                            android:layout_marginHorizontal="10dp"
-                            android:layout_weight="1"
-                            android:text="최근 1년 이내의 병해충 예측 정보가 조회됩니다.\n조회 하고 싶은 월을 선택하고 버튼을 눌러주세요." />
+                            android:text="경보"
+                            android:layout_marginRight="10dp"/>
+
+                        <TextView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_margin="2dp"
+                            android:background="@drawable/bg_yellow_circle"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="주의보"
+                            android:layout_marginRight="10dp"/>
+
+                        <TextView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_margin="2dp"
+                            android:background="@drawable/bg_green_circle"/>
+
+                        <TextView
+                            android:id="@+id/textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="예보" />
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/ll_prediction_result"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginHorizontal="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="20dp">
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="6dp">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingRight="4dp"
-                            android:paddingVertical="7dp"
-                            android:text="예측일자" />
+                        <!-- 식량작물 -->
+                        <include
+                            layout="@layout/item_pest_forecast"
+                            android:id="@+id/food_resources"/>
 
-                        <!-- 월 선택 -->
-                        <Spinner
-                            android:id="@+id/spn_month"
-                            android:layout_width="40dp"
-                            android:layout_height="match_parent"
-                            android:spinnerMode="dropdown"
-                            android:background="@drawable/bg_spinner" />
+                        <!-- 채소 -->
+                        <include
+                            layout="@layout/item_pest_forecast"
+                            android:id="@+id/vegetable"/>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:padding="2dp"
-                            android:text="월" />
-
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"/>
-
-                        <!-- 결과 조회 버튼 -->
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/btn_prediction_result_inquiry"
-                            android:layout_width="100dp"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/button_background"
-                            android:text="결과조회"/>
+                        <!-- 과일 -->
+                        <include
+                            layout="@layout/item_pest_forecast"
+                            android:id="@+id/fruit_tree"/>
 
                     </LinearLayout>
 
                 </LinearLayout>
-            </LinearLayout>
-
-            <!-- 예측 결과 -->
-            <LinearLayout
-                android:id="@+id/prediction_result"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:orientation="vertical"
-                android:visibility="visible">
-
-                <!-- 경보 단계 안내 -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:gravity="right"
-                    android:layout_marginTop="20dp">
-
-                    <TextView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:layout_margin="2dp"
-                        android:background="@drawable/bg_red_circle" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="경보"
-                        android:layout_marginRight="10dp"/>
-
-                    <TextView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:layout_margin="2dp"
-                        android:background="@drawable/bg_yellow_circle"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="주의보"
-                        android:layout_marginRight="10dp"/>
-
-                    <TextView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:layout_margin="2dp"
-                        android:background="@drawable/bg_green_circle"/>
-
-                    <TextView
-                        android:id="@+id/textView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="예보" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/ll_prediction_result"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:visibility="gone">
-
-                    <!-- 식량작물 -->
-                    <include
-                        layout="@layout/item_pest_forecast"
-                        android:id="@+id/food_resources"/>
-
-                    <!-- 채소 -->
-                    <include
-                        layout="@layout/item_pest_forecast"
-                        android:id="@+id/vegetable"/>
-
-                    <!-- 과일 -->
-                    <include
-                        layout="@layout/item_pest_forecast"
-                        android:id="@+id/fruit_tree"/>
-
-
-                </LinearLayout>
 
             </LinearLayout>
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
 
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

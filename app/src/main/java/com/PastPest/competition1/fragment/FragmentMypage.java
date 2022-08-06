@@ -24,7 +24,7 @@ import com.PastPest.competition1.LoginedId;
 import com.PastPest.competition1.NetworkStatusActivity;
 import com.PastPest.competition1.PasswordResetActivity;
 import com.PastPest.competition1.R;
-import com.PastPest.competition1.ReportHistoryActivity;
+import com.PastPest.competition1.ReportHistory.ReportHistoryActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;

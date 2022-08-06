@@ -66,7 +66,7 @@
         <activity android:name="com.PastPest.competition1.FindingActivity"/>
         <activity android:name="com.PastPest.competition1.FindingIdActivity"/>
         <activity android:name="com.PastPest.competition1.FindingPwActivity"/>
-        <activity android:name="com.PastPest.competition1.ReportHistoryActivity"/>
+        <activity android:name="com.PastPest.competition1.ReportHistory.ReportHistoryActivity"/>
         <activity android:name="com.PastPest.competition1.ReportRecordActivity"/>
         <activity android:name="com.PastPest.competition1.pestdetails.PestDetailsActivity"/>
         <activity android:name="com.PastPest.competition1.MainActivity"/>

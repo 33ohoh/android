@@ -39,7 +39,7 @@ import com.PastPest.competition1.CurrentSituationAdapter;
 import com.PastPest.competition1.Mapdata;
 import com.PastPest.competition1.NetworkStatusActivity;
 import com.PastPest.competition1.R;
-import com.PastPest.competition1.ReportHistory;
+import com.PastPest.competition1.ReportHistory.ReportHistory;
 import com.PastPest.competition1.ReportRecordActivity;
 
 import net.daum.mf.map.api.MapPOIItem;
@@ -290,7 +290,9 @@ public class FragmentCurrent extends Fragment implements View.OnClickListener {
 
                 CurrentSituation a = searchHistoryList.get(position);
 
-                ReportHistory reportHistory = new ReportHistory(a.getTitle(),a.getDate(),a.getAddress(),a.getCropName(),a.getSymptom(),a.getPestName(),a.getImageUrl(),a.getDescription());
+                ReportHistory reportHistory = new ReportHistory(
+                        a.getId(), a.getTitle(),a.getDate(),a.getAddress(),a.getCropName(),a.getSymptom(),
+                        a.getPestName(),a.getImageUrl(),a.getDescription());
 
                 Intent intent = new Intent(getActivity().getApplicationContext(), ReportRecordActivity.class);
                 intent.putExtra("reportHistory", reportHistory);
