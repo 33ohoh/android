@@ -1,4 +1,4 @@
-package com.PastPest.competition1;
+package com.PastPest.competition1.ReportHistory;
 
 import java.io.Serializable;
 
