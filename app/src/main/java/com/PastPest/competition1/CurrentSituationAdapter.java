@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.PastPest.competition1.ReportHistory.ReportHistory;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
@@ -16,9 +17,9 @@ import java.util.ArrayList;
 public class CurrentSituationAdapter extends BaseAdapter {
 
     private Context mContext;
-    private ArrayList<CurrentSituation>currentHistoryList;  //신고내역 리스트 데이터
+    private ArrayList<ReportHistory>currentHistoryList;  //신고내역 리스트 데이터
 
-    public CurrentSituationAdapter(Context mContext, ArrayList<CurrentSituation> currentHistoryList) {
+    public CurrentSituationAdapter(Context mContext, ArrayList<ReportHistory> currentHistoryList) {
         this.mContext = mContext;
         this.currentHistoryList = currentHistoryList;
     }
