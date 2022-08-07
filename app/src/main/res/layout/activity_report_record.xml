@@ -40,7 +40,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="제목        "
+                    android:text="제목"
+                    android:paddingRight="25dp"
                     android:layout_margin="3dp"/>
 
                 <TextView
@@ -70,7 +71,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="날짜        "
+                    android:text="날짜"
+                    android:paddingRight="25dp"
                     android:layout_margin="3dp"/>
 
                 <TextView
@@ -99,7 +101,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="등록 위치"
+                    android:text="위치"
+                    android:paddingRight="25dp"
                     android:layout_margin="3dp"/>
 
                 <TextView
@@ -128,7 +131,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="작물         "
+                    android:text="작물"
+                    android:paddingRight="25dp"
                     android:layout_margin="3dp"/>
 
                 <TextView
@@ -157,7 +161,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="증상         "
+                    android:text="증상"
+                    android:paddingRight="25dp"
                     android:layout_margin="3dp"/>
 
                 <TextView
@@ -186,7 +191,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="해충         "
+                    android:text="해충"
+                    android:paddingRight="25dp"
                     android:layout_margin="3dp"/>
 
                 <TextView
@@ -197,32 +203,6 @@
                     android:layout_margin="3dp"
                     android:padding="10dp"
                     android:background="@drawable/edittext_style"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp">
-
-                <ImageView
-                    android:layout_width="25sp"
-                    android:layout_height="25sp"
-                    android:src="@drawable/ic_image"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="피해 사진"
-                    android:layout_margin="3dp"/>
-
-                <ImageView
-                    android:id="@+id/selectedImage"
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    android:src="@android:drawable/ic_menu_report_image" />
 
             </LinearLayout>
 
@@ -252,6 +232,51 @@
                     android:text="TextView"
                     android:layout_margin="3dp"
                     android:padding="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="30dp">
+
+                <ImageView
+                    android:layout_width="25sp"
+                    android:layout_height="25sp"
+                    android:src="@drawable/ic_siren"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="진행상태"
+                    android:layout_margin="3dp"/>
+
+
+                <TextView
+                    android:id="@+id/tx_whether_to_solve"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="해결 전"
+                    android:layout_margin="3dp"
+                    android:padding="10dp"
+                    android:background="@drawable/edittext_style"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_marginBottom="30dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_whether_to_solve"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/button_background"
+                android:text="해결 완료"/>
 
             </LinearLayout>
 

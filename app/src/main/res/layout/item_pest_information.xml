@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="작물별 병해충 정보"
-            android:textStyle="bold"
+            android:textColor="@color/black"
             android:padding="10dp"/>
     </LinearLayout>
 
