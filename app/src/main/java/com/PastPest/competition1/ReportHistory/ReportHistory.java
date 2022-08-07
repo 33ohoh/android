@@ -18,19 +18,6 @@ public class ReportHistory implements Serializable {
     private String isSolved;
 
 
-    public ReportHistory(String title, String date, String address, String cropName,
-                         String symptom, String pestName, String imageUrl, String details){
-        this.title = title;
-        this.date = date;
-        this.address = address;
-        this.cropName = cropName;
-        this.symptom = symptom;
-        this.pestName = pestName;
-        this.imageUrl = imageUrl;
-        this.details = details;
-    }
-
-
 
     public ReportHistory(String cropName, String details, Double latitude, Double longitude,String id, String address,String title, String date,String symptom,String pestName,String isSolved){
         this.cropName = cropName;

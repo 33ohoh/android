@@ -1,4 +1,4 @@
-package com.PastPest.competition1;
+package com.PastPest.competition1.ReportHistory;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +13,12 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.PastPest.competition1.LoginedId;
+import com.PastPest.competition1.NetworkStatusActivity;
+import com.PastPest.competition1.R;
+import com.PastPest.competition1.ReportHistory.ReportHistory;
+import com.PastPest.competition1.ReportHistory.ReportHistoryAdapter;
+import com.PastPest.competition1.ReportRecordActivity;
 import com.PastPest.competition1.utility.Constants;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -65,7 +71,6 @@ public class ReportHistoryActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                Log.v("테테테", searchTitle.getText()+"");
                 String text = searchTitle.getText().toString();
                 search(text);
             }
@@ -91,7 +96,6 @@ public class ReportHistoryActivity extends AppCompatActivity {
         // 문자 입력이 없을때는 모든 데이터를 보여준다.
         if (charText.length() == 0) {
             currentHistoryList.addAll(reportHistoryList);
-            Log.v("오아우", "dd");
         }
         else
         {
@@ -114,7 +118,8 @@ public class ReportHistoryActivity extends AppCompatActivity {
     private void setReportHistoryList(JSONObject jsonObject){
         reportHistoryList = new ArrayList<>();                                //신고 내역 리스트
 
-        String title, date, address, cropName, symptom, pestName, imageUrl, details;
+        String id, title, date, address, cropName, symptom,
+                pestName, imageUrl, details;
 
         try {
             JSONArray jsonArray = jsonObject.getJSONArray("result");
@@ -122,6 +127,7 @@ public class ReportHistoryActivity extends AppCompatActivity {
             for(int index = 0; index < jsonArray.length(); index++){
                 JSONObject obj = jsonArray.getJSONObject(index);
 
+                id = obj.getString("id");
                 title = obj.getString("title");
                 date = obj.getString("date");
                 address = String.format("%s(%s)", obj.getString("street_address"), obj.getString("detailed_address"));
@@ -131,7 +137,9 @@ public class ReportHistoryActivity extends AppCompatActivity {
                 imageUrl = obj.getString("image_url");
                 details = obj.getString("details");
 
-                reportHistoryList.add(new ReportHistory(title, date, address, cropName, symptom, pestName, imageUrl, details));
+                reportHistoryList.add(new ReportHistory(
+                        imageUrl, cropName, details, id, address,
+                        title, date, symptom , pestName));
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -166,8 +174,6 @@ public class ReportHistoryActivity extends AppCompatActivity {
                                 if(reportHistoryList.size() == 0){
                                     findViewById(R.id.ll_no_result).setVisibility(View.VISIBLE);
                                 }
-                            } else {   //로그인 실패
-
                             }
 
                         } catch (Exception e) {
