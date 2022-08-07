@@ -62,7 +62,7 @@
 
                 <ImageView
                     android:layout_width="25sp"
-                    android:layout_height="25sp     "
+                    android:layout_height="25sp"
                     android:src="@drawable/ic_calendar"
                     android:layout_marginTop="10dp"
                     android:padding="3dp"/>
@@ -219,7 +219,7 @@
                     android:layout_margin="3dp"/>
 
                 <ImageView
-                    android:id="@+id/selectedImage"
+                    android:id="@+id/uploadedImage"
                     android:layout_width="200dp"
                     android:layout_height="200dp"
                     android:src="@android:drawable/ic_menu_report_image" />

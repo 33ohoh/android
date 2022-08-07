@@ -84,7 +84,7 @@ public class FragmentCurrent extends Fragment implements View.OnClickListener {
         ViewGroup mapViewContainer = (ViewGroup) view.findViewById(R.id.map_view);
         mapViewContainer.addView(mapView);
 
-        com.tistory.webnautes.get_gps_location.GpsTracker gpsTracker;
+        com.PastPest.competition1.kakaoMap.GpsTracker gpsTracker;
         double latitude;
         double longitude;
 
@@ -94,7 +94,7 @@ public class FragmentCurrent extends Fragment implements View.OnClickListener {
         }else {
             checkRunTimePermission();
         }
-        gpsTracker = new com.tistory.webnautes.get_gps_location.GpsTracker(getActivity().getApplicationContext());
+        gpsTracker = new com.PastPest.competition1.kakaoMap.GpsTracker(getActivity().getApplicationContext());
 
         latitude = gpsTracker.getLatitude();
         longitude = gpsTracker.getLongitude();

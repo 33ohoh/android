@@ -1,11 +1,15 @@
 package com.PastPest.competition1.fragment;
 
 import android.app.Activity;
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,15 +20,6 @@ import android.widget.Toast;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 
-import com.PastPest.competition1.utility.Constants;
-import com.android.volley.DefaultRetryPolicy;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-import com.bumptech.glide.Glide;
 import com.PastPest.competition1.LoginedId;
 import com.PastPest.competition1.MainActivity;
 import com.PastPest.competition1.NetworkStatusActivity;
@@ -33,12 +28,34 @@ import com.PastPest.competition1.report.CropSelectActivity;
 import com.PastPest.competition1.report.LocationSelectActivity;
 import com.PastPest.competition1.report.PestSelectActivity;
 import com.PastPest.competition1.report.SymptomSelectActivity;
+import com.PastPest.competition1.utility.Constants;
+import com.amazonaws.auth.AWSCredentials;
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.auth.CognitoCachingCredentialsProvider;
+import com.amazonaws.mobileconnectors.s3.transferutility.TransferListener;
+import com.amazonaws.mobileconnectors.s3.transferutility.TransferNetworkLossHandler;
+import com.amazonaws.mobileconnectors.s3.transferutility.TransferObserver;
+import com.amazonaws.mobileconnectors.s3.transferutility.TransferState;
+import com.amazonaws.mobileconnectors.s3.transferutility.TransferUtility;
+import com.amazonaws.regions.Region;
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3Client;
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.textfield.TextInputEditText;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.sql.Blob;
@@ -48,7 +65,7 @@ import java.util.Date;
 
 public class FragmentDeclaration extends Fragment {
     MainActivity mainActivity;
-
+    CognitoCachingCredentialsProvider credentialsProvider;
     ImageView selectedImage;
     double latitude=37.5495538;
     double longitude=127.075032;
@@ -66,6 +83,7 @@ public class FragmentDeclaration extends Fragment {
     EditText detailText;
     TextInputEditText titleText;
     private View view;
+    boolean isImageSelected=false;
 
     public FragmentDeclaration(MainActivity mainActivity){
         this.mainActivity=mainActivity;
@@ -87,6 +105,12 @@ public class FragmentDeclaration extends Fragment {
         imageBtn = (AppCompatButton) view.findViewById(R.id.imageButton);
         reportBtn = (AppCompatButton) view.findViewById(R.id.reportButton);
 
+
+        credentialsProvider = new CognitoCachingCredentialsProvider(
+                getActivity().getApplicationContext(),
+                "ap-northeast-2:05fe3813-8b11-402b-8e0b-544354a50280", // 자격 증명 풀 ID
+                Regions.AP_NORTHEAST_2 // 리전
+        );
 
         locationBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -163,9 +187,7 @@ public class FragmentDeclaration extends Fragment {
                     Toast.makeText(getActivity().getApplicationContext(), "세부사항을 입력해주세요", Toast.LENGTH_LONG).show();
 
                 }else{
-                    BitmapDrawable bitmapDrawable=(BitmapDrawable)selectedImage.getDrawable();
-                    Bitmap bitmap=bitmapDrawable.getBitmap();
-                    requestRegister(((LoginedId)getActivity().getApplication()).getId(),detail,bitmapToByteArray(bitmap),title);
+                    requestRegister(((LoginedId)getActivity().getApplication()).getId(),detail,title);
                 }
             }
         });
@@ -176,52 +198,14 @@ public class FragmentDeclaration extends Fragment {
             public void onClick(View view) {
                 selectedImage.setImageBitmap(null);
                 imageBtn.setBackgroundResource(R.drawable.button_background);
+                //내부 캐시 데이터도 삭제해야함
+                deleteImage();
+                isImageSelected=false;
             }
         });
 
 
         return view;
-    }
-    public Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight) {
-        int width = bm.getWidth();
-        int height = bm.getHeight();
-        float scaleWidth = ((float) newWidth) / width;
-        float scaleHeight = ((float) newHeight) / height;
-        // CREATE A MATRIX FOR THE MANIPULATION
-        Matrix matrix = new Matrix();
-        // RESIZE THE BIT MAP
-        matrix.postScale(scaleWidth, scaleHeight);
-
-        // "RECREATE" THE NEW BITMAP
-        Bitmap resizedBitmap = Bitmap.createBitmap(
-                bm, 0, 0, width, height, matrix, false);
-        bm.recycle();
-        return resizedBitmap;
-    }
-    private byte[] bitmapToByteArray(Bitmap bitmap) {
-        String image="";
-        ByteArrayOutputStream stream=new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG,100,stream);
-        byte[] byteArray=stream.toByteArray();
-        //image = byteArrayToBinaryString(byteArray);
-        //Log.v("test",image);
-        return byteArray;
-    }
-    public String byteArrayToBinaryString(byte[] b){
-        StringBuilder sb=new StringBuilder();
-        for(int i=0;i<b.length;++i){
-            sb.append(byteToBinaryString(b[i]));
-        }
-        return sb.toString();
-    }
-    public static String byteToBinaryString(byte n) {
-        StringBuilder sb = new StringBuilder("00000000");
-        for (int bit = 0; bit < 8; bit++) {
-            if (((n >> bit) & 1) > 0) {
-                sb.setCharAt(7 - bit, '1');
-            }
-        }
-        return sb.toString();
     }
 
     @Override
@@ -229,10 +213,18 @@ public class FragmentDeclaration extends Fragment {
         super.onActivityResult(requestCode,resultCode,data);
         if(requestCode==5){
             if(resultCode== Activity.RESULT_OK){
-                Glide.with(getActivity().getApplicationContext()).load(data.getData()).override(300,300).into(selectedImage);
-                selectedImage.setClipToOutline(true);
-                selectedImage.setScaleType(ImageView.ScaleType.FIT_XY);
-                imageBtn.setBackgroundResource(R.drawable.seleted_button_background);
+                Uri fileUri = data.getData();
+                ContentResolver resolver = getActivity().getApplicationContext().getContentResolver();
+                try {
+                    InputStream instream = resolver.openInputStream(fileUri);
+                    Bitmap imgBitmap = BitmapFactory.decodeStream(instream);
+                    selectedImage.setImageBitmap(imgBitmap);    // 선택한 이미지 이미지뷰에 셋
+                    instream.close();   // 스트림 닫아주기
+                    saveBitmapToJpeg(imgBitmap);    // 내부 저장소에 저장
+                    imageBtn.setBackgroundResource(R.drawable.seleted_button_background);
+                    //저장했는지 유무확인하기
+                    isImageSelected=true;
+                } catch (Exception e) {}
             }
         }
         else if(requestCode==1){
@@ -291,7 +283,7 @@ public class FragmentDeclaration extends Fragment {
             }
         }
     }
-    private void requestRegister(String id, String detailText,byte[] bitmap,String title ) {
+    private void requestRegister(String id, String detailText,String title ) {
         Blob blob=new Blob() {
             @Override
             public long length() throws SQLException {
@@ -348,19 +340,18 @@ public class FragmentDeclaration extends Fragment {
                 return null;
             }
         };
-        try{
-            blob.setBytes(1,bitmap);
-        }
-        catch (Exception e){
-
-        }
         JSONObject requestJsonObject = new JSONObject();
         Date date=new Date(System.currentTimeMillis());
-        SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         //인터넷 연결확인
         int status = NetworkStatusActivity.getConnectivityStatus( getActivity().getApplicationContext());
         if (status == NetworkStatusActivity.TYPE_MOBILE || status == NetworkStatusActivity.TYPE_WIFI) {
             try {
+                //저장했는지 유무 확인하자
+                String fileName=createFileName(id);
+                if(!isImageSelected)
+                    fileName="none";
+                //
                 requestJsonObject.put("id", id);
                 requestJsonObject.put("title", title);
                 requestJsonObject.put("date",dateFormat.format(date) );
@@ -371,8 +362,8 @@ public class FragmentDeclaration extends Fragment {
                 requestJsonObject.put("product_name", cropName);
                 requestJsonObject.put("symptom", symptomName);
                 requestJsonObject.put("pest_name", pestName);
-                requestJsonObject.put("image_url", blob);
                 requestJsonObject.put("details", detailText);
+                requestJsonObject.put("image_url",fileName);
 
                 RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
                 JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, Constants.SERVER_URL + "/declarations/report/add", requestJsonObject, new Response.Listener<JSONObject>() {
@@ -402,8 +393,16 @@ public class FragmentDeclaration extends Fragment {
                 jsonObjectRequest.setRetryPolicy(new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
                 requestQueue.add(jsonObjectRequest);
 
+                //이미지 불러왔으면
+                if(isImageSelected) {
+                    String imgpath = getActivity().getCacheDir() + "/selectedImage";
+                    File testfile = new File(imgpath);
+                    s3save(fileName, testfile);
+                }
+
+
             } catch (JSONException e) {
-                Toast.makeText(getActivity().getApplicationContext(), "서버 통신 오류", Toast.LENGTH_SHORT).show();
+               Toast.makeText(getActivity().getApplicationContext(), "서버 통신 오류", Toast.LENGTH_SHORT).show();
             }
 
         } else {
@@ -411,4 +410,48 @@ public class FragmentDeclaration extends Fragment {
         }
     }
 
+    private void saveBitmapToJpeg(Bitmap bitmap) {   // 선택한 이미지 내부 저장소에 저장
+        File tempFile = new File(getActivity().getCacheDir(), "selectedImage");    // 파일 경로와 이름 넣기
+        try {
+            tempFile.createNewFile();   // 자동으로 빈 파일을 생성하기
+            FileOutputStream out = new FileOutputStream(tempFile);  // 파일을 쓸 수 있는 스트림을 준비하기
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);   // compress 함수를 사용해 스트림에 비트맵을 저장하기
+            out.close();    // 스트림 닫아주기
+        } catch (Exception e) {
+        }
+    }
+
+    private void s3save(String filename, File file){
+        AmazonS3 s3=new AmazonS3Client(credentialsProvider);
+        TransferNetworkLossHandler.getInstance(getActivity().getApplicationContext());
+        TransferUtility transferUtility=new TransferUtility(s3,getActivity().getApplicationContext());
+
+        s3.setRegion(Region.getRegion(Regions.AP_NORTHEAST_2));
+        s3.setEndpoint("s3.ap-northeast-2.amazonaws.com");
+
+        TransferObserver observer=transferUtility.upload("pestpestimage",filename,file);
+    }
+
+    private String createFileName(String id){
+        long now=System.currentTimeMillis();
+        Date date=new Date(now);
+        SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss",java.util.Locale.getDefault());
+        String strDate=dateFormat.format(date);
+        return id+strDate;
+    }
+
+    private void deleteImage() {    // 이미지 삭제
+        try {
+            File file = getActivity().getCacheDir();  // 내부저장소 캐시 경로를 받아오기
+            File[] flist = file.listFiles();
+            for (int i = 0; i < flist.length; i++) {    // 배열의 크기만큼 반복
+                if (flist[i].getName().equals("selectedImage")) {   // 삭제하고자 하는 이름과 같은 파일명이 있으면 실행
+                    flist[i].delete();  // 파일 삭제
+                    Toast.makeText(getActivity().getApplicationContext(), "파일 삭제 성공", Toast.LENGTH_SHORT).show();
+                }
+            }
+        } catch (Exception e) {
+            Toast.makeText(getActivity().getApplicationContext(), "파일 삭제 실패", Toast.LENGTH_SHORT).show();
+        }
+    }
 }

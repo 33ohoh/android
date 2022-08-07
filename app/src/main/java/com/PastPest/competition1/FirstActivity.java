@@ -4,12 +4,18 @@ import android.app.AlarmManager;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Base64;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -27,10 +33,10 @@ public class FirstActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
 
-        NotificationManager notificationManager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
-        AlarmManager alarmManager = (AlarmManager)getSystemService(this.ALARM_SERVICE);
-        GregorianCalendar mCalender = new GregorianCalendar();
-        setAlarm(alarmManager);
+        //NotificationManager notificationManager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+        //AlarmManager alarmManager = (AlarmManager)getSystemService(this.ALARM_SERVICE);
+        //GregorianCalendar mCalender = new GregorianCalendar();
+        //setAlarm(alarmManager);
 
         handler.postDelayed(new Runnable() {
             @Override
@@ -66,4 +72,5 @@ public class FirstActivity extends AppCompatActivity {
                 AlarmManager.INTERVAL_DAY, pendingIntent); //매일 알림
 
     }
+
 }

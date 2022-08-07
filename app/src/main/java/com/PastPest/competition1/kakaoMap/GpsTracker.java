@@ -1,4 +1,4 @@
-package com.tistory.webnautes.get_gps_location;
+package com.PastPest.competition1.kakaoMap;
 
 import android.Manifest;
 import android.app.Service;

@@ -49,7 +49,7 @@ public class LocationSelectActivity extends AppCompatActivity implements MapView
     MapView mapView;
     MapPoint MARKER_POINT;
     MapPOIItem marker = new MapPOIItem();
-    private com.tistory.webnautes.get_gps_location.GpsTracker gpsTracker;
+    private com.PastPest.competition1.kakaoMap.GpsTracker gpsTracker;
 
     private static final int GPS_ENABLE_REQUEST_CODE = 2001;
     private static final int PERMISSIONS_REQUEST_CODE = 100;
@@ -123,7 +123,7 @@ public class LocationSelectActivity extends AppCompatActivity implements MapView
                 }else {
                     checkRunTimePermission();
                 }
-                gpsTracker = new com.tistory.webnautes.get_gps_location.GpsTracker(getApplicationContext());
+                gpsTracker = new com.PastPest.competition1.kakaoMap.GpsTracker(getApplicationContext());
 
                 latitude = gpsTracker.getLatitude();
                 longitude = gpsTracker.getLongitude();
