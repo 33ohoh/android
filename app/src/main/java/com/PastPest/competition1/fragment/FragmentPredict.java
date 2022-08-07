@@ -1,21 +1,30 @@
 package com.PastPest.competition1.fragment;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.gridlayout.widget.GridLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.PastPest.competition1.pestprediction.MonthAdapter;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -50,6 +59,7 @@ public class FragmentPredict extends Fragment {
     private View foodResourcesView;
     private View vegetableView;
     private View fruitTreeView;
+    private View preView;
 
 
     @Override
@@ -62,21 +72,70 @@ public class FragmentPredict extends Fragment {
         vegetableView = view.findViewById(R.id.vegetable);
         fruitTreeView = view.findViewById(R.id.fruit_tree);
 
-        setMonthSpinner();                  //월을 선택하는 spinner값
+        GridView gridViewMonth = view.findViewById(R.id.gridview_month);
+
+        ArrayList<String> monthList = new ArrayList<>();
+        for(int month = 1; month<=12; month++){
+            monthList.add(month + "월");
+        }
+
+        MonthAdapter monthAdapter = new MonthAdapter(
+                getActivity().getApplicationContext(),
+                R.layout.item_month,
+                monthList);
+
+        gridViewMonth.setAdapter(monthAdapter);
+
+        int height = getListViewHeight(gridViewMonth);
+
+        ViewGroup.LayoutParams layoutParams = gridViewMonth.getLayoutParams();
+        layoutParams.height = height;
+        gridViewMonth.setLayoutParams(layoutParams);
 
         LinearLayout resultLayout = view.findViewById(R.id.ll_prediction_result);   //조회 결과를 표시할 레이아웃
         resultLayout.setVisibility(View.VISIBLE);
 
         getPestListFromServer(getCurrentMonth());    //작물별 병해충 정보를 어뎁터에 담음
 
-        Button btnInquiry = view.findViewById(R.id.btn_prediction_result_inquiry);  //결과 조회 버튼
-        btnInquiry.setOnClickListener(new View.OnClickListener() {
+        gridViewMonth.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View view) {
-                getPestListFromServer(Integer.parseInt(getMonth()));//작물별 병해충 정보를 어뎁터에 담음
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                String month = Integer.toString(position + 1);
+                Toast.makeText(getActivity().getApplicationContext(),
+                        month + "월의 병해충 예보를 조회합니다", Toast.LENGTH_SHORT).show();
+
+                Drawable selectedMonth = ContextCompat.getDrawable(
+                        getActivity().getApplicationContext(), R.drawable.button_background);  //선택한 작물의의 배경
+                Drawable unselectedMonth = ContextCompat.getDrawable(
+                        getActivity().getApplicationContext(), R.drawable.bg_month_button);           //선택하지 않은 작물의 배경
+
+                view.setBackground(selectedMonth);
+
+                if(preView != null){
+                    preView.setBackground(unselectedMonth);
+                }
+                preView = view;
+
+                //작물별 병해충 정보를 어뎁터에 담음
+                getPestListFromServer(Integer.parseInt(month));
             }
         });
+
         return view;
+    }
+
+    private int getListViewHeight(GridView list) {   //리스트뷰의 높이를 구함
+
+        ListAdapter adapter = list.getAdapter();
+
+        int listviewHeight = 0;
+
+        list.measure(View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED),
+                View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
+
+        listviewHeight = list.getMeasuredHeight()*3 + 30;
+
+        return listviewHeight;
     }
 
     private void getPestListFromServer(int month){
@@ -148,13 +207,16 @@ public class FragmentPredict extends Fragment {
 
                 switch (cropType){
                     case Constants.FOOD_RESOURCES:
-                        foodResourcesList.add(new PestsOnCropDTO(cropType, cropName, highLevel, mediumLevel, lowLevel));
+                        foodResourcesList.add(new PestsOnCropDTO(
+                                cropType, cropName, highLevel, mediumLevel, lowLevel));
                         break;
                     case Constants.FRUIT_TREE:
-                        fruitTreeList.add(new PestsOnCropDTO(cropType, cropName, highLevel, mediumLevel, lowLevel));
+                        fruitTreeList.add(new PestsOnCropDTO(
+                                cropType, cropName, highLevel, mediumLevel, lowLevel));
                         break;
                     case Constants.VEGETABLE:
-                        vegetableList.add(new PestsOnCropDTO(cropType, cropName, highLevel, mediumLevel, lowLevel));
+                        vegetableList.add(new PestsOnCropDTO(
+                                cropType, cropName, highLevel, mediumLevel, lowLevel));
                         break;
                 }
             }
@@ -165,11 +227,6 @@ public class FragmentPredict extends Fragment {
             e.printStackTrace();
         }
 
-    }
-
-    private String getMonth(){
-        Spinner month = (Spinner)view.findViewById(R.id.spn_month);
-        return month.getSelectedItem().toString();
     }
 
     private void setCropList(){
@@ -195,6 +252,7 @@ public class FragmentPredict extends Fragment {
     }
 
     private void setNoResultMessage(ArrayList<PestsOnCropDTO> pestList, LinearLayout noResultMessage, String cropType){
+
         if(pestList.size() == 0){
             ((TextView)noResultMessage.findViewById(R.id.tx_crop_type_with_no_result)).setText(cropType);
             noResultMessage.setVisibility(View.VISIBLE);
@@ -218,21 +276,6 @@ public class FragmentPredict extends Fragment {
         initialMonth = Integer.parseInt(currentMonth) - 1;
 
         return initialMonth;
-    }
-
-    private void setMonthSpinner(){
-        String[] month;
-        Spinner spnMonth;
-        int currentMonth;
-
-        month = getResources().getStringArray(R.array.month);   //예측정보를 불러올 월 목록(1,2,...,12)
-        spnMonth = (Spinner)view.findViewById(R.id.spn_month);       //월을 표시한 스피너
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.custom_dropdown_item, month);
-
-        currentMonth = getCurrentMonth();
-        spnMonth.setAdapter(adapter);
-        spnMonth.setSelection(currentMonth);   //초기값은 현재 월로 표시
     }
 
     private void setPestInformationView(RecyclerView recyclerView){

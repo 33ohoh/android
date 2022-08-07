@@ -104,7 +104,7 @@ public class ReportRecordActivity extends AppCompatActivity {
 
                 RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
                 JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST,
-                        Constants.SERVER_URL + "/declarations/whethertosolve", requestJsonObject,
+                        "http://10.0.2.2:3000" + "/declarations/whethertosolve", requestJsonObject,
                         new Response.Listener<JSONObject>() {
 
                     @Override
