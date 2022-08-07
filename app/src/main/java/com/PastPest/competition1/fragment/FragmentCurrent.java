@@ -289,7 +289,9 @@ public class FragmentCurrent extends Fragment implements View.OnClickListener {
 
                 ReportHistory a = searchHistoryList.get(position);
 
-                ReportHistory reportHistory = new ReportHistory(a.getId(),a.getTitle(),a.getDate(),a.getAddress(),a.getCropName(),a.getSymptom(),a.getPestName(),a.getImageUrl(),a.getDetails());
+                ReportHistory reportHistory = new ReportHistory(
+                        a.getImageUrl(), a.getCropName(), a.getDetails(), a.getId(),
+                        a.getAddress(), a.getTitle(), a.getDate(), a.getSymptom() , a.getPestName());
 
                 Intent intent = new Intent(getActivity().getApplicationContext(), ReportRecordActivity.class);
                 intent.putExtra("reportHistory", reportHistory);
