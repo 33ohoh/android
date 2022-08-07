@@ -119,7 +119,7 @@ public class ReportHistoryActivity extends AppCompatActivity {
         reportHistoryList = new ArrayList<>();                                //신고 내역 리스트
 
         String id, title, date, address, cropName, symptom,
-                pestName, imageUrl, details, whetherToSolve;
+                pestName, imageUrl, details;
 
         try {
             JSONArray jsonArray = jsonObject.getJSONArray("result");
