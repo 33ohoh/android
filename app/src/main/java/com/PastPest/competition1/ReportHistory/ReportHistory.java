@@ -1,4 +1,4 @@
-package com.PastPest.competition1.ReportHistory;
+package com.PastPest.competition1;
 
 import java.io.Serializable;
 
@@ -15,8 +15,11 @@ public class ReportHistory implements Serializable {
     private String details;
     private String title;
     private String date;
+    private String isSolved;
 
-    public ReportHistory(String cropName, String details, Double latitude, Double longitude,String id, String address,String title, String date,String symptom,String pestName){
+
+
+    public ReportHistory(String cropName, String details, Double latitude, Double longitude,String id, String address,String title, String date,String symptom,String pestName,String isSolved){
         this.cropName = cropName;
         this.details = details;
         this.latitude = latitude;
@@ -27,6 +30,7 @@ public class ReportHistory implements Serializable {
         this.date = date;
         this.symptom =symptom;
         this.pestName= pestName;
+        this.isSolved =isSolved;
     }
 
     public ReportHistory(String imageUrl, String cropName, String details,String id, String address,String title, String date,String symptom ,String pestName){
@@ -40,6 +44,8 @@ public class ReportHistory implements Serializable {
         this.symptom =symptom;
         this.pestName = pestName;
     }
+
+    public String getIsSolved(){return isSolved;}
 
     public String getId() {
         return id;
