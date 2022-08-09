@@ -69,7 +69,7 @@ public class FragmentCurrent extends Fragment implements View.OnClickListener {
     private View view;
     private EditText cropSearch;
     private ArrayList<ReportHistory> mapdataList;
-
+    private ArrayList<ReportHistory> secondCurrentHistoryList;
     private static final int GPS_ENABLE_REQUEST_CODE = 2001;
     private static final int PERMISSIONS_REQUEST_CODE = 100;
     String[] REQUIRED_PERMISSIONS  = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
@@ -209,22 +209,24 @@ public class FragmentCurrent extends Fragment implements View.OnClickListener {
 
     public void search(String charText) {
         // 문자 입력시마다 리스트를 지우고 새로 뿌려준다.
+
+
         currentHistoryList.clear();
 
         // 문자 입력이 없을때는 모든 데이터를 보여준다.
         if (charText.length() == 0) {
-            currentHistoryList.addAll(searchHistoryList);
+            currentHistoryList.addAll(secondCurrentHistoryList);
         }
         else
         {
             // 리스트의 모든 데이터를 검색한다.
-            for(int i = 0;i < searchHistoryList.size(); i++)
+            for(int i = 0;i < secondCurrentHistoryList.size(); i++)
             {
                 // arraylist의 모든 데이터에 입력받은 단어(charText)가 포함되어 있으면 true를 반환한다.
-                if (searchHistoryList.get(i).getCropName().toLowerCase().contains(charText))
+                if (secondCurrentHistoryList.get(i).getCropName().toLowerCase().contains(charText))
                 {
                     // 검색된 데이터를 리스트에 추가한다.
-                    currentHistoryList.add(searchHistoryList.get(i));
+                    currentHistoryList.add(secondCurrentHistoryList.get(i));
                 }
             }
         }
@@ -252,8 +254,9 @@ public class FragmentCurrent extends Fragment implements View.OnClickListener {
                 String symptom = obj.getString("symptom");
                 String pestName = obj.getString("pest_name");
                 String isSolved = obj.getString("whether_to_solve");
+                String imageUrl =obj.getString("image_url");
 
-                mapdataList.add(new ReportHistory(productName,details,latitude,longitude,id,address,title,date,symptom,pestName,isSolved));
+                mapdataList.add(new ReportHistory(imageUrl,productName,details,latitude,longitude,id,address,title,date,symptom,pestName,isSolved));
             }
 
         }catch (JSONException e) {
@@ -330,6 +333,8 @@ public class FragmentCurrent extends Fragment implements View.OnClickListener {
         currentHistoryView.setAdapter(currentHistoryAdapter);
 
 
+        secondCurrentHistoryList = new ArrayList<>();
+        secondCurrentHistoryList.addAll(currentHistoryList);
 
 
         currentHistoryView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
