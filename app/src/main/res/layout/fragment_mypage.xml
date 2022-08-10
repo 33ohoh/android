@@ -53,16 +53,6 @@
             android:textAlignment="viewStart" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/alarm"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="10dp"
-            android:text="알림 설정"
-            android:textAlignment="viewStart"
-            android:stateListAnimator="@null"
-            android:backgroundTint="@color/white"/>
-
-        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
