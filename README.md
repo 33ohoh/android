@@ -2,7 +2,7 @@
 
 <h1 align="center">
   <a href="https://github.com/33ohoh/android" title="AwesomeCV Documentation">
-    <img alt="AwesomeCV" src="https://github.com/En-soso-com/Android/assets/77156858/5dfcbeaf-a3ee-4604-adbd-89d149f467b8" width="200px" height="200px" />
+    <img alt="AwesomeCV" src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/f88c394a-6d15-46ce-9321-35b6893f4963" width="200px" height="200px" />
   </a>
   <br />
   Past Pest
