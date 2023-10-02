@@ -1,3 +1,50 @@
+
+
+<h1 align="center">
+  <a href="https://github.com/33ohoh/android" title="AwesomeCV Documentation">
+    <img alt="AwesomeCV" src="https://github.com/En-soso-com/Android/assets/77156858/5dfcbeaf-a3ee-4604-adbd-89d149f467b8" width="200px" height="200px" />
+  </a>
+  <br />
+  Past Pest
+</h1>
+<p align="center">
+  병해충 정보 및 피해현황 파악을 위한 애플리케이션입니다.
+
+</p>
+
+<div align="center">
+  <img src="https://img.shields.io/badge/Android-3DDC84?style=flat&logo=Android&logoColor=white"/>
+
+  <img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white"/>
+
+<img src="https://img.shields.io/badge/javascript-F7DF1E?style=flat&logo=javascript&logoColor=white"/>
+ 
+</div>
+
+<br />
+
+## 📌 개요
+- 프로젝트 이름 : Past Pest
+- 참여 공모전 : 2022년  산림공공∙빅데이터 활용 창업경진 대회
+- 개발 배경 : 병해충 피해현황 파악조차 제대로 확인할 수 없다는 문제점을 발견하였습니다. 이를 해결하기 위해서 병해충 피해예방 및 관련정보 제공을 위한 안드로이드 앱을 제작하였습니다. (<a href="https://www.nongmin.com/342133">뉴스링크 </a>)
+- 개발 언어 : Java, Javascript
+- 프론트 : Android
+- 백엔드 : Node.js
+    
+## 🖥️ 프로젝트 소개
+- 병해충 피해를 주변에 알리고 파악할 수 있는 안드로이드 앱을 제작하였습니다.
+- 농업진흥청, 한국임원진흥원, 국가농작물 병해충 관리시스템에서 제공하는 공개 API를 사용하였습니다.
+
+
+## ⚙️ 프로젝트 주요 기능
+### 1. 
+
+
+</hr>
+
+## 🛠️ 아쉬웠던점
+- 구글 플레이 스토어 앱 업로드 이전 검사하는 과정에서 막혀 출시까지는 못했던 것이 가장 아쉬었던 것 같습니다.
+
 # Background
 <img src="https://user-images.githubusercontent.com/102522202/223727268-74795c11-5958-46b0-89b9-4b17f73bb6fd.png"/>
 

@@ -99,59 +99,61 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         JSONObject requestJsonObject = new JSONObject();
 
         //인터넷 연결확인
-        int status = NetworkStatusActivity.getConnectivityStatus(getApplicationContext());
-        if (status == NetworkStatusActivity.TYPE_MOBILE || status == NetworkStatusActivity.TYPE_WIFI) {
-            try {
-
-                userId = id;
-
-                requestJsonObject.put("id", id);
-                requestJsonObject.put("password", password);
-
-                RequestQueue requestQueue = Volley.newRequestQueue(LoginActivity.this);
-                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, Constants.SERVER_URL + "/users/login", requestJsonObject, new Response.Listener<JSONObject>() {
-
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-
-                            //Log.v("test","test :" + response.getBoolean("status"));
-
-                            if (response.getBoolean("status")) {   //로그인 성공
-
-                                ((LoginedId) getApplication()).setId(response.getString("id"));  // 로그인된 아이디 저장
-
-                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                                startActivity(intent);
-
-
-                            } else {   //로그인 실패
-                                Toast.makeText(getApplicationContext(), response.getString("message"), Toast.LENGTH_SHORT).show();
-                                editId.setText("");
-                                editPassword.setText("");
-                            }
-
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                    //서버로 데이터 전달 및 응답 받기에 실패한 경우 아래 코드가 실행됩니다.
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        error.printStackTrace();
-                    }
-                });
-                jsonObjectRequest.setRetryPolicy(new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-                requestQueue.add(jsonObjectRequest);
-
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-        } else {
-            Toast.makeText(getApplicationContext(), "인터넷 연결을 확인해주세요.", Toast.LENGTH_SHORT).show();
-        }
+//        int status = NetworkStatusActivity.getConnectivityStatus(getApplicationContext());
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+//        if (status == NetworkStatusActivity.TYPE_MOBILE || status == NetworkStatusActivity.TYPE_WIFI) {
+//            try {
+//
+//                userId = id;
+//
+//                requestJsonObject.put("id", id);
+//                requestJsonObject.put("password", password);
+//
+//                RequestQueue requestQueue = Volley.newRequestQueue(LoginActivity.this);
+//                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, Constants.SERVER_URL + "/users/login", requestJsonObject, new Response.Listener<JSONObject>() {
+//
+//                    @Override
+//                    public void onResponse(JSONObject response) {
+//                        try {
+//
+//                            //Log.v("test","test :" + response.getBoolean("status"));
+//
+//                            if (response.getBoolean("status")) {   //로그인 성공
+//
+//                                ((LoginedId) getApplication()).setId(response.getString("id"));  // 로그인된 아이디 저장
+//
+//                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+//                                startActivity(intent);
+//
+//
+//                            } else {   //로그인 실패
+//                                Toast.makeText(getApplicationContext(), response.getString("message"), Toast.LENGTH_SHORT).show();
+//                                editId.setText("");
+//                                editPassword.setText("");
+//                            }
+//
+//                        } catch (Exception e) {
+//                            e.printStackTrace();
+//                        }
+//                    }
+//                    //서버로 데이터 전달 및 응답 받기에 실패한 경우 아래 코드가 실행됩니다.
+//                }, new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//                        error.printStackTrace();
+//                    }
+//                });
+//                jsonObjectRequest.setRetryPolicy(new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+//                requestQueue.add(jsonObjectRequest);
+//
+//            } catch (JSONException e) {
+//                e.printStackTrace();
+//            }
+//
+//        } else {
+//            Toast.makeText(getApplicationContext(), "인터넷 연결을 확인해주세요.", Toast.LENGTH_SHORT).show();
+//        }
     }
 
 
