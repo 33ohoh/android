@@ -56,7 +56,7 @@
 ### 1. 🗓️ [병해충 예보](#🗓️-병해충-예보)
 - 병해충 예보는 1년 중 특정 시기를 선택하여 해당 시기에 유의해야 할 병해충 정보를 제공하는
 기능입니다.
-시기를 선택한 후 결과 조회 버튼을 누르면 시기별로 예보가 발령된 작물의 리스트가 최신화됩니다. 이후 특정 작물을 누르면 해당 작물과 관련된 병해충의 리스트가 경보 정도와 함께 보여집니다.
+시기를 선택한 후 결과 조회 버튼을 누르면 시기별로 예보가ㄴ 발령된 작물의 리스트가 최신화됩니다. 이후 특정 작물을 누르면 해당 작물과 관련된 병해충의 리스트가 경보 정도와 함께 보여집니다.
 특정 병해충을 선택하게 되면 해당 병해충에 대한 특징,증상,방제법에 대한 정보를 조회할 수 있도록 구성하였습니다.
 ### 2. 📍 [병해충 신고](#📍-병해충-신고)
 - 병해충 신고는 임업 종사자가 겪은 피해 내용을 신고할 수 있도록 하는 내용입니다.
@@ -85,7 +85,7 @@
 
 <div align="center">
 
-|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/7eb59230-feb8-4583-b2d1-34eb8fee783b" height="300" width="100%" >|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/c202a82e-147a-4239-a0ab-feafab45dfbd" height="300" width="100%">|
+|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/7eb59230-feb8-4583-b2d1-34eb8fee783b" height="350" width="100%" >|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/c202a82e-147a-4239-a0ab-feafab45dfbd" height="350" width="100%">|
 |:---:|:---:|
 |로그인|회원가입|
 </div>
@@ -102,7 +102,7 @@
 
 <div align="center">
 
-|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/c2c9a1a3-feb9-4ec1-bb73-75f939973967" height="300" width="100%" >|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/58a55e3f-19ef-41ec-94f5-2a1c179df93b" height="300" width="100%"> |
+|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/c2c9a1a3-feb9-4ec1-bb73-75f939973967" height="350" width="100%" >|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/58a55e3f-19ef-41ec-94f5-2a1c179df93b" height="350" width="100%"> |
 |:---:|:---:|
 |이달의 병해충1|이달의 병해충2|
 
@@ -113,7 +113,7 @@
 
 <div align="center">
 
-|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/eeaedf36-e301-457f-8764-9f795b1c73aa" height="300" width="170" >|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/a1ce5fb7-1029-4ba5-b6fc-aeda7f02da20" height="300" width="170"> |
+|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/eeaedf36-e301-457f-8764-9f795b1c73aa" height="350" width="170" >|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/a1ce5fb7-1029-4ba5-b6fc-aeda7f02da20" height="350" width="170"> |
 |:---:|:---:|
 |병해충 신고|병해충 신고내역|
 
@@ -126,7 +126,7 @@
 
 <div align="center">
 
-|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/8e5e13c7-cf9e-452c-8514-67a5f7e64890" height="300" width="100%" >|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/5db127ea-e005-4669-bd8e-79d2988119cd" height="300" width="100%"> |
+|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/8e5e13c7-cf9e-452c-8514-67a5f7e64890" height="350" width="100%" >|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/5db127ea-e005-4669-bd8e-79d2988119cd" height="350" width="100%"> |
 |:---:|:---:|
 |병해충 지도|병해충 리스트|
 
