@@ -100,27 +100,37 @@
 ### 병해충 예보
 <img width="1114" alt="image" src="https://user-images.githubusercontent.com/102522202/223728580-66da0635-1153-4f20-adf6-000c95476187.png">
 
+<div align="center">
 
-|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/c2c9a1a3-feb9-4ec1-bb73-75f939973967" height="350" width="100%" >|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/58a55e3f-19ef-41ec-94f5-2a1c179df93b" height="350" width="100%"> |
+|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/c2c9a1a3-feb9-4ec1-bb73-75f939973967" height="300" width="100%" >|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/58a55e3f-19ef-41ec-94f5-2a1c179df93b" height="300" width="100%"> |
 |:---:|:---:|
 |이달의 병해충1|이달의 병해충2|
+
+</div>
 <hr>
 
 ### 병해충 신고
 
-|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/eeaedf36-e301-457f-8764-9f795b1c73aa" height="350" width="600" >|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/a1ce5fb7-1029-4ba5-b6fc-aeda7f02da20" height="350" width="600"> |
+<div align="center">
+
+|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/eeaedf36-e301-457f-8764-9f795b1c73aa" height="300" width="170" >|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/a1ce5fb7-1029-4ba5-b6fc-aeda7f02da20" height="300" width="170"> |
 |:---:|:---:|
 |병해충 신고|병해충 신고내역|
+
+</div>
 <hr>
 
 
 ### 병해충 현황 파악
 <img width="1120" alt="image" src="https://user-images.githubusercontent.com/102522202/223728896-0e2de033-4a27-4a33-b81b-9a98e9767258.png">
 
-|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/8e5e13c7-cf9e-452c-8514-67a5f7e64890" height="350" width="600" >|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/5db127ea-e005-4669-bd8e-79d2988119cd" height="350" width="600"> |
+<div align="center">
+
+|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/8e5e13c7-cf9e-452c-8514-67a5f7e64890" height="300" width="100%" >|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/5db127ea-e005-4669-bd8e-79d2988119cd" height="300" width="100%"> |
 |:---:|:---:|
 |병해충 지도|병해충 리스트|
 
+</div>
 <hr>
 
 ### 병해충 정보 조회
