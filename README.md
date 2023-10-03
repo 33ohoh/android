@@ -76,7 +76,8 @@
 병해충 피해 신고내역을 누르면 이용중인 사용자가 신고한 내역 리스트가 나오게 만들었습니다. 그 중 하나를 선택하게 되면 신고 세부내역을 파악할 수 있도록 구현하였습니다.
 </hr>
 
-
+##  💾 시스템 설계도
+<img src="https://user-images.githubusercontent.com/102522202/223727915-c51a78a7-e054-43e9-b185-3ec46ce89559.png" height="100%" width="100%" >
 
 ## 🛠️ 아쉬웠던점
 - 구글 플레이 스토어 앱 업로드 이전 검사하는 과정에서 막혀 출시까지는 못했던 것이 가장 아쉬었던 것 같습니다.
@@ -84,24 +85,18 @@
 ## 😀 기대효과
 - 공공데이터를 활용해 사용자에게 병해충 정보를 제공하고, 피해 신고 기능을 통해 수집된 데이터는 또 하나의 공공데이터로써 다음 해의 방제계획을 세우는 데 도움을 줄 것으로 기대합니다.
 
-# Background
-<img src="https://user-images.githubusercontent.com/102522202/223727268-74795c11-5958-46b0-89b9-4b17f73bb6fd.png"/>
+## 📱App 화면 
 
------------------------------------
-# Features
-<img width="1122" alt="image" src="https://user-images.githubusercontent.com/102522202/223730961-e55492f1-e91c-403f-80f8-a4815b71e144.png">
-<img width="1123" alt="image" src="https://user-images.githubusercontent.com/102522202/223731080-579f0fff-cdd6-4dc4-825e-6c1ae797ac9e.png">
-<img width="1121" alt="image" src="https://user-images.githubusercontent.com/102522202/223731150-66fa59f6-a77e-46d2-819a-fdf6156a3ed6.png">
-<img width="1124" alt="image" src="https://user-images.githubusercontent.com/102522202/223731258-c3ffbd7e-e6a5-49b9-8e5b-63201fcff86e.png">
-<img width="1122" alt="image" src="https://user-images.githubusercontent.com/102522202/223731422-bc33abda-6126-4881-812f-d945bbd9637c.png">
+### 로그인 , 회원가입
 
+|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/7eb59230-feb8-4583-b2d1-34eb8fee783b" height="350" width="700" >|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/c202a82e-147a-4239-a0ab-feafab45dfbd" height="350" width="700"> |
+|:---:|:---:|
+|로그인|회원가입|
 
------------------------------------
-# Architechture
-<img width="1116" alt="image" src="https://user-images.githubusercontent.com/102522202/223727915-c51a78a7-e054-43e9-b185-3ec46ce89559.png">
+|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/202189c9-b48a-43f5-93f3-4da3355e285c" height="100%" width="700" >|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/1ddc0876-fea7-40a7-a97c-597d0ff4b8ce" height="100%" width="700"> |<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/76a0a469-4f1d-4ece-9f24-a06248e90dcc" height="100%" width="700" >|
+|:---:|:---:|:---:|
+|아이디, 비밀번호|아이디 찾기|비밀번호 찾기|
 
------------------------------------
-# In Mobile
 
 ### 병해충 예보
 <img width="1114" alt="image" src="https://user-images.githubusercontent.com/102522202/223728580-66da0635-1153-4f20-adf6-000c95476187.png">
@@ -113,4 +108,10 @@
 
 ### 병해충 현황 파악
 <img width="1120" alt="image" src="https://user-images.githubusercontent.com/102522202/223728896-0e2de033-4a27-4a33-b81b-9a98e9767258.png">
+
+
+## 🌱 Background
+<img src="https://user-images.githubusercontent.com/102522202/223727268-74795c11-5958-46b0-89b9-4b17f73bb6fd.png"/>
+
+
 
