@@ -136,6 +136,13 @@
 ### 병해충 정보 조회
 <img width="983" alt="image" src="https://user-images.githubusercontent.com/102522202/223729169-f1fcd004-02f7-43b3-becb-502c96075b92.png">
 
+|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/8f9e2c39-6f1a-4621-af19-e0a9a4cb94d6" height="100%" width="700" >|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/988d9d14-78ca-4065-a8ca-d778f673bc5f" height="100%" width="700"> |<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/69ded2a5-e75d-413f-b0be-31177d74a555" height="100%" width="700" >|
+|:---:|:---:|:---:|
+|임산물 선택|해충 선택|발현증상 선택|
+
+|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/f046ecd1-a16e-4651-a824-11eb1475d08f" height="240" width="700" >|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/7f1894e7-bc3b-45c1-abe3-250d18becea4" height="244" width="700"> |<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/97537334-8609-4617-9ecc-b4a5c74af862" height="240" width="700" >|
+|:---:|:---:|:---:|
+|병해충 선택|병해충 정보1|병해충 정보2|
 
 
 
