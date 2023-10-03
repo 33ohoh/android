@@ -83,7 +83,7 @@
 
 ### 로그인 , 회원가입
 
-|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/7eb59230-feb8-4583-b2d1-34eb8fee783b" height="350" width="100%" >|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/c202a82e-147a-4239-a0ab-feafab45dfbd" height="350" width="100%"> |
+|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/7eb59230-feb8-4583-b2d1-34eb8fee783b" height="350" width="100%" >|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/c202a82e-147a-4239-a0ab-feafab45dfbd" height="350" width="100%">|
 |:---:|:---:|
 |로그인|회원가입|
 
@@ -97,7 +97,7 @@
 <img width="1114" alt="image" src="https://user-images.githubusercontent.com/102522202/223728580-66da0635-1153-4f20-adf6-000c95476187.png">
 
 
-|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/c2c9a1a3-feb9-4ec1-bb73-75f939973967" height="350" width="600" >|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/58a55e3f-19ef-41ec-94f5-2a1c179df93b" height="350" width="600"> |
+|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/c2c9a1a3-feb9-4ec1-bb73-75f939973967" height="350" width="100%" >|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/58a55e3f-19ef-41ec-94f5-2a1c179df93b" height="350" width="100%"> |
 |:---:|:---:|
 |이달의 병해충1|이달의 병해충2|
 <hr>
