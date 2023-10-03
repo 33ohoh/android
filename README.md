@@ -83,7 +83,7 @@
 
 ### 로그인 , 회원가입
 
-|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/7eb59230-feb8-4583-b2d1-34eb8fee783b" height="350" width="700" >|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/c202a82e-147a-4239-a0ab-feafab45dfbd" height="350" width="700"> |
+|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/7eb59230-feb8-4583-b2d1-34eb8fee783b" height="350" width="100%" >|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/c202a82e-147a-4239-a0ab-feafab45dfbd" height="350" width="100%"> |
 |:---:|:---:|
 |로그인|회원가입|
 
