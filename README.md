@@ -140,9 +140,9 @@
 |:---:|:---:|:---:|
 |임산물 선택|해충 선택|발현증상 선택|
 
-<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/7f1894e7-bc3b-45c1-abe3-250d18becea4" height="100%" width="700"> |<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/97537334-8609-4617-9ecc-b4a5c74af862" height="100%" width="700" >|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/f046ecd1-a16e-4651-a824-11eb1475d08f" height="100%" width="700" >|
+|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/f046ecd1-a16e-4651-a824-11eb1475d08f" height="100%" width="700" >|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/7f1894e7-bc3b-45c1-abe3-250d18becea4" height="100%" width="700"> |<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/97537334-8609-4617-9ecc-b4a5c74af862" height="100%" width="700" >|
 |:---:|:---:|:---:|
-|병해충 정보|병해충 정보1|병해충 선택|
+|병해충 선택|병해충 정보1|병해충 정보2|
 
 
 
