@@ -58,7 +58,7 @@
 기능입니다.
 시기를 선택한 후 결과 조회 버튼을 누르면 시기별로 예보가 발령된 작물의 리스트가 최신화됩니다. 이후 특정 작물을 누르면 해당 작물과 관련된 병해충의 리스트가 경보 정도와 함께 보여집니다.
 특정 병해충을 선택하게 되면 해당 병해충에 대한 특징,증상,방제법에 대한 정보를 조회할 수 있도록 구성하였습니다.
-### 2. 📍 [병해충 신고](#📍병해충-신고1)
+### 2. 📍 [병해충 신고](#📍-병해충-신고)
 - 병해충 신고는 임업 종사자가 겪은 피해 내용을 신고할 수 있도록 하는 내용입니다.
 병해충 신고를 위해 위치정보, 임산물정보, 증상정보, 해충정보, 사진정보, 신고제목, 세부내용을 담을 수 있습니다. 
 위치등록 버튼을 누르면 위치를 등록할 수 있는 페이지가 나타납니다. 주소 검색을 통해 특정 위치를 검색하거나 현재 위치 찾기 버튼을 눌러 현재 위치로 이동할 수 있도록 하였습니다. 이후 지도를 직접 움직이고 하단에 세부주소를 적어 정확하고 자세한 위치를 등록할 수 있도록 하였습니다. 
@@ -109,7 +109,7 @@
 </div>
 <hr>
 
-### 📍병해충 신고1
+### 📍 병해충 신고
 
 <div align="center">
 
@@ -140,9 +140,9 @@
 |:---:|:---:|:---:|
 |임산물 선택|해충 선택|발현증상 선택|
 
-|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/f046ecd1-a16e-4651-a824-11eb1475d08f" height="240" width="700" >|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/7f1894e7-bc3b-45c1-abe3-250d18becea4" height="244" width="700"> |<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/97537334-8609-4617-9ecc-b4a5c74af862" height="240" width="700" >|
+<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/7f1894e7-bc3b-45c1-abe3-250d18becea4" height="100%" width="700"> |<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/97537334-8609-4617-9ecc-b4a5c74af862" height="100%" width="700" >|<img src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/f046ecd1-a16e-4651-a824-11eb1475d08f" height="100%" width="700" >|
 |:---:|:---:|:---:|
-|병해충 선택|병해충 정보1|병해충 정보2|
+|병해충 정보|병해충 정보1|병해충 선택|
 
 
 
